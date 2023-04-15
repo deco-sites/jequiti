@@ -34,7 +34,7 @@ const sectionStyles = {
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:(max-w-lg)",
+  "sidebar-right": "h-full w-full sm:(max-w-[400px])",
   "sidebar-left": "h-full w-full sm:(max-w-lg)",
   center: "",
 };
@@ -83,14 +83,21 @@ const Modal = ({
         class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-default flex flex-col max-h-full ${containerStyles[mode]}`}
+          class={`bg-default flex flex-col max-h-full  ${
+            containerStyles[mode]
+          } w-[85%] min-w-[280px] `}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b-1 border-default">
+          <header class="flex p-[16px] justify-between items-center border-b-1 border-default bg-[#7a206c] ">
             <h1>
-              <Text variant="heading-2">{title}</Text>
+              <Text
+                variant="heading-2"
+                class="text-white uppercase text-[16px]"
+              >
+                {title}
+              </Text>
             </h1>
-            <Button variant="icon" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+            <Button variant="icon" onClick={onClose} class="text-white">
+              <Icon id="XMark" width={30} height={30} strokeWidth={2} />
             </Button>
           </header>
           <div class="overflow-y-auto flex-grow flex flex-col">

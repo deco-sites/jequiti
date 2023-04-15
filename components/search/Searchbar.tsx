@@ -73,7 +73,7 @@ export type Props = EditableProps & {
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "O que você procura hoje?",
   action = "/s",
   name = "q",
   query,
@@ -101,31 +101,17 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
+    <div class="flex flex-col">
       <div class="flex gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="flex-grow flex gap-3 px-3 py-2  max-w-[442px]"
         >
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-subdued"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </Button>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-default"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -160,6 +146,21 @@ function Searchbar({
           >
             <Text variant="caption" tone="default">limpar</Text>
           </button>
+          <Button
+            variant="icon"
+            aria-label="Search"
+            htmlFor="searchbar"
+            tabIndex={-1}
+            type="submit"
+          >
+            <Icon
+              class="text-subdued"
+              id="MagnifyingGlass"
+              width={20}
+              height={20}
+              strokeWidth={0.01}
+            />
+          </Button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>

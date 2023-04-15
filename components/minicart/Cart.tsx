@@ -8,8 +8,7 @@ import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
 
-const CHECKOUT_URL =
-  "https://bravtexfashionstore.vtexcommercestable.com.br/checkout";
+const CHECKOUT_URL = "https://jequiti.vtexcommercestable.com.br/checkout";
 
 function Cart() {
   const { displayCart } = useUI();
@@ -48,10 +47,10 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow-1 overflow-y-auto flex flex-col gap-6"
+        class="flex-grow-1 overflow-y-auto flex flex-col"
       >
         {cart.value.items.map((_, index) => (
-          <li>
+          <li class=" border-default border-t">
             <CartItem index={index} key={index} />
           </li>
         ))}
@@ -69,31 +68,33 @@ function Cart() {
               </Text>
             </div>
           )}
-          <Coupon />
+          {/* <Coupon /> */}
         </div>
         {/* Total */}
         {total?.value && (
-          <div class="border-t-1 border-default pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+          <div class=" pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <Text variant="body">Total</Text>
               <Text variant="heading-3">
                 {formatPrice(total.value / 100, currencyCode!, locale)}
               </Text>
             </div>
-            <Text tone="subdued" variant="caption">
-              Taxas e fretes serão calculados no checkout
-            </Text>
+            <div class="flex justify-center w-full border-default border-t pt-[16px]">
+              <Text tone="subdued" variant="caption">
+                Seu frete será calculado na próxima etapa
+              </Text>
+            </div>
           </div>
         )}
-        <div class="p-4">
+        <div class="px-4 pb-4">
           <a
-            class="inline-block w-full"
+            class="inline-block w-full my-[8px]"
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
               data-deco="buy-button"
-              class="w-full"
+              class="w-full uppercase bg-[#7a206c]"
               disabled={loading.value || cart.value.items.length === 0}
               onClick={() => {
                 sendAnalyticsEvent({
@@ -115,6 +116,9 @@ function Cart() {
               Finalizar Compra
             </Button>
           </a>
+          <Button onClick={() => displayCart.value = false} class=" w-full">
+            Continuar comprando
+          </Button>
         </div>
       </footer>
     </>

@@ -13,23 +13,19 @@ export interface Props {
 }
 
 function Alert({ alerts = [], interval = 5 }: Props) {
-  const id = useId();
-
   return (
-    <div id={id}>
-      <Slider class="bg-badge gap-6 scrollbar-none">
+    <div class="bg-[#efefef] ">
+      <div class="max-w-[1336px] w-full mx-auto ">
         {alerts.map((alert) => (
           <Text
-            class="flex justify-center items-center w-screen h-[38px]"
+            class="flex items-center h-[44px]"
             variant="caption"
-            tone="default-inverse"
+            tone="default"
           >
             {alert}
           </Text>
         ))}
-      </Slider>
-
-      <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import Text from "deco-sites/fashion/components/ui/Text.tsx";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -70,8 +71,9 @@ function CartButton() {
       }}
     >
       <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <Text variant="caption">Sacola</Text>
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] left-0 top-0 rounded-full bg-[#00aeb9] text-white w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}
