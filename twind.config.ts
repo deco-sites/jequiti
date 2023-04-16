@@ -5,6 +5,7 @@
  * function.
  */
 import type { Options } from "$fresh/plugins/twind.ts";
+import { css } from "https://esm.sh/v96/twind@0.16.17/css";
 
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
@@ -43,7 +44,7 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
-        "footer": "#003232",
+        "footer": "#fdf1f4",
         "interactive": "#7a206c",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
@@ -54,7 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
-        "price": "#8C3D3D",
+        "price": "#7a206c",
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
@@ -82,7 +83,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       fontWeight: {
         "heading-1": "500",
-        "heading-2": "500",
+        "heading-2": "700",
         "heading-3": "500",
         "menu": "400",
         "button": "700",
@@ -182,6 +183,10 @@ const options: Omit<Options, "selfURL"> = {
         display: "none",
       },
     },
+    "nth-child": ([pos, style]) =>
+      css`& > *:nth-child(${pos}) {${
+        style.replace(/\[/, "").replace(/\]/, "").replaceAll("_", " ")
+      } }`,
   },
 };
 

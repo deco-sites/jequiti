@@ -13,7 +13,9 @@ function VariantSelector({ product }: Props) {
 
   return (
     <ul class="flex flex-col gap-4">
-      {Object.keys(possibilities).map((name) => (
+      {Object.keys(possibilities).filter((name) =>
+        name !== "cluster" && name !== "category"
+      ).map((name) => (
         <li class="flex flex-col gap-2">
           <Text variant="caption">{name}</Text>
           <ul class="flex flex-row gap-2">

@@ -21,22 +21,21 @@ function SearchControls(
 
   return (
     <div class="flex flex-col justify-between mb-4 p-4 sm:(mb-0 p-0 gap-4 flex-row h-[53px] border-b-1)">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
-
       <div class="flex flex-row items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
-        <Button
-          class={displayFilter ? "" : "sm:hidden"}
-          variant="tertiary"
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        <div>
+          Ordenar por:
+          <Button
+            class={displayFilter ? "" : "sm:hidden"}
+            variant="tertiary"
+            onClick={() => {
+              open.value = true;
+            }}
+          >
+            Filtrar
+            <Icon id="FilterList" width={16} height={16} />
+          </Button>
+          {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        </div>
       </div>
 
       <Modal

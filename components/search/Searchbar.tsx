@@ -111,7 +111,7 @@ function Searchbar({
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-default"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-default pl-[16px]"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -154,7 +154,7 @@ function Searchbar({
             type="submit"
           >
             <Icon
-              class="text-subdued"
+              class="text-interactive"
               id="MagnifyingGlass"
               width={20}
               height={20}

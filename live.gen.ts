@@ -17,21 +17,24 @@ import * as $$$$$7 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$8 from "./islands/SearchControls.tsx";
 import * as $$$$$9 from "./islands/ViewSendEvent.tsx";
 import * as $$$$$10 from "./islands/SendEventButton.tsx";
-import * as $$$$$$$$0 from "./sections/Carousel.tsx";
-import * as $$$$$$$$1 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$2 from "./sections/BannerGrid.tsx";
-import * as $$$$$$$$3 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$4 from "./sections/DesignSystem.story.tsx";
-import * as $$$$$$$$5 from "./sections/Highlights.tsx";
-import * as $$$$$$$$6 from "./sections/Footer.tsx";
-import * as $$$$$$$$7 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$8 from "./sections/Features.tsx";
-import * as $$$$$$$$9 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$10 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$11 from "./sections/Header.tsx";
-import * as $$$$$$$$12 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$13 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$14 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$0 from "./sections/InstagramGrid.tsx";
+import * as $$$$$$$$1 from "./sections/BannerGridCarousel.tsx";
+import * as $$$$$$$$2 from "./sections/Carousel.tsx";
+import * as $$$$$$$$3 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$4 from "./sections/BannerGrid.tsx";
+import * as $$$$$$$$5 from "./sections/CookieConsent.tsx";
+import * as $$$$$$$$6 from "./sections/DesignSystem.story.tsx";
+import * as $$$$$$$$7 from "./sections/Highlights.tsx";
+import * as $$$$$$$$8 from "./sections/Footer.tsx";
+import * as $$$$$$$$9 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$10 from "./sections/Features.tsx";
+import * as $$$$$$$$11 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$12 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$13 from "./sections/BannerWithText.tsx";
+import * as $$$$$$$$14 from "./sections/Header.tsx";
+import * as $$$$$$$$15 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$16 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$17 from "./sections/WhatsApp.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -115,21 +118,24 @@ const manifest = {
     "./islands/SendEventButton.tsx": $$$$$10,
   },
   "sections": {
-    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$0,
-    "deco-sites/jequiti/sections/LinkTree.tsx": $$$$$$$$1,
-    "deco-sites/jequiti/sections/BannerGrid.tsx": $$$$$$$$2,
-    "deco-sites/jequiti/sections/CookieConsent.tsx": $$$$$$$$3,
-    "deco-sites/jequiti/sections/DesignSystem.story.tsx": $$$$$$$$4,
-    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$5,
-    "deco-sites/jequiti/sections/Footer.tsx": $$$$$$$$6,
-    "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$7,
-    "deco-sites/jequiti/sections/Features.tsx": $$$$$$$$8,
-    "deco-sites/jequiti/sections/SearchResult.tsx": $$$$$$$$9,
-    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$10,
-    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$11,
-    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$12,
-    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$13,
-    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$14,
+    "deco-sites/jequiti/sections/InstagramGrid.tsx": $$$$$$$$0,
+    "deco-sites/jequiti/sections/BannerGridCarousel.tsx": $$$$$$$$1,
+    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$2,
+    "deco-sites/jequiti/sections/LinkTree.tsx": $$$$$$$$3,
+    "deco-sites/jequiti/sections/BannerGrid.tsx": $$$$$$$$4,
+    "deco-sites/jequiti/sections/CookieConsent.tsx": $$$$$$$$5,
+    "deco-sites/jequiti/sections/DesignSystem.story.tsx": $$$$$$$$6,
+    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$7,
+    "deco-sites/jequiti/sections/Footer.tsx": $$$$$$$$8,
+    "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$9,
+    "deco-sites/jequiti/sections/Features.tsx": $$$$$$$$10,
+    "deco-sites/jequiti/sections/SearchResult.tsx": $$$$$$$$11,
+    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$12,
+    "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$13,
+    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$14,
+    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$15,
+    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$16,
+    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$17,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,

@@ -2445,6 +2445,217 @@
       "format": "image-uri",
       "title": "Image"
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Banner[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Banner"
+      },
+      "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Subtitle"
+        },
+        "itemsPerLine": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Items Per Line",
+          "description": "Default is 1 for mobile and all for desktop"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius",
+          "description": "Item's border radius in px"
+        },
+        "link": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "title": "Text"
+            },
+            "link": {
+              "type": "string",
+              "title": "Link"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "title": "Link"
+        },
+        "banners": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Banner[]",
+          "title": "Banners"
+        }
+      },
+      "required": [
+        "itemsPerLine",
+        "borderRadius",
+        "link",
+        "banners"
+      ],
+      "title": "deco-sites/jequiti/components/ui/InstagramGrid.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Banner[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Banner"
+      },
+      "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "itemsPerPage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Items Per Page"
+        },
+        "images": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Banner[]",
+          "title": "Images"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius"
+        }
+      },
+      "required": [
+        "title",
+        "images",
+        "borderRadius"
+      ],
+      "title": "deco-sites/jequiti/components/ui/BannerGridCarousel.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
       "type": "object",
       "properties": {
@@ -2696,7 +2907,7 @@
           },
           "required": [],
           "title": "Items Per Line",
-          "description": "Default is 2 for mobile and all for desktop"
+          "description": "Default is 1 for mobile and all for desktop"
         },
         "borderRadius": {
           "type": "object",
@@ -3315,6 +3526,106 @@
       },
       "required": [],
       "title": "deco-sites/jequiti/components/ui/BannerPLP.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyV2l0aFRleHQudHN4@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyV2l0aFRleHQudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Description"
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Href"
+            },
+            "text": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Text"
+            }
+          },
+          "required": [],
+          "title": "Cta"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius",
+          "description": "Item's border radius in px"
+        },
+        "banner": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyV2l0aFRleHQudHN4@Banner",
+          "title": "Banner"
+        }
+      },
+      "required": [
+        "borderRadius",
+        "banner"
+      ],
+      "title": "deco-sites/jequiti/components/ui/BannerWithText.tsx@Props"
     },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
       "type": "object",
@@ -4620,6 +4931,48 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0luc3RhZ3JhbUdyaWQudHN4": {
+      "title": "deco-sites/jequiti/sections/InstagramGrid.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvSW5zdGFncmFtR3JpZC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/InstagramGrid.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/InstagramGrid.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lckdyaWRDYXJvdXNlbC50c3g=": {
+      "title": "deco-sites/jequiti/sections/BannerGridCarousel.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZENhcm91c2VsLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/BannerGridCarousel.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/BannerGridCarousel.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA==": {
       "title": "deco-sites/jequiti/sections/Carousel.tsx",
       "type": "object",
@@ -4838,6 +5191,27 @@
             "deco-sites/jequiti/sections/BannerPLP.tsx"
           ],
           "default": "deco-sites/jequiti/sections/BannerPLP.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lcldpdGhUZXh0LnRzeA==": {
+      "title": "deco-sites/jequiti/sections/BannerWithText.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyV2l0aFRleHQudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/BannerWithText.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/BannerWithText.tsx"
         }
       }
     },
@@ -5514,6 +5888,12 @@
           "$ref": "#/definitions/Resolvable"
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0luc3RhZ3JhbUdyaWQudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lckdyaWRDYXJvdXNlbC50c3g="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA=="
         },
         {
@@ -5545,6 +5925,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lcldpdGhUZXh0LnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0hlYWRlci50c3g="

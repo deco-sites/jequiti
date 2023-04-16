@@ -54,27 +54,26 @@ function ShippingContent(
   }
 
   return (
-    <ul class="flex flex-col gap-4 p-4 bg-hover rounded-[4px]">
+    <ul class="flex flex-col gap-[4px] p-4 rounded-[4px] border-default border-y">
       {methods.map((method) => (
-        <li class="flex justify-between items-center border-default not-first-child:border-t-1">
+        <li class="flex justify-between items-center">
           <Text variant="body" class="text-button text-center">
-            Entrega {method.name}
+            {method.name}
           </Text>
-          <Text variant="body" class="text-button">
-            até {handleShippingTime(method.shippingEstimate)}
+          <Text variant="body" tone="subdued" class="text-button">
+            Em até {handleShippingTime(method.shippingEstimate)}
           </Text>
-          <Text variant="body" class="text-base font-semibold text-right">
+          <Text
+            variant="body"
+            tone="subdued"
+            class="text-base text-right"
+          >
             {method.price === 0 ? "Grátis" : (
               formatPrice(method.price / 100, currencyCode!, locale)
             )}
           </Text>
         </li>
       ))}
-      <Text class="text-subdued">
-        Os prazos de entrega começam a contar a partir da confirmação do
-        pagamento e podem variar de acordo com a quantidade de produtos na
-        sacola.
-      </Text>
     </ul>
   );
 }
@@ -107,27 +106,27 @@ function ShippingSimulation({ items }: Props) {
   }, []);
 
   return (
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 w-full align-center">
       <div class="flex flex-col">
-        <Text>Calcular frete</Text>
-        <Text variant="body">
-          Informe seu CEP para consultar os prazos de entrega
-        </Text>
+        <Text>Calcular o valor do frete:</Text>
       </div>
       <div>
         <form
-          class="flex gap-2"
+          class="flex  items-center"
           onSubmit={(e) => {
             e.preventDefault();
             handleSimulation();
           }}
         >
+          <label htmlFor="postal" class="whitespace-nowrap ">
+            Digite seu CEP
+          </label>
           <Input
             as="input"
             type="text"
+            id="postal"
             variant="input"
-            class="w-[120px] p-2 rounded-[4px] border-1 border-default"
-            placeholder="Seu cep aqui"
+            class="p-2 rounded-none border-1 border-default w-full ml-2 bg-[#e5e5e5]"
             onChange={(e: { currentTarget: { value: string } }) => {
               postalCode.value = e.currentTarget.value;
             }}
@@ -138,10 +137,20 @@ function ShippingSimulation({ items }: Props) {
           <Button
             type="submit"
             loading={loading.value}
+            class="rounded-none disabled:bg-[#d1d1d1] text-white uppercase"
+            disabled={postalCode.value.length < 8}
           >
-            Calcular
+            ok
           </Button>
         </form>
+      </div>
+      <div class="flex justify-end">
+        <a
+          href="//buscacepinter.correios.com.br/app/endereco/index.php?t"
+          class="underline"
+        >
+          Não sei meu Cep
+        </a>
       </div>
       <div>
         {simulateResult.value && (

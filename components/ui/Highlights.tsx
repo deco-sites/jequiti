@@ -30,14 +30,14 @@ function Highlights({ highlights = [], title }: Props) {
         {highlights.map(({ href, src, alt, label }) => (
           <a
             href={href}
-            class="flex flex-col gap-4 items-center min-w-[190px]"
+            class="flex flex-col gap-[4px] items-center min-w-[190px]"
           >
             <Image
-              class="rounded-[40px]"
+              class="rounded-full"
               src={src}
               alt={alt}
-              width={190}
-              height={265}
+              width={120}
+              height={120}
             />
             <Text variant="body">{label}</Text>
           </a>

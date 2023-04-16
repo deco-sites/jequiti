@@ -22,6 +22,7 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "deco-sites/fashion/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
+import QuantitySelector from "../ui/QuantitySelector.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -34,8 +35,8 @@ export interface Props {
   variant?: Variant;
 }
 
-const WIDTH = 360;
-const HEIGHT = 500;
+const WIDTH = 800;
+const HEIGHT = 800;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -60,31 +61,32 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     product,
   } = page;
   const {
-    description,
+    brand,
     productID,
     offers,
-    name,
+    name: skuName,
     gtin,
     isVariantOf,
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
+  const { name } = isVariantOf ?? {};
+
+  const isGift = (price ?? 0) < 0.01;
+  const discount = (listPrice ?? 0) - (price ?? 0);
 
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-      />
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
+        <Text>{brand}</Text>
+        <h1>
+          <Text variant="heading-2">{name}</Text>
+        </h1>
         <div>
           <Text tone="subdued" variant="caption">
             Cod. {gtin}
           </Text>
         </div>
-        <h1>
-          <Text variant="heading-3">{name}</Text>
-        </h1>
       </div>
       {/* Prices */}
       <div class="mt-4">
@@ -99,33 +101,40 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           <Text tone="price" variant="heading-3">
             {formatPrice(price, offers!.priceCurrency!)}
           </Text>
+          <Text tone="subdued" variant="caption">
+            {installments}
+          </Text>
         </div>
-        <Text tone="subdued" variant="caption">
-          {installments}
-        </Text>
+        <div>
+          Você está economizando {formatPrice(discount, offers!.priceCurrency!)}
+        </div>
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      <div class="mt-4 sm:mt-10 flex flex gap-2">
         {seller && (
-          <AddToCartButton
-            skuId={productID}
-            sellerId={seller}
-            price={price ?? 0}
-            discount={price && listPrice ? listPrice - price : 0}
-            name={product.name ?? ""}
-            productGroupId={product.isVariantOf?.productGroupID ?? ""}
-          />
+          <>
+            <QuantitySelector
+              disabled={isGift}
+              quantity={0}
+              onChange={(quantity) => {
+                // updateItems({ orderItems: [{ index, quantity }] });
+                // const quantityDiff = quantity - item.quantity;
+              }}
+            />
+            <AddToCartButton
+              skuId={productID}
+              sellerId={seller}
+              price={price ?? 0}
+              discount={price && listPrice ? listPrice - price : 0}
+              name={product.name ?? ""}
+              productGroupId={product.isVariantOf?.productGroupID ?? ""}
+            />
+          </>
         )}
-        <WishlistButton
-          variant="full"
-          productId={isVariantOf?.productGroupID}
-          sku={productID}
-          title={name}
-        />
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
@@ -136,17 +145,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             seller: seller ?? "1",
           }]}
         />
-      </div>
-      {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <Text variant="caption">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
-            </details>
-          )}
-        </Text>
       </div>
       <ViewSendEvent
         event={{
@@ -172,8 +170,12 @@ function Details({
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
   const id = `product-image-gallery:${useId()}`;
-  const { product: { image: images = [] } } = page;
-
+  const {
+    breadcrumbList,
+    product,
+  } = page;
+  const { image: images = [], isVariantOf, productID, name, description } =
+    product;
   /**
    * Product slider variant
    *
@@ -183,10 +185,14 @@ function Details({
    */
   if (variant === "slider") {
     return (
-      <>
+      <div class="flex flex-col">
+        {/* Breadcrumb */}
+        <Breadcrumb
+          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+        />
         <div
           id={id}
-          class={`grid grid-cols-1 gap-4 sm:(grid-cols-[max-content_40vw_40vw] grid-rows-1 justify-center max-h-[calc(${
+          class={`grid grid-cols-1 gap-4 sm:(grid-cols-[max-content_40vw_40vw] grid-rows-1  max-h-[calc(${
             (HEIGHT / WIDTH).toFixed(2)
           }*40vw)])`}
         >
@@ -227,6 +233,12 @@ function Details({
                 height={1280 * HEIGHT / WIDTH}
               />
             </div>
+            <WishlistButton
+              variant="full"
+              productId={isVariantOf?.productGroupID}
+              sku={productID}
+              title={name}
+            />
           </div>
 
           {/* Dots */}
@@ -236,7 +248,7 @@ function Details({
                 style={{ aspectRatio: ASPECT_RATIO }}
                 class="group-disabled:(border-interactive) border rounded min-w-[63px] sm:min-w-[100px]"
                 width={63}
-                height={87.5}
+                height={63}
                 src={img.url!}
                 alt={img.alternateName}
               />
@@ -249,7 +261,37 @@ function Details({
           </div>
         </div>
         <SliderJS rootId={id}></SliderJS>
-      </>
+        {/* Description card */}
+        <div class="mt-4 sm:mt-6">
+          <Text variant="caption">
+            {description && (
+              <details>
+                <summary class="cursor-pointer border-default border-y flex py-[15px]">
+                  <h2 class="mx-[1.5rem]">
+                    <Text variant="heading-2">Descrição</Text>
+                  </h2>
+                </summary>
+                <div class="flex">
+                  <div
+                    class="w-[60%] p-[15px]"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+                  <div class="w-[40%]">
+                    <Image
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      class="group-disabled:(border-interactive)  rounded min-w-[63px] sm:min-w-[100px]"
+                      width={474}
+                      height={474}
+                      src={images[0].url!}
+                      alt={images[0].alternateName}
+                    />
+                  </div>
+                </div>
+              </details>
+            )}
+          </Text>
+        </div>
+      </div>
     );
   }
 
@@ -260,28 +302,41 @@ function Details({
    * reached causing a scrollbar to be rendered.
    */
   return (
-    <div class="grid grid-cols-1 gap-4 sm:(grid-cols-[50vw_25vw] grid-rows-1 justify-center)">
-      {/* Image slider */}
-      <Slider class="gap-6">
-        {[images[0], images[1] ?? images[0]].map((img, index) => (
-          <Image
-            class={`scroll-snap-center min-w-[100vw] sm:(min-w-[24vw])`}
-            sizes="(max-width: 640px) 100vw, 24vw"
-            style={{ aspectRatio: ASPECT_RATIO }}
-            src={img.url!}
-            alt={img.alternateName}
-            width={WIDTH}
-            height={HEIGHT}
-            // Preload LCP image for better web vitals
-            preload={index === 0}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        ))}
-      </Slider>
+    <div class="flex flex-col">
+      <div class="grid grid-cols-1 gap-4 sm:(grid-cols-[50vw_25vw] grid-rows-1 justify-center)">
+        {/* Image slider */}
+        <Slider class="gap-6">
+          {[images[0], images[1] ?? images[0]].map((img, index) => (
+            <Image
+              class={`scroll-snap-center min-w-[100vw] sm:(min-w-[24vw])`}
+              sizes="(max-width: 640px) 100vw, 24vw"
+              style={{ aspectRatio: ASPECT_RATIO }}
+              src={img.url!}
+              alt={img.alternateName}
+              width={WIDTH}
+              height={HEIGHT}
+              // Preload LCP image for better web vitals
+              preload={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ))}
+        </Slider>
 
-      {/* Product Info */}
-      <div class="px-4 sm:(pr-0 pl-6)">
-        <ProductInfo page={page} />
+        {/* Product Info */}
+        <div class="px-4 sm:(pr-0 pl-6)">
+          <ProductInfo page={page} />
+        </div>
+      </div>
+      {/* Description card */}
+      <div class="mt-4 sm:mt-6">
+        <Text variant="caption">
+          {description && (
+            <details>
+              <summary class="cursor-pointer">Descrição</summary>
+              <div class="ml-2 mt-2">{description}</div>
+            </details>
+          )}
+        </Text>
       </div>
     </div>
   );

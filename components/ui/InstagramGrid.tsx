@@ -1,6 +1,7 @@
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Text from "deco-sites/fashion/components/ui/Text.tsx";
 
 export interface Banner {
   srcMobile: LiveImage;
@@ -17,6 +18,7 @@ export interface Banner {
 
 export interface Props {
   title?: string;
+  subtitle?: string;
   /**
    * @description Default is 1 for mobile and all for desktop
    */
@@ -31,11 +33,17 @@ export interface Props {
     mobile?: number;
     desktop?: number;
   };
+  link: {
+    text: string;
+    link: string;
+  };
   banners: Banner[];
 }
 
-export default function BannnerGrid({
+export default function InstagramGrid({
   title,
+  subtitle,
+  link,
   itemsPerLine,
   borderRadius,
   banners = [],
@@ -49,16 +57,12 @@ export default function BannnerGrid({
               <h2 class={"text-lg leading-5 font-semibold uppercase "}>
                 {title}
               </h2>
+              {subtitle && <Text>{subtitle}</Text>}
+              {link && <a href={link.link}>{link.text}</a>}
             </div>
           )}
         <div
-          class={`grid gap-4 md:gap-6 grid-cols-${
-            itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "1"
-          } md:grid-cols-${
-            itemsPerLine && itemsPerLine.desktop
-              ? itemsPerLine.desktop
-              : banners.length
-          }`}
+          class={`grid grid-rows-2 grid-cols-6 gap-4 md:gap-[8px] nth-child-3-[grid-area:span_2/span_2;]`}
         >
           {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
             <a

@@ -3,6 +3,7 @@ import type { JSX } from "preact";
 
 type SliderProps = JSX.IntrinsicElements["ul"] & {
   snap?: string;
+  slidePerView?: number;
 };
 
 export function Slider({
@@ -20,7 +21,7 @@ export function Slider({
       {Children.map(children, (child, index) => (
         <li
           data-slider-item={index}
-          class={snap}
+          class={`${snap}`}
         >
           {child}
         </li>

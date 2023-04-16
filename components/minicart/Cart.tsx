@@ -7,6 +7,7 @@ import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEve
 import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
+import Icon from "../ui/Icon.tsx";
 
 const CHECKOUT_URL = "https://jequiti.vtexcommercestable.com.br/checkout";
 
@@ -28,16 +29,9 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6">
-        <Text variant="heading-2">Sua sacola está vazia</Text>
-        <Button
-          variant="secondary"
-          onClick={() => {
-            displayCart.value = false;
-          }}
-        >
-          Escolher produtos
-        </Button>
+      <div class="flex flex-col justify-center items-center h-full gap-6 text-interactive">
+        <Icon id="ShoppingCart" width={64} height={84} />
+        <Text variant="caption">Sua sacola está vazia :{"("}</Text>
       </div>
     );
   }

@@ -48,8 +48,8 @@ function WishlistButton({ variant = "icon", ...item }: Props) {
     >
       <Icon
         id="Heart"
-        width={20}
-        height={20}
+        width={24}
+        height={24}
         strokeWidth={2}
         fill={isInsideWishlist ? "black" : "none"}
       />

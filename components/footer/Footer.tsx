@@ -26,7 +26,11 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="default-inverse">
+    <Text
+      variant="caption"
+      tone="default"
+      class="uppercase text-[12px]"
+    >
       {isIcon(item)
         ? (
           <div class="border-default border-1 py-1.5 px-2.5">
@@ -62,20 +66,27 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full flex flex-col divide-y-1 divide-default">
       <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
+        <div class="w-full bg-footer">
+          <Container class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+            <FooterContainer>
+              <Newsletter />
+            </FooterContainer>
+          </Container>
+        </div>
+        <Container>
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse">
+                    <Text
+                      variant="heading-3"
+                      tone="default"
+                      class="text-[14px] uppercase"
+                    >
                       {section.label}
                     </Text>
 
@@ -128,20 +139,6 @@ function Footer({ sections = [] }: Props) {
       <div>
         <Container class="w-full">
           <FooterContainer class="flex justify-between w-full">
-            <Text
-              class="flex items-center gap-1"
-              variant="body"
-              tone="default-inverse"
-            >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </Text>
-
             <ul class="flex items-center justify-center gap-2">
               <li>
                 <a
@@ -151,7 +148,7 @@ function Footer({ sections = [] }: Props) {
                   aria-label="Instagram logo"
                 >
                   <Icon
-                    class="text-default-inverse"
+                    class="text-default"
                     width={32}
                     height={32}
                     id="Instagram"
@@ -167,7 +164,7 @@ function Footer({ sections = [] }: Props) {
                   aria-label="Discord logo"
                 >
                   <Icon
-                    class="text-default-inverse"
+                    class="text-default"
                     width={32}
                     height={32}
                     id="Discord"
@@ -176,6 +173,19 @@ function Footer({ sections = [] }: Props) {
                 </a>
               </li>
             </ul>
+            <Text
+              class="flex items-center gap-1"
+              variant="body"
+              tone="default"
+            >
+              Powered by{" "}
+              <a
+                href="https://www.deco.cx"
+                aria-label="powered by https://www.deco.cx"
+              >
+                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+              </a>
+            </Text>
           </FooterContainer>
         </Container>
       </div>

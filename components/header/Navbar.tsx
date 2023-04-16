@@ -18,21 +18,26 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
       >
-        <HeaderButton variant="menu" />
+        <div class="flex flex-row justify-between w-full">
+          <HeaderButton variant="menu" />
 
-        <a
-          href="/"
-          class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={150} height={42} />
-        </a>
+          <a
+            href="/"
+            class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
+            aria-label="Store logo"
+          >
+            <Icon id="Logo" width={150} height={42} />
+          </a>
 
-        <div class="flex gap-1">
-          <HeaderButton variant="search" />
-          <HeaderButton variant="cart" />
+          <div class="flex gap-1">
+            {/* <HeaderButton variant="search" /> */}
+            <HeaderButton variant="cart" />
+          </div>
+        </div>
+        <div>
+          <Searchbar {...searchbar} />
         </div>
       </div>
 
@@ -57,6 +62,7 @@ function Navbar({ items, searchbar }: {
               variant="icon"
               href="/login"
               aria-label="Log in"
+              class="text-interactive"
             >
               <Icon id="User" width={16} height={16} strokeWidth={0.4} />
               <Text variant="caption" tone="default">Minha Conta</Text>
@@ -66,6 +72,7 @@ function Navbar({ items, searchbar }: {
               variant="icon"
               href="/wishlist"
               aria-label="Wishlist"
+              class="text-interactive"
             >
               <Icon
                 id="Heart"
@@ -74,7 +81,7 @@ function Navbar({ items, searchbar }: {
                 strokeWidth={2}
                 fill="none"
               />
-              <Text variant="caption" tone="default">Wishlist</Text>
+              <Text variant="caption" tone="default">Favoritos</Text>
             </Button>
             <HeaderButton variant="cart" />
           </div>

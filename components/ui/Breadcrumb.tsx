@@ -29,7 +29,7 @@ function Breadcrumb({ itemListElement = [] }: Props) {
       {itemListElement.map((item) => (
         <>
           <li class="mt-0.5">
-            <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
+            /
           </li>
           <Item {...item} />
         </>

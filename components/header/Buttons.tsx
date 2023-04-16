@@ -52,7 +52,7 @@ function CartButton() {
     <Button
       {...dataDeco}
       variant="icon"
-      class="relative"
+      class="relative text-interactive"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {
@@ -71,7 +71,7 @@ function CartButton() {
       }}
     >
       <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
-      <Text variant="caption">Sacola</Text>
+      <Text variant="caption" class="hidden sm:inline">Sacola</Text>
       {totalItems && (
         <span class="absolute text-[9px] left-0 top-0 rounded-full bg-[#00aeb9] text-white w-4 h-4 flex items-center justify-center">
           {totalItems}

@@ -1,4 +1,3 @@
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
@@ -6,25 +5,43 @@ import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
-import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
 import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+
+export interface Banner {
+  srcMobile: LiveImage;
+  srcDesktop?: LiveImage;
+  /**
+   * @description Image alt text
+   */
+  alt: string;
+  /**
+   * @description When you click you go to
+   */
+  href: string;
+}
 
 export interface Props {
   title: string;
-  products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
+  images: Banner[];
+  borderRadius: {
+    mobile?: number;
+    desktop?: number;
+  };
 }
 
 function ProductShelf({
   title,
-  products,
+  images,
+  borderRadius,
 }: Props) {
   const id = useId();
 
-  if (!products || products.length === 0) {
+  if (!images || images.length === 0) {
     return null;
   }
 
@@ -33,17 +50,52 @@ function ProductShelf({
       id={id}
       class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
-      <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      {title &&
+        (
+          <h2 class="text-center row-start-1 col-span-full">
+            <Text variant="heading-2">{title}</Text>
+          </h2>
+        )}
 
       <Slider
         class="col-span-full row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
       >
-        {products?.map((product) => (
-          <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
-            <ProductCard product={product} itemListName={title} />
+        {images.map(({ href, srcMobile, srcDesktop, alt }) => (
+          <div class="max-w-[300px] min-w-[300px] ">
+            <a
+              href={href}
+              class={`overflow-hidden ${
+                borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
+              } ${
+                borderRadius?.desktop
+                  ? `sm:rounded-[${borderRadius.desktop}px]`
+                  : `sm:rounded-none`
+              }`}
+            >
+              <Picture>
+                <Source
+                  media="(max-width: 767px)"
+                  src={srcMobile}
+                  width={100}
+                  height={100}
+                />
+                <Source
+                  media="(min-width: 768px)"
+                  src={srcDesktop ? srcDesktop : srcMobile}
+                  width={300}
+                  height={480}
+                />
+                <img
+                  class="w-full"
+                  sizes="(max-width: 640px) 100vw, 30vw"
+                  src={srcMobile}
+                  alt={alt}
+                  decoding="async"
+                  loading="lazy"
+                />
+              </Picture>
+            </a>
           </div>
         ))}
       </Slider>
@@ -67,7 +119,8 @@ function ProductShelf({
 
       <SliderControllerJS rootId={id} />
 
-      <ViewSendEvent
+      {
+        /* <ViewSendEvent
         event={{
           name: "view_item_list",
           params: {
@@ -80,7 +133,8 @@ function ProductShelf({
             ),
           },
         }}
-      />
+      /> */
+      }
     </Container>
   );
 }
