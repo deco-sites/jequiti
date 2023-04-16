@@ -77,8 +77,8 @@ function ProductShelf({
                 <Source
                   media="(max-width: 767px)"
                   src={srcMobile}
-                  width={100}
-                  height={100}
+                  width={300}
+                  height={480}
                 />
                 <Source
                   media="(min-width: 768px)"

@@ -21,7 +21,21 @@ function SearchControls(
 
   return (
     <div class="flex flex-col justify-between mb-4 p-4 sm:(mb-0 p-0 gap-4 flex-row h-[53px] border-b-1)">
-      <div class="flex flex-row items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
+      <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
+        <div class="flex gap-[5px]">
+          Filtrado por:
+          {filters.map((filter) => {
+            if (Array.isArray(filter.values)) {
+              const selected = filter.values.filter((value) => value.selected);
+              return selected;
+            }
+            return;
+          }, []).filter((item) => item?.length).flat().map((item) => (
+            <div class="bg-[#e3e3e3] py-[2px] px-[4px]">
+              {item?.label} <a href={item?.url}>X</a>
+            </div>
+          ))}
+        </div>
         <div>
           Ordenar por:
           <Button

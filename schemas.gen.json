@@ -3449,6 +3449,31 @@
       ],
       "title": "deco-sites/jequiti/components/ui/Features.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9UYWJiZWRTaGVsZi50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        },
+        "itemsPerPage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Items Per Page"
+        }
+      },
+      "required": [
+        "title",
+        "products"
+      ],
+      "title": "deco-sites/jequiti/components/product/TabbedShelf.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmFubmVyUExQLnRzeA==@Banner": {
       "type": "object",
       "properties": {
@@ -3843,6 +3868,129 @@
         "products"
       ],
       "title": "deco-sites/jequiti/components/product/ProductShelf.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Banner": {
+      "type": "object",
+      "properties": {
+        "srcMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Mobile"
+        },
+        "srcDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Src Desktop"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Text"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Date"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image alt text",
+          "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "description": "When you click you go to",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "srcMobile",
+        "alt",
+        "href"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Banner[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Banner"
+      },
+      "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "itemsPerLine": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Items Per Line",
+          "description": "Default is 1 for mobile and all for desktop"
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "mobile": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Mobile"
+            },
+            "desktop": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "title": "Desktop"
+            }
+          },
+          "required": [],
+          "title": "Border Radius",
+          "description": "Item's border radius in px"
+        },
+        "banners": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Banner[]",
+          "title": "Banners"
+        }
+      },
+      "required": [
+        "itemsPerLine",
+        "borderRadius",
+        "banners"
+      ],
+      "title": "deco-sites/jequiti/components/ui/Blog.tsx@Props"
     },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvV2hhdHNBcHAudHN4@Props": {
       "type": "object",
@@ -5173,6 +5321,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1RhYmJlZFNoZWxmLnRzeA==": {
+      "title": "deco-sites/jequiti/sections/TabbedShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9UYWJiZWRTaGVsZi50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/TabbedShelf.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/TabbedShelf.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g=": {
       "title": "deco-sites/jequiti/sections/BannerPLP.tsx",
       "type": "object",
@@ -5275,6 +5444,27 @@
             "deco-sites/jequiti/sections/ProductShelf.tsx"
           ],
           "default": "deco-sites/jequiti/sections/ProductShelf.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jsb2cudHN4": {
+      "title": "deco-sites/jequiti/sections/Blog.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvQmxvZy50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/Blog.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/Blog.tsx"
         }
       }
     },
@@ -5924,6 +6114,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1NlYXJjaFJlc3VsdC50c3g="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1RhYmJlZFNoZWxmLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g="
         },
         {
@@ -5937,6 +6130,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1Byb2R1Y3RTaGVsZi50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jsb2cudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1doYXRzQXBwLnRzeA=="

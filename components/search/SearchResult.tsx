@@ -39,6 +39,7 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
+  console.log(filters);
   return (
     <>
       <Container class="px-4 sm:py-10">

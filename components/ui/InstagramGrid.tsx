@@ -53,16 +53,25 @@ export default function InstagramGrid({
       <section class="w-full px-4 md:px-0 mx-auto">
         {title &&
           (
-            <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
-              <h2 class={"text-lg leading-5 font-semibold uppercase "}>
-                {title}
+            <div class="py-6 md:py-0 md:pb-[40px] flex flex-col items-center justify-center mt-6">
+              <h2
+                class={"text-lg font-semibold uppercase pb-[2rem] text-center"}
+              >
+                <Text variant="heading-2">
+                  {title}
+                </Text>
               </h2>
-              {subtitle && <Text>{subtitle}</Text>}
-              {link && <a href={link.link}>{link.text}</a>}
+              {subtitle && <Text class="pb-[15px] text-center">{subtitle}
+              </Text>}
+              {link && (
+                <a href={link.link} class="text-[#00aeb9] font-bold italic">
+                  {link.text}
+                </a>
+              )}
             </div>
           )}
         <div
-          class={`grid grid-rows-2 grid-cols-6 gap-4 md:gap-[8px] nth-child-3-[grid-area:span_2/span_2;]`}
+          class={`grid md:grid-rows-2 grid-rows-1 grid-cols-2 md:grid-cols-6 gap-[8px] nth-child-3-[grid-area:span_2/span_2;]`}
         >
           {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
             <a

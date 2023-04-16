@@ -28,11 +28,12 @@ function MenuButton() {
     <Button
       variant="icon"
       aria-label="open menu"
+      class="text-interactive"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={38} height={38} strokeWidth={0.01} />
     </Button>
   );
 }

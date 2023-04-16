@@ -73,7 +73,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       fontSize: {
         "heading-1": ["56px", "67.2px"],
-        "heading-2": ["24px", "28.8px"],
+        "heading-2": ["37px", "28.8px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],

@@ -20,7 +20,7 @@ function Highlights({ highlights = [], title }: Props) {
   return (
     <Container class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
       <h2 class="text-center">
-        <Text variant="heading-2">{title}</Text>
+        <Text variant="heading-2" class="uppercase">{title}</Text>
       </h2>
 
       <Slider

@@ -29,12 +29,14 @@ import * as $$$$$$$$8 from "./sections/Footer.tsx";
 import * as $$$$$$$$9 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$10 from "./sections/Features.tsx";
 import * as $$$$$$$$11 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$12 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$13 from "./sections/BannerWithText.tsx";
-import * as $$$$$$$$14 from "./sections/Header.tsx";
-import * as $$$$$$$$15 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$16 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$17 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$12 from "./sections/TabbedShelf.tsx";
+import * as $$$$$$$$13 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$14 from "./sections/BannerWithText.tsx";
+import * as $$$$$$$$15 from "./sections/Header.tsx";
+import * as $$$$$$$$16 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$17 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$18 from "./sections/Blog.tsx";
+import * as $$$$$$$$19 from "./sections/WhatsApp.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -130,12 +132,14 @@ const manifest = {
     "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$9,
     "deco-sites/jequiti/sections/Features.tsx": $$$$$$$$10,
     "deco-sites/jequiti/sections/SearchResult.tsx": $$$$$$$$11,
-    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$12,
-    "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$13,
-    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$14,
-    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$15,
-    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$16,
-    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$17,
+    "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$12,
+    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$13,
+    "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$14,
+    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$15,
+    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$16,
+    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$17,
+    "deco-sites/jequiti/sections/Blog.tsx": $$$$$$$$18,
+    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$19,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,

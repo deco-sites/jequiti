@@ -18,14 +18,14 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full `}
       >
-        <div class="flex flex-row justify-between w-full">
+        <div class="flex flex-row justify-between items-center w-full px-2 gap-2">
           <HeaderButton variant="menu" />
 
           <a
             href="/"
-            class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
+            class={`flex-grow inline-flex justify-center items-center min-h-[${navbarHeight}]`}
             aria-label="Store logo"
           >
             <Icon id="Logo" width={150} height={42} />
@@ -33,10 +33,13 @@ function Navbar({ items, searchbar }: {
 
           <div class="flex gap-1">
             {/* <HeaderButton variant="search" /> */}
+            <a href="/login" class="text-interactive">
+              <Icon id="User" width={20} height={40} />
+            </a>
             <HeaderButton variant="cart" />
           </div>
         </div>
-        <div>
+        <div class="bg-white w-full ">
           <Searchbar {...searchbar} />
         </div>
       </div>
