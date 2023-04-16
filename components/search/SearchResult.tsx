@@ -39,7 +39,7 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  console.log(filters);
+  console.log(filters.length, variant, breadcrumb);
   return (
     <>
       <Container class="px-4 sm:py-10">
@@ -48,7 +48,7 @@ function Result({
         </div>
 
         <div class="flex flex-col">
-          {variant === "aside" && filters.length > 0 && (
+          {(!variant || variant === "aside") && filters.length > 0 && (
             <aside class="hidden sm:block w-full min-w-[250px] bg-[#eee] p-[1rem]">
               <h2>Filtre os resultados:</h2>
               <Filters filters={filters} />

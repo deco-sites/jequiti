@@ -106,7 +106,7 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2  max-w-[442px]"
+          class="flex-grow flex gap-3 pr-3 py-2  max-w-[442px]"
         >
           <input
             ref={searchInputRef}
@@ -144,7 +144,9 @@ function Searchbar({
               setSearch("");
             }}
           >
-            <Text variant="caption" tone="default">limpar</Text>
+            <Text variant="caption" tone="default">
+              <Icon id="XMark" width={18} height={18} strokeWidth={1} />
+            </Text>
           </button>
           <Button
             variant="icon"
@@ -156,8 +158,8 @@ function Searchbar({
             <Icon
               class="text-interactive"
               id="MagnifyingGlass"
-              width={20}
-              height={20}
+              width={18}
+              height={18}
               strokeWidth={0.01}
             />
           </Button>

@@ -64,6 +64,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const { listPrice, price, seller, installments } = useOffer(offers);
   const { name } = isVariantOf ?? {};
 
+  const discount = price && listPrice ? listPrice - price : 0;
+  const discountPercentage = Math.ceil(
+    discount && listPrice ? discount * 100 / (listPrice ?? 0) : 0,
+  );
+
   return (
     <div
       data-deco="view-product"
@@ -79,6 +84,13 @@ function ProductCard({ product, preload, itemListName }: Props) {
               title={name}
             />
           </div>
+          {discountPercentage && (
+            <div class="absolute top-0 left-0 bg-[#d13482] px-[7px] py-[4px] leading-none">
+              <Text variant="caption" class="text-white font-bold text-[14px]">
+                -{discountPercentage}%
+              </Text>
+            </div>
+          )}
           <Image
             src={front.url!}
             alt={front.alternateName}
@@ -163,7 +175,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               skuId={productID}
               sellerId={seller}
               price={price ?? 0}
-              discount={price && listPrice ? listPrice - price : 0}
+              discount={discount}
               name={product.name ?? ""}
               productGroupId={product.isVariantOf?.productGroupID ?? ""}
             />

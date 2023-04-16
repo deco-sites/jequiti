@@ -19,10 +19,7 @@ export interface NavItem {
       href: string;
     }>;
   }>;
-  image?: {
-    src?: Image;
-    alt?: string;
-  };
+  images?: Array<{ src?: Image; alt?: string; href?: string }>;
 }
 
 export interface Props {
@@ -39,7 +36,7 @@ export interface Props {
    * @title Product suggestions
    * @description Product suggestions displayed on search
    */
-  products?: LoaderReturnType<Product[] | null>;
+  // products?: LoaderReturnType<Product[] | null>;
 
   /**
    * @title Enable Top Search terms
@@ -51,12 +48,12 @@ function Header(
   {
     alerts,
     searchbar: _searchbar,
-    products,
+    // products,
     navItems = [],
     suggestions,
   }: Props,
 ) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const searchbar = { ..._searchbar, suggestions };
   return (
     <header class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}>
       <div class="bg-default fixed w-full z-50  border-b border-default">

@@ -34,7 +34,7 @@ export interface Props {
   banners: Banner[];
 }
 
-export default function BannnerGrid({
+export default function BannerGrid({
   title,
   itemsPerLine,
   borderRadius,
