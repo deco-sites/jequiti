@@ -1,4 +1,5 @@
 import Button from "../ui/Button.tsx";
+import Icon from "./Icon.tsx";
 
 interface Props {
   quantity: number;
@@ -32,13 +33,13 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
   return (
     <div class="flex border-1 border-default ">
       <Button
-        class="h-[32px] w-[32px] rounded-0"
+        class="h-[32px] w-[32px] rounded-0 text-interactive disabled:text-default"
         variant="icon"
         onClick={decrement}
         disabled={disabled}
         loading={loading}
       >
-        -
+        <Icon id="Minus" width={16} height={16} strokeWidth={3} />
       </Button>
       <style dangerouslySetInnerHTML={{ __html: innerStyle }} />
       <input
@@ -53,13 +54,13 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
         onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
       />
       <Button
-        class="h-[32px] w-[32px]"
+        class="h-[32px] w-[32px] text-interactive disabled:text-default"
         variant="icon"
         onClick={increment}
         disabled={disabled}
         loading={loading}
       >
-        +
+        <Icon id="Plus" width={16} height={16} strokeWidth={3} />
       </Button>
     </div>
   );

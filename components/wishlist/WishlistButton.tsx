@@ -51,7 +51,7 @@ function WishlistButton({ variant = "icon", ...item }: Props) {
         width={24}
         height={24}
         strokeWidth={2}
-        fill={isInsideWishlist ? "black" : "none"}
+        fill={isInsideWishlist ? "#7a206c" : "none"}
       />
       {variant === "icon" ? null : isInsideWishlist ? "Remover" : "Favoritar"}
     </Button>

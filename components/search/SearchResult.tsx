@@ -48,7 +48,7 @@ function Result({
 
         <div class="flex flex-col">
           {(!variant || variant === "aside") && filters.length > 0 && (
-            <aside class="hidden sm:block w-full min-w-[250px] bg-[#eee] p-[1rem]">
+            <aside class="hidden lg:block w-full min-w-[250px] bg-[#eee] p-[1rem]">
               <h2>Filtre os resultados:</h2>
               <Filters filters={filters} />
             </aside>

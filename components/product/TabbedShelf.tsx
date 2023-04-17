@@ -95,7 +95,9 @@ function TabbedShelf({
   return (
     <Container class="flex flex-col py-10 px-0 sm:px-5 gap-[32px]">
       <h2 class="text-center">
-        <Text variant="heading-2" class="uppercase">{title}</Text>
+        <Text variant="heading-2" class="uppercase text-[26px] sm:text-[37px]">
+          {title}
+        </Text>
       </h2>
 
       <div class="tabbed tab-radio-button-1-[border-color:#00aeb9;color:#00aeb9;] tab-radio-button-2-[border-color:#00aeb9;color:#00aeb9;]  

@@ -28,15 +28,21 @@ function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
   return (
-    <div class="relative">
-      <div class="absolute  sm:hidden inset-0 pointer-events-none flex bg-white items-center justify-center">
+    <div class="relative flex">
+      <div class="absolute lg:static inset-0 pointer-events-none flex bg-white items-center justify-center gap-[5px]">
         <Icon
-          id="Bars3"
+          id="SortList"
           width={20}
           height={20}
           strokeWidth={1}
+          class="lg:hidden"
         />{" "}
-        <Text variant="caption">Ordenar por</Text>
+        <Text
+          variant="caption"
+          class="font-bold text-interactive lg:(font-normal text-default)"
+        >
+          Ordenar por
+        </Text>
       </div>
       <select
         id="sort"

@@ -3167,6 +3167,14 @@
             {
               "type": "string",
               "const": "Cash"
+            },
+            {
+              "type": "string",
+              "const": "Funnel"
+            },
+            {
+              "type": "string",
+              "const": "SortList"
             }
           ],
           "type": "string",
@@ -3321,6 +3329,13 @@
             "null"
           ],
           "title": "Desktop"
+        },
+        "tablet": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Tablet"
         }
       },
       "required": [],
@@ -3504,6 +3519,14 @@
             {
               "type": "string",
               "const": "Cash"
+            },
+            {
+              "type": "string",
+              "const": "Funnel"
+            },
+            {
+              "type": "string",
+              "const": "SortList"
             }
           ],
           "type": "string",
@@ -3617,8 +3640,7 @@
             }
           },
           "required": [
-            "desktop",
-            "mobile"
+            "desktop"
           ],
           "title": "Image"
         }

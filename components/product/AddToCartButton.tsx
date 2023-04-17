@@ -10,6 +10,7 @@ interface Props extends UseAddToCartProps {
    */
   sellerId: string;
   text?: string;
+  variant?: "secondary" | "icon" | "primary" | "tertiary";
 }
 
 function AddToCartButton(
@@ -22,6 +23,7 @@ function AddToCartButton(
     name,
     quantity = 1,
     text = "Adicionar à Sacola",
+    variant = "secondary",
   }: Props,
 ) {
   const props = useAddToCart({
@@ -37,7 +39,7 @@ function AddToCartButton(
   return (
     <Button
       data-deco="add-to-cart"
-      variant="secondary"
+      variant={variant}
       {...props}
       class="w-full rounded-none uppercase"
     >

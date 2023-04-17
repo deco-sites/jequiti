@@ -72,7 +72,7 @@ const options: Omit<Options, "selfURL"> = {
         interactive: ["2px solid #3379EF", "2px"],
       },
       fontSize: {
-        "heading-1": ["56px", "67.2px"],
+        "heading-1": ["42px", "67.2px"],
         "heading-2": ["37px", "28.8px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
@@ -82,7 +82,7 @@ const options: Omit<Options, "selfURL"> = {
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
-        "heading-1": "500",
+        "heading-1": "700",
         "heading-2": "700",
         "heading-3": "500",
         "menu": "400",

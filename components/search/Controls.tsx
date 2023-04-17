@@ -22,9 +22,9 @@ function SearchControls(
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:(mb-0 p-0 gap-4 flex-row h-[53px] border-b-1)">
+    <div class="flex flex-col justify-between p-4 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
       <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
-        <div class="hidden sm:flex gap-[5px]">
+        <div class="hidden lg:flex gap-[5px]">
           Filtrado por:
           {filters.map((filter) => {
             if (Array.isArray(filter.values)) {
@@ -39,13 +39,15 @@ function SearchControls(
           ))}
         </div>
         <Button
-          class={displayFilter ? "" : "sm:hidden"}
+          class={displayFilter
+            ? "font-bold text-interactive lg:(font-normal text-default)"
+            : "lg:hidden"}
           variant="tertiary"
           onClick={() => {
             open.value = true;
           }}
         >
-          <Icon id="FilterList" width={16} height={16} />
+          <Icon id="Funnel" width={16} height={16} />
           Filtrar
         </Button>
         <div>

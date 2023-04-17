@@ -81,11 +81,13 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div>
         <Text>{brand}</Text>
         <h1>
-          <Text variant="heading-2">{name}</Text>
+          <Text variant="heading-2" class="text-[21px] sm:text-[32px]">
+            {name}
+          </Text>
         </h1>
         <div>
           <Text tone="subdued" variant="caption">
-            Cod. {gtin}
+            cod. {gtin}
           </Text>
         </div>
       </div>
@@ -93,41 +95,49 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div class="mt-4">
         <div class="flex flex-row gap-2 items-center">
           <Text
-            class="line-through"
             tone="subdued"
             variant="list-price"
+            class=" line-through text-[16px]  "
           >
             {formatPrice(listPrice, offers!.priceCurrency!)}
           </Text>
-          <Text tone="price" variant="heading-3">
+          <Text
+            tone="price"
+            variant="heading-3"
+            class="text-[32px] override:(font-bold)"
+          >
             {formatPrice(price, offers!.priceCurrency!)}
           </Text>
           <Text tone="subdued" variant="caption">
             {installments}
           </Text>
         </div>
-        <div>
-          Você está economizando {formatPrice(discount, offers!.priceCurrency!)}
-        </div>
+        {discount && (
+          <div class="mt-[8px]">
+            Você está economizando{" "}
+            <Text class="font-bold">
+              {formatPrice(discount, offers!.priceCurrency!)}
+            </Text>
+          </div>
+        )}
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="fixed bottom-0 right-0 mt-4 sm:mt-10 flex gap-2 bg-white w-full p-[8px] sm:(py-0 px-0 static)">
+      <div class="fixed z-50 bottom-0 right-0 mt-4 flex gap-2 bg-white w-full p-[8px] sm:(py-[20px] px-0 static mt-[20px]) border-default border-y-1">
         {seller && (
-          <>
-            <QuantityAddToCartButton
-              skuId={productID}
-              sellerId={seller}
-              price={price ?? 0}
-              discount={price && listPrice ? listPrice - price : 0}
-              name={product.name ?? ""}
-              productGroupId={product.isVariantOf?.productGroupID ?? ""}
-              text={"comprar"}
-            />
-          </>
+          <QuantityAddToCartButton
+            skuId={productID}
+            sellerId={seller}
+            price={price ?? 0}
+            discount={price && listPrice ? listPrice - price : 0}
+            name={product.name ?? ""}
+            productGroupId={product.isVariantOf?.productGroupID ?? ""}
+            text={"comprar"}
+            variant={"primary"}
+          />
         )}
       </div>
       {/* Shipping Simulation */}
@@ -211,7 +221,7 @@ function Details({
               {images.map((img, _) => (
                 <Image
                   style={{ aspectRatio: ASPECT_RATIO }}
-                  class="group-disabled:(border-interactive) border rounded min-w-[63px]"
+                  class="group-disabled:(border-interactive border-l-1)  min-w-[63px]"
                   width={63}
                   height={63}
                   src={img.url!}
@@ -283,7 +293,7 @@ function Details({
                 }
                 <div class="absolute right-0">
                   <WishlistButton
-                    variant="full"
+                    variant="icon"
                     productId={isVariantOf?.productGroupID}
                     sku={productID}
                     title={name}
@@ -303,16 +313,21 @@ function Details({
           <Text variant="caption">
             {description && (
               <details>
-                <summary class="cursor-pointer border-default border-y flex justify-between py-[15px]">
+                <summary class="cursor-pointer border-default border-y flex justify-between items-center py-[15px]">
                   <h2 class="mx-[1.5rem]">
-                    <Text variant="heading-2">Descrição</Text>
+                    <Text
+                      variant="heading-2"
+                      class="text-[26px] sm:text-[37px]"
+                    >
+                      Descrição
+                    </Text>
                   </h2>
                   <Icon
-                    id="ChevronRight"
+                    id="ChevronDown"
                     class="open-hide"
                     width={20}
                     height={20}
-                    strokeWidth={1}
+                    strokeWidth={3}
                   />
                 </summary>
                 <div class="flex flex-col sm:flex-row">

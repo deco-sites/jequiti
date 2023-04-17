@@ -13,7 +13,7 @@ function Newsletter({ socials }: Props) {
         <Text
           variant="heading-2"
           tone="default"
-          class="text-center uppercase"
+          class="text-center uppercase text-[26px] sm:text-[37px]"
         >
           Fique por dentro!
         </Text>

@@ -11,6 +11,7 @@ interface Props extends UseAddToCartProps {
    */
   sellerId: string;
   text?: string;
+  variant?: "secondary" | "icon" | "primary" | "tertiary";
 }
 
 function QuantityAddToCartButton(
@@ -22,6 +23,7 @@ function QuantityAddToCartButton(
     productGroupId,
     name,
     text = "Adicionar à Sacola",
+    variant = "secondary",
   }: Props,
 ) {
   const quantity = useSignal(1);
@@ -55,6 +57,7 @@ function QuantityAddToCartButton(
         productGroupId={productGroupId}
         quantity={quantity.value}
         text={text}
+        variant={variant}
       />
     </div>
   );
