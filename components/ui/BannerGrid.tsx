@@ -65,7 +65,7 @@ export default function BannerGrid({
           ) => (
             <a
               href={href}
-              class={`overflow-hidden ${
+              class={`overflow-hidden max-w-[400px] ${
                 borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
               } ${
                 borderRadius?.desktop

@@ -20,7 +20,7 @@ function ProductGallery({ columns, products }: Props) {
 
   return (
     <div
-      class={`grid grid-cols-${mobile} gap-2 items-center sm:(grid-cols-${desktop} gap-10)`}
+      class={`grid grid-cols-${mobile} gap-2 items-stretch sm:(grid-cols-${desktop} gap-10)`}
     >
       {products?.map((product, index) => (
         <ProductCard product={product} preload={index === 0} />

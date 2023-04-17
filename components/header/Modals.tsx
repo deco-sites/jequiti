@@ -19,9 +19,14 @@ const Searchbar = lazy(() =>
 interface Props {
   menu: MenuProps;
   searchbar?: SearchbarProps;
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
 }
 
-function Modals({ menu, searchbar }: Props) {
+function Modals({ menu, searchbar, alerts }: Props) {
   const { displayCart, displayMenu, displaySearchbar } = useUI();
 
   return (
@@ -31,12 +36,13 @@ function Modals({ menu, searchbar }: Props) {
         mode="sidebar-left"
         loading="lazy"
         open={displayMenu.value}
+        header={false}
         onClose={() => {
           displayMenu.value = false;
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Menu {...menu} />
+          <Menu {...menu} alerts={alerts} />
         </Suspense>
       </Modal>
 

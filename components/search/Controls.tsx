@@ -6,6 +6,8 @@ import Sort from "deco-sites/jequiti/components/search/Sort.tsx";
 import Modal from "deco-sites/jequiti/components/ui/Modal.tsx";
 import Breadcrumb from "deco-sites/jequiti/components/ui/Breadcrumb.tsx";
 import { useSignal } from "@preact/signals";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 type Props =
@@ -22,7 +24,7 @@ function SearchControls(
   return (
     <div class="flex flex-col justify-between mb-4 p-4 sm:(mb-0 p-0 gap-4 flex-row h-[53px] border-b-1)">
       <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
-        <div class="flex gap-[5px]">
+        <div class="hidden sm:flex gap-[5px]">
           Filtrado por:
           {filters.map((filter) => {
             if (Array.isArray(filter.values)) {
@@ -36,18 +38,17 @@ function SearchControls(
             </div>
           ))}
         </div>
+        <Button
+          class={displayFilter ? "" : "sm:hidden"}
+          variant="tertiary"
+          onClick={() => {
+            open.value = true;
+          }}
+        >
+          <Icon id="FilterList" width={16} height={16} />
+          Filtrar
+        </Button>
         <div>
-          Ordenar por:
-          <Button
-            class={displayFilter ? "" : "sm:hidden"}
-            variant="tertiary"
-            onClick={() => {
-              open.value = true;
-            }}
-          >
-            Filtrar
-            <Icon id="FilterList" width={16} height={16} />
-          </Button>
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
       </div>

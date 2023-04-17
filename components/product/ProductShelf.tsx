@@ -41,12 +41,12 @@ function ProductShelf({
       </h2>
 
       <Slider
-        class="col-span-full row-start-2 row-end-5 override:(items-stretch)"
-        snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
+        class="col-span-full row-start-2 row-end-5 override:(items-stretch) "
+        snap="snap-center sm:snap-start last:mr-[10px] sm:last:mr-0 flex items-stretch"
         slidePerView={{
           desktop: 4,
-          phone: 1,
           tablet: 3,
+          phone: 1.25,
         }}
       >
         {products?.map((product) => (

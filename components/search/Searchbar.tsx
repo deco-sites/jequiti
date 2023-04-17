@@ -101,17 +101,17 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col">
-      <div class="flex gap-4">
+    <div class="flex flex-col w-full">
+      <div class="flex gap-4 w-full">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 pr-3 py-2  max-w-[442px]"
+          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 sm:max-w-[442px] sm:bg-white bg-[#efefef]"
         >
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-default pl-[16px]"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-[#efefef] sm:border-default pl-[16px] bg-[#efefef] sm:bg-white"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -145,7 +145,12 @@ function Searchbar({
             }}
           >
             <Text variant="caption" tone="default">
-              <Icon id="XMark" width={18} height={18} strokeWidth={1} />
+              <Icon
+                id="XMark"
+                width={18}
+                height={18}
+                strokeWidth={1}
+              />
             </Text>
           </button>
           <Button
@@ -156,11 +161,18 @@ function Searchbar({
             type="submit"
           >
             <Icon
-              class="text-interactive"
               id="MagnifyingGlass"
               width={18}
               height={18}
               strokeWidth={0.01}
+              class="text-interactive hidden sm:inline"
+            />
+            <Icon
+              id="MagnifyingGlass"
+              width={24}
+              height={24}
+              strokeWidth={0.01}
+              class="text-interactive sm:hidden"
             />
           </Button>
         </form>

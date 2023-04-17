@@ -3,10 +3,12 @@ import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/jequiti/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import ScrollTrackJS from "deco-sites/jequiti/islands/ScrollTrackJS.tsx";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight, headerHeightMobile } from "./constants.ts";
+import { useId } from "preact/hooks";
 
 export interface NavItem {
   label: string;
@@ -20,10 +22,16 @@ export interface NavItem {
     }>;
   }>;
   images?: Array<{ src?: Image; alt?: string; href?: string }>;
+  imagesWidth?: number;
+  imagesHeight?: number;
 }
 
 export interface Props {
-  alerts: string[];
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -54,15 +62,21 @@ function Header(
   }: Props,
 ) {
   const searchbar = { ..._searchbar, suggestions };
+  const id = useId();
   return (
     <header class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}>
-      <div class="bg-default fixed w-full z-50  border-b border-default">
+      <div
+        id={id}
+        class="bg-default fixed w-full z-50  border-b border-default"
+      >
         <Alert alerts={alerts} />
         <Navbar items={navItems} searchbar={searchbar} />
+        <ScrollTrackJS rootId={id} />
       </div>
 
       <Modals
         menu={{ items: navItems }}
+        alerts={alerts}
         searchbar={searchbar}
       />
     </header>

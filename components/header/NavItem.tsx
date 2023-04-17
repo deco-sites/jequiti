@@ -7,10 +7,19 @@ export interface INavItem {
   href: string;
   children?: INavItem[];
   images?: Array<{ src?: string; alt?: string; href?: string }>;
+  imagesWidth?: number;
+  imagesHeight?: number;
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, images } = item;
+  const {
+    href,
+    label,
+    children,
+    images,
+    imagesWidth = 360,
+    imagesHeight = 248,
+  } = item;
 
   return (
     <li class="group flex items-center">
@@ -55,8 +64,8 @@ function NavItem({ item }: { item: INavItem }) {
                     class="p-6"
                     src={image.src}
                     alt={image.alt}
-                    width={300}
-                    height={332}
+                    width={imagesWidth}
+                    height={imagesHeight}
                     loading="lazy"
                   />
                 </a>

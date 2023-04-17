@@ -2,6 +2,7 @@ import { useMemo } from "preact/hooks";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { JSX } from "preact";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 
 const SORT_QUERY_PARAM = "sort";
 
@@ -27,18 +28,29 @@ function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
   return (
-    <select
-      id="sort"
-      name="sort"
-      onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-default hover:bg-hover cursor-pointer outline-none"
-    >
-      {sortOptions.map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <Text variant="caption">{label}</Text>
-        </option>
-      ))}
-    </select>
+    <div class="relative">
+      <div class="absolute  sm:hidden inset-0 pointer-events-none flex bg-white items-center justify-center">
+        <Icon
+          id="Bars3"
+          width={20}
+          height={20}
+          strokeWidth={1}
+        />{" "}
+        <Text variant="caption">Ordenar por</Text>
+      </div>
+      <select
+        id="sort"
+        name="sort"
+        onInput={applySort}
+        class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-default hover:bg-hover cursor-pointer outline-none"
+      >
+        {sortOptions.map(({ value, label }) => (
+          <option key={value} value={value} selected={value === sort}>
+            <Text variant="caption">{label}</Text>
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 

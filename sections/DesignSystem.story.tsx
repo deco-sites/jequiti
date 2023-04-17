@@ -84,6 +84,8 @@ const icons = [
   "Trash",
   "WhatsApp",
   "ArrowsPointingOut",
+  "Catalog",
+  "Cash",
 ] as const;
 
 function DesignSystemItem(

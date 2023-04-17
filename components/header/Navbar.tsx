@@ -9,9 +9,14 @@ import type { Props as SearchbarProps } from "deco-sites/jequiti/components/sear
 import Searchbar from "deco-sites/jequiti/components/search/Searchbar.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 
-function Navbar({ items, searchbar }: {
+function Navbar({ items, searchbar, alerts }: {
   items: INavItem[];
   searchbar: SearchbarProps;
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
 }) {
   return (
     <>
@@ -21,6 +26,12 @@ function Navbar({ items, searchbar }: {
       >
         <div class="flex flex-row justify-between items-center w-full px-2 gap-2">
           <HeaderButton variant="menu" />
+          <a
+            href="https://institucional.jequiti.com.br/catalogo/"
+            class="text-interactive flex items-center"
+          >
+            <Icon id="Catalog" width={40} height={40} />
+          </a>
 
           <a
             href="/"
@@ -32,13 +43,13 @@ function Navbar({ items, searchbar }: {
 
           <div class="flex gap-1">
             {/* <HeaderButton variant="search" /> */}
-            <a href="/login" class="text-interactive">
-              <Icon id="User" width={20} height={40} />
+            <a href="/login" class="text-interactive flex items-center">
+              <Icon id="User" width={25} height={30} />
             </a>
             <HeaderButton variant="cart" />
           </div>
         </div>
-        <div class="bg-white w-full ">
+        <div class="bg-white w-full">
           <Searchbar {...searchbar} />
         </div>
       </div>

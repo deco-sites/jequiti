@@ -19,6 +19,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  header?: boolean;
 };
 
 const dialogStyles = {
@@ -42,6 +43,7 @@ const containerStyles = {
 const Modal = ({
   open,
   title,
+  header = true,
   mode = "sidebar-right",
   onClose,
   children,
@@ -85,21 +87,32 @@ const Modal = ({
         <div
           class={`bg-default flex flex-col max-h-full  ${
             containerStyles[mode]
-          } w-[85%] min-w-[280px] `}
+          } w-[85%] min-w-[280px] relative`}
         >
-          <header class="flex p-[16px] justify-between items-center border-b-1 border-default bg-[#7a206c] ">
-            <h1>
-              <Text
-                variant="heading-2"
-                class="text-white uppercase text-[16px]"
-              >
-                {title}
-              </Text>
-            </h1>
-            <Button variant="icon" onClick={onClose} class="text-white">
-              <Icon id="XMark" width={30} height={30} strokeWidth={2} />
-            </Button>
-          </header>
+          {header
+            ? (
+              <header class="flex p-[16px] justify-between items-center border-b-1 border-default bg-[#7a206c] ">
+                <h1>
+                  <Text
+                    variant="heading-2"
+                    class="text-white uppercase text-[16px]"
+                  >
+                    {title}
+                  </Text>
+                </h1>
+                <Button variant="icon" onClick={onClose} class="text-white">
+                  <Icon id="XMark" width={30} height={30} strokeWidth={2} />
+                </Button>
+              </header>
+            )
+            : (
+              <div class="absolute right-0 top-0">
+                <Button variant="icon" onClick={onClose} class="text-default">
+                  <Icon id="XMark" width={30} height={30} strokeWidth={2} />
+                </Button>
+              </div>
+            )}
+
           <div class="overflow-y-auto flex-grow flex flex-col">
             {loading === "lazy" ? lazy.value && children : children}
           </div>

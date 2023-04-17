@@ -3159,6 +3159,14 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Catalog"
+            },
+            {
+              "type": "string",
+              "const": "Cash"
             }
           ],
           "type": "string",
@@ -3170,23 +3178,46 @@
       ],
       "title": "IconItem"
     },
-    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem": {
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ImageItem": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        }
+      },
+      "required": [
+        "image"
+      ],
+      "title": "ImageItem"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|ImageItem|StringItem": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@StringItem"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@ImageItem"
         }
       ],
-      "title": "IconItem|StringItem"
+      "title": "IconItem|ImageItem|StringItem"
     },
-    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]": {
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|ImageItem|StringItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|ImageItem|StringItem"
       },
-      "title": "IconItem|StringItem[]"
+      "title": "IconItem|ImageItem|StringItem[]"
     },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section": {
       "type": "object",
@@ -3196,7 +3227,7 @@
           "title": "Label"
         },
         "children": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|ImageItem|StringItem[]",
           "title": "Children"
         }
       },
@@ -3219,6 +3250,39 @@
         "sections": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]",
           "title": "Sections"
+        },
+        "sections2": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section"
+          },
+          "title": "Sections2"
+        },
+        "socials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "image": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Image"
+              },
+              "alt": {
+                "type": "string",
+                "title": "Alt"
+              }
+            },
+            "required": [
+              "href",
+              "image",
+              "alt"
+            ]
+          },
+          "title": "Socials"
         }
       },
       "required": [],
@@ -3415,6 +3479,14 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "Catalog"
+            },
+            {
+              "type": "string",
+              "const": "Cash"
             }
           ],
           "type": "string",
@@ -3662,6 +3734,28 @@
       ],
       "title": "deco-sites/jequiti/components/ui/BannerWithText.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvU0VPLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Default is 1 for mobile and all for desktop",
+          "title": "Text"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/jequiti/components/ui/SEO.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {
       "type": "object",
       "properties": {
@@ -3783,6 +3877,20 @@
             "required": []
           },
           "title": "Images"
+        },
+        "imagesWidth": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Images Width"
+        },
+        "imagesHeight": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Images Height"
         }
       },
       "required": [
@@ -3804,7 +3912,42 @@
         "alerts": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "title": "Text"
+              },
+              "href": {
+                "type": "string",
+                "title": "Href"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "title": "Text"
+                    },
+                    "href": {
+                      "type": "string",
+                      "title": "Href"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "href"
+                  ]
+                },
+                "title": "Children"
+              }
+            },
+            "required": [
+              "text",
+              "href"
+            ]
           },
           "title": "Alerts"
         },
@@ -3822,9 +3965,7 @@
           "title": "Suggestions"
         }
       },
-      "required": [
-        "alerts"
-      ],
+      "required": [],
       "title": "deco-sites/jequiti/components/header/Header.tsx@Props"
     },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
@@ -4957,6 +5098,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Njcm9sbFRyYWNrSlMudHN4": {
+      "title": "./islands/ScrollTrackJS.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ScrollTrackJS.tsx"
+          ],
+          "default": "./islands/ScrollTrackJS.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1ZpZXdTZW5kRXZlbnQudHN4": {
       "title": "./islands/ViewSendEvent.tsx",
       "type": "object",
@@ -5396,6 +5553,27 @@
             "deco-sites/jequiti/sections/BannerWithText.tsx"
           ],
           "default": "deco-sites/jequiti/sections/BannerWithText.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1NFTy50c3g=": {
+      "title": "deco-sites/jequiti/sections/SEO.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvdWkvU0VPLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/sections/SEO.tsx"
+          ],
+          "default": "deco-sites/jequiti/sections/SEO.tsx"
         }
       }
     },
@@ -6048,6 +6226,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Njcm9sbFRyYWNrSlMudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1ZpZXdTZW5kRXZlbnQudHN4"
         },
         {
@@ -6136,6 +6317,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0Jhbm5lcldpdGhUZXh0LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL1NFTy50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL3NlY3Rpb25zL0hlYWRlci50c3g="

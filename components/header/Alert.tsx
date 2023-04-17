@@ -1,31 +1,33 @@
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
-import SliderControllerJS from "deco-sites/jequiti/islands/SliderJS.tsx";
-import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
-import { useId } from "preact/hooks";
-
 export interface Props {
-  alerts: string[];
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
-  interval?: number;
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
 }
 
-function Alert({ alerts = [], interval = 5 }: Props) {
+function Alert({ alerts = [] }: Props) {
   return (
     <>
       <div class="bg-[#efefef] sm:block hidden">
-        <div class="max-w-[1336px] w-full mx-auto ">
-          {alerts.map((alert) => (
-            <Text
-              class="flex items-center h-[44px]"
-              variant="caption"
-              tone="default"
-            >
-              {alert}
-            </Text>
-          ))}
+        <div class="max-w-[1336px] w-full mx-auto flex gap-[1.5rem]">
+          {alerts.map((alert) => {
+            if (!alert?.children?.length) {
+              return (
+                <a href={alert.href}>
+                  <Text
+                    class="flex items-center h-[44px]"
+                    variant="caption"
+                    tone="default"
+                  >
+                    {alert.text}
+                  </Text>
+                </a>
+              );
+            }
+            return <a href=""></a>;
+          })}
         </div>
       </div>
       <div class="sm:hidden flex">

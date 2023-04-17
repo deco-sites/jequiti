@@ -39,10 +39,9 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  console.log(filters.length, variant, breadcrumb);
   return (
     <>
-      <Container class="px-4 sm:py-10">
+      <Container class="px-4">
         <div class="flex flex-row items-center sm:p-0 mb-2">
           <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
         </div>

@@ -62,10 +62,14 @@ function ProductShelf({
       <Slider
         class="col-span-full row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
-        slidePerView={4}
+        slidePerView={{
+          desktop: 4,
+          tablet: 3,
+          phone: 1,
+        }}
       >
         {images.map(({ href, srcMobile, srcDesktop, alt, title, linkText }) => (
-          <div class="max-w-[300px] min-w-[300px] mx-auto">
+          <div class="max-w-[300px] mx-auto">
             <a
               href={href}
               class={`overflow-hidden relative ${

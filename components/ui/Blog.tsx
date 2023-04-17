@@ -2,6 +2,7 @@ import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
 
 export interface Banner {
   srcMobile: LiveImage;
@@ -57,14 +58,14 @@ export default function BannnerGrid({
               </h2>
             </div>
           )}
-        <div
-          class={`grid gap-[8px] grid-cols-${
-            itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "1"
-          } md:grid-cols-${
-            itemsPerLine && itemsPerLine.desktop
-              ? itemsPerLine.desktop
-              : banners.length
-          }`}
+        <Slider
+          class="col-span-full row-start-2 row-end-5 flex items-stretch gap-[8px]"
+          snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
+          slidePerView={{
+            desktop: 4,
+            tablet: 3,
+            phone: 1,
+          }}
         >
           {banners.map((
             {
@@ -132,7 +133,7 @@ export default function BannnerGrid({
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </section>
     </Container>
   );

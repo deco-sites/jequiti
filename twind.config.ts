@@ -61,9 +61,9 @@ const options: Omit<Options, "selfURL"> = {
         "critical": "#B44125",
       },
       borderColor: {
-        "default": "#D4DBD7",
+        "default": "#EEEEEE",
         "default-inverse": "#FFFFFF",
-        "interactive": "#161616",
+        "interactive": "#7a206c",
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",

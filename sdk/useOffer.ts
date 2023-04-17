@@ -2,6 +2,7 @@ import type {
   AggregateOffer,
   UnitPriceSpecification,
 } from "deco-sites/std/commerce/types.ts";
+import { formatPrice } from "./format.ts";
 
 const bestInstallment = (
   acc: UnitPriceSpecification | null,
@@ -35,6 +36,7 @@ const bestInstallment = (
 
 const installmentToString = (
   installment: UnitPriceSpecification,
+  priceCurrency: string,
   // sellingPrice: number,
 ) => {
   const { billingDuration, billingIncrement } = installment;
@@ -45,7 +47,9 @@ const installmentToString = (
 
   // const withTaxes = sellingPrice < price;
 
-  return `em até ${billingDuration}x de R$ ${billingIncrement}`;
+  return `em até ${billingDuration}x de R$ ${
+    formatPrice(billingIncrement, priceCurrency!)
+  }`;
 };
 
 export const useOffer = (aggregateOffer?: AggregateOffer) => {
@@ -62,7 +66,7 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
     listPrice: listPrice?.price,
     seller,
     installments: installment && price
-      ? installmentToString(installment)
+      ? installmentToString(installment, aggregateOffer!.priceCurrency!)
       : null,
   };
 };

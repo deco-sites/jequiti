@@ -15,8 +15,9 @@ import * as $$$$$5 from "./islands/HeaderSearchMenu.tsx";
 import * as $$$$$6 from "./islands/HeaderModals.tsx";
 import * as $$$$$7 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$8 from "./islands/SearchControls.tsx";
-import * as $$$$$9 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$10 from "./islands/SendEventButton.tsx";
+import * as $$$$$9 from "./islands/ScrollTrackJS.tsx";
+import * as $$$$$10 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$11 from "./islands/SendEventButton.tsx";
 import * as $$$$$$$$0 from "./sections/InstagramGrid.tsx";
 import * as $$$$$$$$1 from "./sections/BannerGridCarousel.tsx";
 import * as $$$$$$$$2 from "./sections/Carousel.tsx";
@@ -32,11 +33,12 @@ import * as $$$$$$$$11 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$12 from "./sections/TabbedShelf.tsx";
 import * as $$$$$$$$13 from "./sections/BannerPLP.tsx";
 import * as $$$$$$$$14 from "./sections/BannerWithText.tsx";
-import * as $$$$$$$$15 from "./sections/Header.tsx";
-import * as $$$$$$$$16 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$17 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$18 from "./sections/Blog.tsx";
-import * as $$$$$$$$19 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$15 from "./sections/SEO.tsx";
+import * as $$$$$$$$16 from "./sections/Header.tsx";
+import * as $$$$$$$$17 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$18 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$19 from "./sections/Blog.tsx";
+import * as $$$$$$$$20 from "./sections/WhatsApp.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -116,8 +118,9 @@ const manifest = {
     "./islands/HeaderModals.tsx": $$$$$6,
     "./islands/ProductImageZoom.tsx": $$$$$7,
     "./islands/SearchControls.tsx": $$$$$8,
-    "./islands/ViewSendEvent.tsx": $$$$$9,
-    "./islands/SendEventButton.tsx": $$$$$10,
+    "./islands/ScrollTrackJS.tsx": $$$$$9,
+    "./islands/ViewSendEvent.tsx": $$$$$10,
+    "./islands/SendEventButton.tsx": $$$$$11,
   },
   "sections": {
     "deco-sites/jequiti/sections/InstagramGrid.tsx": $$$$$$$$0,
@@ -135,11 +138,12 @@ const manifest = {
     "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$12,
     "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$13,
     "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$14,
-    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$15,
-    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$16,
-    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$17,
-    "deco-sites/jequiti/sections/Blog.tsx": $$$$$$$$18,
-    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$19,
+    "deco-sites/jequiti/sections/SEO.tsx": $$$$$$$$15,
+    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$16,
+    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$17,
+    "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$18,
+    "deco-sites/jequiti/sections/Blog.tsx": $$$$$$$$19,
+    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$20,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,

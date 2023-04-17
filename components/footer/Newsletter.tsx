@@ -1,8 +1,14 @@
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import type { Image } from "deco-sites/std/components/types.ts";
 
-function Newsletter() {
+interface Props {
+  socials?: Array<{ href: string; image: Image; alt: string }>;
+}
+
+function Newsletter({ socials }: Props) {
   return (
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-6 max-w-[997px] mx-auto">
       <div class="flex flex-col gap-2 max-w-[400px]">
         <Text
           variant="heading-2"
@@ -25,12 +31,13 @@ function Newsletter() {
           class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
           placeholder="Digite seu e-mail favorito"
         />
-        <button
-          class="py-2 px-3 bg-interactive-inverse rounded-none"
+        <Button
+          class="py-2 px-3 rounded-none w-full sm:max-w-[282px] uppercase"
           type="bgutton" // prevent form's default behavior
+          variant="secondary"
         >
           Cadastrar
-        </button>
+        </Button>
       </form>
       <Text variant="caption" tone="default" class="text-center">
         Ao se cadastrar, você concorda com a nossa{" "}
@@ -38,6 +45,13 @@ function Newsletter() {
           política de privacidade
         </a>
       </Text>
+      <div>
+        {socials?.map((social) => (
+          <a href={social.href}>
+            <img src={social.image} alt={social.alt} width={40} height={40} />
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

@@ -26,12 +26,16 @@ function Highlights({ highlights = [], title }: Props) {
       <Slider
         class=""
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
-        slidePerView={6}
+        slidePerView={{
+          desktop: 6,
+          tablet: 4,
+          phone: 2.7,
+        }}
       >
         {highlights.map(({ href, src, alt, label }) => (
           <a
             href={href}
-            class="flex flex-col gap-[4px] items-center min-w-[190px]"
+            class="flex flex-col gap-[4px] items-center"
           >
             <Image
               class="rounded-full"

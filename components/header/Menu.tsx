@@ -6,6 +6,11 @@ import type { INavItem } from "./NavItem.tsx";
 
 export interface Props {
   items: INavItem[];
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
 }
 
 function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
@@ -24,7 +29,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   return (
     <li>
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-center w-full ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
@@ -77,7 +82,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 }
 
-function Menu({ items }: Props) {
+function Menu({ items, alerts }: Props) {
   return (
     <>
       <ul class="flex flex-col py-2">
@@ -86,7 +91,13 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
+            <Icon
+              id="User"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
             <Text variant="caption">Minha conta</Text>
           </a>
         </li>
@@ -95,7 +106,13 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="/wishlist"
           >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
+            <Icon
+              id="Heart"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
             <Text variant="caption">Favoritos</Text>
           </a>
         </li>
@@ -104,7 +121,13 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
+            <Icon
+              id="MapPin"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
             <Text variant="caption">Pedidos</Text>
           </a>
         </li>
@@ -113,7 +136,13 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
+            <Icon
+              id="Cash"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
             <Text variant="caption">Cashback</Text>
           </a>
         </li>
@@ -126,28 +155,18 @@ function Menu({ items }: Props) {
           </a>
         </li>
       </ul>
-      <div>
-        <h2>Categorias</h2>
-        <ul class="px-4 flex-grow flex flex-col">
+      <div class="px-4">
+        <h2 class="font-bold">Categorias</h2>
+        <ul class=" flex-grow flex flex-col">
           {items.map((item) => <MenuItem item={item} />)}
         </ul>
       </div>
       <ul class="px-4 flex-grow flex flex-col">
-        <li>
-          <a href="">A Jequiti</a>
-        </li>
-        <li>
-          <a href="">Baú da Felicidade</a>
-        </li>
-        <li>
-          <a href="">Atendimento</a>
-        </li>
-        <li>
-          <a href="">Blog</a>
-        </li>
-        <li>
-          <a href="">Catálogo Digital</a>
-        </li>
+        {alerts?.map((alert) => (
+          <li>
+            <a href={alert.href}>{alert.text}</a>
+          </li>
+        ))}
       </ul>
     </>
   );

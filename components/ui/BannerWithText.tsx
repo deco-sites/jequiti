@@ -46,7 +46,7 @@ export default function BannerWithText({
   banner,
 }: Props) {
   return (
-    <Container>
+    <Container class="sm:py-[100px]">
       <section class="flex w-full flex-col px-4 md:px-0 mx-auto sm:flex-row">
         <div class="w-full sm:w-[50%]">
           <a
@@ -100,7 +100,7 @@ export default function BannerWithText({
 
           {cta && (
             <a href={cta?.href}>
-              <Button class="rounded-none">
+              <Button class="rounded-none" variant="secondary">
                 {cta?.text}
               </Button>
             </a>

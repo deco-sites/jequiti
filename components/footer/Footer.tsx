@@ -3,6 +3,7 @@ import Icon, {
 } from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import type { Image } from "deco-sites/std/components/types.ts";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -13,7 +14,12 @@ export type StringItem = {
   href: string;
 };
 
-export type Item = StringItem | IconItem;
+export type ImageItem = {
+  image: Image;
+  href?: string;
+};
+
+export type Item = StringItem | IconItem | ImageItem;
 
 export type Section = {
   label: string;
@@ -23,6 +29,10 @@ export type Section = {
 const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
+
+const isImage = (item: Item): item is ImageItem =>
+  // deno-lint-ignore no-explicit-any
+  typeof (item as any)?.image === "string";
 
 function SectionItem({ item }: { item: Item }) {
   return (
@@ -41,6 +51,12 @@ function SectionItem({ item }: { item: Item }) {
               strokeWidth={0.01}
             />
           </div>
+        )
+        : isImage(item)
+        ? (
+          <a href={item.href}>
+            <img src={item.image} alt="" width={100} />
+          </a>
         )
         : (
           <a href={item.href}>
@@ -62,16 +78,18 @@ function FooterContainer(
 
 export interface Props {
   sections?: Section[];
+  sections2?: Section[];
+  socials?: Array<{ href: string; image: Image; alt: string }>;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ sections = [], sections2 = [], socials = [] }: Props) {
   return (
-    <footer class="w-full flex flex-col divide-y-1 divide-default">
+    <footer class="w-full flex flex-col divide-y-1 divide-default mt-[30px]">
       <div>
         <div class="w-full bg-footer">
           <Container class="w-full bg-footer flex flex-col divide-y-1 divide-default">
             <FooterContainer>
-              <Newsletter />
+              <Newsletter socials={socials} />
             </FooterContainer>
           </Container>
         </div>
@@ -92,7 +110,10 @@ function Footer({ sections = [] }: Props) {
 
                     <ul
                       class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                        (isIcon(section.children[0]) ||
+                            isImage(section.children[0]))
+                          ? "flex-row"
+                          : "flex-col"
                       } gap-2 pt-2 flex-wrap`}
                     >
                       {section.children.map((item) => (
@@ -138,53 +159,67 @@ function Footer({ sections = [] }: Props) {
 
       <div>
         <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <ul class="flex items-center justify-center gap-2">
+          <FooterContainer class="flex  justify-between w-full">
+            <ul class="flex flex-col lg:flex-row gap-20 justify-between w-full">
+              {sections2.map((section) => (
+                <li>
+                  <div>
+                    <Text
+                      variant="heading-3"
+                      tone="default"
+                      class="text-[14px] uppercase text-center w-full flex justify-center"
+                    >
+                      {section.label}
+                    </Text>
+
+                    <ul
+                      class={`flex ${
+                        (isIcon(section.children[0]) ||
+                            isImage(section.children[0]))
+                          ? "flex-row"
+                          : "flex-col"
+                      } gap-2 pt-2 flex-wrap`}
+                    >
+                      {section.children.map((item) => (
+                        <li>
+                          <SectionItem item={item} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ))}
               <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
+                <Text
+                  class="flex items-center gap-1"
+                  variant="body"
+                  tone="default"
                 >
-                  <Icon
-                    class="text-default"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
+                  Powered by{" "}
+                  <a
+                    href="https://www.deco.cx"
+                    aria-label="powered by https://www.deco.cx"
+                  >
+                    <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+                  </a>
+                </Text>
               </li>
             </ul>
+          </FooterContainer>
+        </Container>
+      </div>
+
+      <div>
+        <Container class="w-full">
+          <FooterContainer class="flex justify-center w-full override:(pt-[25px] px-[15px]) ">
             <Text
-              class="flex items-center gap-1"
+              class="flex items-center text-[12px]"
               variant="body"
               tone="default"
             >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
+              SS COMÉRCIO DE COSMÉTICOS E PRODUTOS DE HIGIENE PESSOAL LTDA -
+              CNPJ: 07.278.350/0001-63 AV. DAS COMUNICAÇÕES, 927 - VILA JARAGUA,
+              OSASCO - SP, 06276-906
             </Text>
           </FooterContainer>
         </Container>
