@@ -3,7 +3,8 @@ import Icon, {
 } from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Container from "deco-sites/jequiti/components/ui/Container.tsx";
-import type { Image } from "deco-sites/std/components/types.ts";
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -15,8 +16,11 @@ export type StringItem = {
 };
 
 export type ImageItem = {
-  image: Image;
+  image: ImageType;
   href?: string;
+  alt?: string;
+  width: number;
+  height: number;
 };
 
 export type Item = StringItem | IconItem | ImageItem;
@@ -55,7 +59,14 @@ function SectionItem({ item }: { item: Item }) {
         : isImage(item)
         ? (
           <a href={item.href}>
-            <img src={item.image} alt="" width={100} />
+            <Image
+              class="p-6"
+              src={item.image}
+              alt={item.alt}
+              width={item.width ?? 100}
+              height={item.height ?? 40}
+              loading="lazy"
+            />
           </a>
         )
         : (
@@ -79,7 +90,7 @@ function FooterContainer(
 export interface Props {
   sections?: Section[];
   sections2?: Section[];
-  socials?: Array<{ href: string; image: Image; alt: string }>;
+  socials?: Array<{ href: string; image: ImageType; alt: string }>;
 }
 
 function Footer({ sections = [], sections2 = [], socials = [] }: Props) {

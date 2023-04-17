@@ -3191,10 +3191,27 @@
             "null"
           ],
           "title": "Href"
+        },
+        "alt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Alt"
+        },
+        "width": {
+          "type": "number",
+          "title": "Width"
+        },
+        "height": {
+          "type": "number",
+          "title": "Height"
         }
       },
       "required": [
-        "image"
+        "image",
+        "width",
+        "height"
       ],
       "title": "ImageItem"
     },
@@ -3244,6 +3261,9 @@
       },
       "title": "Section[]"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9JbWFnZS50c3g=@default": {
+      "title": "default"
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -3268,7 +3288,7 @@
                 "title": "Href"
               },
               "image": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9JbWFnZS50c3g=@default",
                 "title": "Image"
               },
               "alt": {
