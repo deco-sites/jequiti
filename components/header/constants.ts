@@ -1,4 +1,4 @@
-export const headerHeight = "170px";
+export const headerHeight = "185px";
 export const headerHeightMobile = "123px";
 
 export const navbarHeight = "53px";

@@ -1,4 +1,4 @@
-import Spinner from "deco-sites/fashion/components/ui/Spinner.tsx";
+import Spinner from "deco-sites/jequiti/components/ui/Spinner.tsx";
 
 export default function Loading() {
   return (

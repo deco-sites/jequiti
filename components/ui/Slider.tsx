@@ -3,25 +3,36 @@ import type { JSX } from "preact";
 
 type SliderProps = JSX.IntrinsicElements["ul"] & {
   snap?: string;
-  slidePerView?: number;
+  slidePerView?: number | { desktop: number; tablet: number; phone: number };
 };
+
+function responsiveValues(
+  value: number | { desktop: number; tablet: number; phone: number },
+) {
+  if (typeof value === "number") {
+    return { desktop: value, tablet: value, phone: value };
+  } else return value;
+}
 
 export function Slider({
   children,
   snap = "scroll-snap-center",
   class: _class = "gap-6 scrollbar-none",
+  slidePerView = 1,
   ...props
 }: SliderProps) {
+  const { tablet, desktop, phone } = responsiveValues(slidePerView);
+
   return (
     <ul
       data-slider
-      class={`grid grid-flow-col items-center overflow-x-auto overscroll-x-contain snap-x snap-mandatory ${_class}`}
+      class={`flex grid-flow-col items-center overflow-x-auto overscroll-x-contain snap-x snap-mandatory scrollbar-none ${_class}`}
       {...props}
     >
       {Children.map(children, (child, index) => (
         <li
           data-slider-item={index}
-          class={`${snap}`}
+          class={`${snap} min-w-[calc(100%/${phone})] sm:min-w-[calc(100%/${tablet})] lg:min-w-[calc(100%/${desktop})]`}
         >
           {child}
         </li>

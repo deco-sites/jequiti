@@ -1,16 +1,19 @@
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
-import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import ProductCard from "deco-sites/jequiti/components/product/ProductCard.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
+import SliderControllerJS from "deco-sites/jequiti/islands/SliderJS.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
-import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
+import type {
+  Product,
+  ProductDetailsPage,
+} from "deco-sites/std/commerce/types.ts";
+import ViewSendEvent from "deco-sites/jequiti/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 
 export interface Props {
   title: string;
@@ -38,11 +41,16 @@ function ProductShelf({
       </h2>
 
       <Slider
-        class="col-span-full row-start-2 row-end-5"
-        snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
+        class="col-span-full row-start-2 row-end-5 override:(items-stretch)"
+        snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
+        slidePerView={{
+          desktop: 4,
+          phone: 1,
+          tablet: 3,
+        }}
       >
         {products?.map((product) => (
-          <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
+          <div class="flex flex-1 max-w-[270px] sm:max-w-[292px] mx-auto flex items-stretch">
             <ProductCard product={product} itemListName={title} />
           </div>
         ))}

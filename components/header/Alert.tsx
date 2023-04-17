@@ -1,6 +1,6 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import SliderControllerJS from "deco-sites/jequiti/islands/SliderJS.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
 import { useId } from "preact/hooks";
 
 export interface Props {

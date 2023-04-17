@@ -1,4 +1,4 @@
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
@@ -60,7 +60,9 @@ export default function BannerGrid({
               : banners.length
           }`}
         >
-          {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
+          {banners.map((
+            { href, srcMobile, srcDesktop, alt },
+          ) => (
             <a
               href={href}
               class={`overflow-hidden ${

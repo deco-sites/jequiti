@@ -1,7 +1,7 @@
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 
 import Button from "./Button.tsx";
 
@@ -83,7 +83,7 @@ export default function BannerWithText({
             </Picture>
           </a>
         </div>
-        <div class="w-full flex items-center sm:items-start flex-col sm: sm:w-[50%] sm:p-[80px] gap-[25px]">
+        <div class="w-full flex items-center sm:items-start flex-col sm:w-[50%] sm:p-[80px] gap-[25px]">
           {title &&
             (
               <div class="gap-[25px] md:gap-[25px] flex flex-col justify-center mt-6 sm:justify-start">

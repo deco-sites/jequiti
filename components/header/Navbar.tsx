@@ -1,13 +1,13 @@
-import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import HeaderButton from "deco-sites/jequiti/islands/HeaderButton.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
-import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
-import Searchbar from "deco-sites/fashion/components/search/Searchbar.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import type { Props as SearchbarProps } from "deco-sites/jequiti/components/search/Searchbar.tsx";
+import Searchbar from "deco-sites/jequiti/components/search/Searchbar.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];

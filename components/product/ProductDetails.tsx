@@ -1,26 +1,26 @@
 import { useId } from "preact/hooks";
-import AddToCartButton from "deco-sites/fashion/islands/AddToCartButton.tsx";
-import ShippingSimulation from "deco-sites/fashion/islands/ShippingSimulation.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Breadcrumb from "deco-sites/fashion/components/ui/Breadcrumb.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import AddToCartButton from "deco-sites/jequiti/islands/AddToCartButton.tsx";
+import ShippingSimulation from "deco-sites/jequiti/islands/ShippingSimulation.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Breadcrumb from "deco-sites/jequiti/components/ui/Breadcrumb.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import {
   Slider,
   SliderDots,
-} from "deco-sites/fashion/components/ui/Slider.tsx";
-import SliderJS from "deco-sites/fashion/components/ui/SliderJS.tsx";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
-import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
+} from "deco-sites/jequiti/components/ui/Slider.tsx";
+import SliderJS from "deco-sites/jequiti/components/ui/SliderJS.tsx";
+import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
+import { formatPrice } from "deco-sites/jequiti/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
+import ViewSendEvent from "deco-sites/jequiti/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
-import ProductImageZoom from "deco-sites/fashion/islands/ProductImageZoom.tsx";
+import ProductImageZoom from "deco-sites/jequiti/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
 
@@ -35,8 +35,8 @@ export interface Props {
   variant?: Variant;
 }
 
-const WIDTH = 800;
-const HEIGHT = 800;
+const WIDTH = 600;
+const HEIGHT = 600;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -77,7 +77,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   return (
     <>
       {/* Code and name */}
-      <div class="mt-4 sm:mt-8">
+      <div>
         <Text>{brand}</Text>
         <h1>
           <Text variant="heading-2">{name}</Text>
@@ -114,7 +114,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex gap-2">
+      <div class="fixed bottom-0 right-0 mt-4 sm:mt-10 flex flex gap-2 bg-white w-full p-[8px] sm:(py-0 px-0 static)">
         {seller && (
           <>
             <QuantitySelector
@@ -174,8 +174,21 @@ function Details({
     breadcrumbList,
     product,
   } = page;
-  const { image: images = [], isVariantOf, productID, name, description } =
-    product;
+  const {
+    image: images = [],
+    isVariantOf,
+    productID,
+    name,
+    description,
+    offers,
+  } = product;
+  const { price, listPrice } = useOffer(offers);
+
+  const discount = price && listPrice ? listPrice - price : 0;
+  const discountPercentage = Math.ceil(
+    discount && listPrice ? discount * 100 / (listPrice ?? 0) : 0,
+  );
+
   /**
    * Product slider variant
    *
@@ -185,78 +198,108 @@ function Details({
    */
   if (variant === "slider") {
     return (
-      <div class="flex flex-col">
+      <div class="flex flex-col px-[8px] sm:py-0">
         {/* Breadcrumb */}
         <Breadcrumb
-          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          itemListElement={breadcrumbList?.itemListElement}
         />
         <div
-          id={id}
-          class={`grid grid-cols-1 gap-4 sm:(grid-cols-[max-content_40vw_40vw] grid-rows-1  max-h-[calc(${
+          class={`flex flex-col sm:flex-row sm:( max-h-[calc(${
             (HEIGHT / WIDTH).toFixed(2)
-          }*40vw)])`}
+          }*40vw)] gap-[50px]) py-[30px] `}
         >
-          {/* Image Slider */}
-          <div class="relative sm:(col-start-2 col-span-1 row-start-1)">
-            <Slider class="gap-6">
-              {images.map((img, index) => (
+          <div
+            id={id}
+            class="w-full flex flex-col sm:(grid grid-cols-[63px_1fr] w-[60%]) gap-[16px]"
+          >
+            {/* Dots */}
+            <SliderDots class=" gap-2 override:(justify-start hidden) overflow-auto px-4 sm:(px-0 flex-col flex)">
+              {images.map((img, _) => (
                 <Image
-                  class={`scroll-snap-center min-w-[100vw] sm:(min-w-[40vw])`}
-                  sizes="(max-width: 640px) 100vw, 40vw"
                   style={{ aspectRatio: ASPECT_RATIO }}
+                  class="group-disabled:(border-interactive) border rounded min-w-[63px]"
+                  width={63}
+                  height={63}
                   src={img.url!}
                   alt={img.alternateName}
-                  width={WIDTH}
-                  height={HEIGHT}
-                  // Preload LCP image for better web vitals
-                  preload={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ))}
-            </Slider>
+            </SliderDots>
 
-            <div class="absolute left-2 top-1/2  bg-interactive-inverse rounded-full border-default border">
-              <Button variant="icon" data-slide="prev" aria-label="Previous">
-                <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-              </Button>
-            </div>
-            <div class="absolute right-2 top-1/2 bg-interactive-inverse rounded-full border-default border">
-              <Button variant="icon" data-slide="next" aria-label="Next">
-                <Icon size={20} id="ChevronRight" strokeWidth={3} />
-              </Button>
-            </div>
+            {/* Image Slider */}
+            <div>
+              <div class="relative grid max-w-[600px]">
+                <Slider class="gap-6">
+                  {images.map((img, index) => (
+                    <Image
+                      class={`scroll-snap-center max-w-[100%] mx-auto`}
+                      sizes="(max-width: 640px) 100vw, 40vw"
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      src={img.url!}
+                      alt={img.alternateName}
+                      width={WIDTH}
+                      height={HEIGHT}
+                      // Preload LCP image for better web vitals
+                      preload={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                  ))}
+                </Slider>
 
-            <div class="absolute top-2 right-2 bg-interactive-inverse rounded-full">
-              <ProductImageZoom
-                images={images}
-                width={1280}
-                height={1280 * HEIGHT / WIDTH}
-              />
+                <div class="absolute  left-2 top-1/2  bg-interactive-inverse rounded-full border-default border">
+                  <Button
+                    variant="icon"
+                    data-slide="prev"
+                    aria-label="Previous"
+                  >
+                    <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+                  </Button>
+                </div>
+                <div class="absolute right-2 top-1/2 bg-interactive-inverse rounded-full border-default border">
+                  <Button variant="icon" data-slide="next" aria-label="Next">
+                    <Icon size={20} id="ChevronRight" strokeWidth={3} />
+                  </Button>
+                </div>
+
+                <SliderDots class="w-full absolute bottom-0 gap-2 override:(justify-center) overflow-auto px-4 sm:(px-0 flex)">
+                  {images.map((img, _) => (
+                    <div
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      class="group-disabled:(border-interactive) border rounded-full min-w-[10px] sm:min-w-[10px]"
+                    />
+                  ))}
+                </SliderDots>
+
+                <div class="absolute top-0 left-0 bg-[#d13482] px-[7px] py-[4px] leading-none">
+                  <Text
+                    variant="caption"
+                    class="text-white font-bold text-[14px]"
+                  >
+                    -{discountPercentage}%
+                  </Text>
+                </div>
+                {
+                  /* <div class="absolute top-2 right-2 bg-interactive-inverse rounded-full">
+                <ProductImageZoom
+                  images={images}
+                  width={1280}
+                  height={1280 * HEIGHT / WIDTH}
+                />
+              </div> */
+                }
+                <div class="absolute right-0">
+                  <WishlistButton
+                    variant="full"
+                    productId={isVariantOf?.productGroupID}
+                    sku={productID}
+                    title={name}
+                  />
+                </div>
+              </div>
             </div>
-            <WishlistButton
-              variant="full"
-              productId={isVariantOf?.productGroupID}
-              sku={productID}
-              title={name}
-            />
           </div>
-
-          {/* Dots */}
-          <SliderDots class="gap-2 override:(justify-start) overflow-auto px-4 sm:(px-0 flex-col col-start-1 col-span-1 row-start-1)">
-            {images.map((img, _) => (
-              <Image
-                style={{ aspectRatio: ASPECT_RATIO }}
-                class="group-disabled:(border-interactive) border rounded min-w-[63px] sm:min-w-[100px]"
-                width={63}
-                height={63}
-                src={img.url!}
-                alt={img.alternateName}
-              />
-            ))}
-          </SliderDots>
-
           {/* Product Info */}
-          <div class="px-4 sm:(pr-0 pl-6 col-start-3 col-span-1 row-start-1)">
+          <div class="w-full  sm:w-[40%]">
             <ProductInfo page={page} />
           </div>
         </div>
@@ -266,17 +309,24 @@ function Details({
           <Text variant="caption">
             {description && (
               <details>
-                <summary class="cursor-pointer border-default border-y flex py-[15px]">
+                <summary class="cursor-pointer border-default border-y flex justify-between py-[15px]">
                   <h2 class="mx-[1.5rem]">
                     <Text variant="heading-2">Descrição</Text>
                   </h2>
+                  <Icon
+                    id="ChevronRight"
+                    class="open-hide"
+                    width={20}
+                    height={20}
+                    strokeWidth={1}
+                  />
                 </summary>
-                <div class="flex">
+                <div class="flex flex-col sm:flex-row">
                   <div
-                    class="w-[60%] p-[15px]"
+                    class="w-full sm:w-[60%] p-[15px]"
                     dangerouslySetInnerHTML={{ __html: description }}
                   />
-                  <div class="w-[40%]">
+                  <div class="w-full sm:w-[40%]">
                     <Image
                       style={{ aspectRatio: ASPECT_RATIO }}
                       class="group-disabled:(border-interactive)  rounded min-w-[63px] sm:min-w-[100px]"
@@ -355,7 +405,7 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
     : maybeVar;
 
   return (
-    <Container class="py-0 sm:py-10">
+    <Container class="py-0 ">
       {page ? <Details page={page} variant={variant} /> : <NotFound />}
     </Container>
   );

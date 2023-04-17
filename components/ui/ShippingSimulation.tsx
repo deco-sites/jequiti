@@ -1,9 +1,9 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Input from "deco-sites/fashion/components/ui/Input.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Input from "deco-sites/jequiti/components/ui/Input.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import { formatPrice } from "deco-sites/jequiti/sdk/format.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import type {
   SimulationOrderForm,

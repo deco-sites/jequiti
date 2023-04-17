@@ -1,1 +1,1 @@
-export { default } from "deco-sites/fashion/components/ui/SliderJS.tsx";
+export { default } from "deco-sites/jequiti/components/ui/SliderJS.tsx";

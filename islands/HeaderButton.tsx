@@ -1,1 +1,1 @@
-export { default } from "deco-sites/fashion/components/header/Buttons.tsx";
+export { default } from "deco-sites/jequiti/components/header/Buttons.tsx";

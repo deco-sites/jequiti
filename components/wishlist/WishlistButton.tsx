@@ -1,6 +1,6 @@
 import { useComputed, useSignal } from "@preact/signals";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import { useWishlist } from "deco-sites/std/commerce/vtex/hooks/useWishlist.ts";
 import { useUser } from "deco-sites/std/commerce/vtex/hooks/useUser.ts";
 import type { WishlistItem } from "deco-sites/std/commerce/vtex/types.ts";

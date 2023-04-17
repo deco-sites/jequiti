@@ -1,13 +1,13 @@
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
-import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
+import SliderControllerJS from "deco-sites/jequiti/islands/SliderJS.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import { useId } from "preact/hooks";
-import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
+import ViewSendEvent from "deco-sites/jequiti/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
@@ -22,6 +22,8 @@ export interface Banner {
    * @description When you click you go to
    */
   href: string;
+  title: string;
+  linkText: string;
 }
 
 export interface Props {
@@ -60,12 +62,13 @@ function ProductShelf({
       <Slider
         class="col-span-full row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
+        slidePerView={4}
       >
-        {images.map(({ href, srcMobile, srcDesktop, alt }) => (
-          <div class="max-w-[300px] min-w-[300px] ">
+        {images.map(({ href, srcMobile, srcDesktop, alt, title, linkText }) => (
+          <div class="max-w-[300px] min-w-[300px] mx-auto">
             <a
               href={href}
-              class={`overflow-hidden ${
+              class={`overflow-hidden relative ${
                 borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
               } ${
                 borderRadius?.desktop
@@ -95,6 +98,14 @@ function ProductShelf({
                   loading="lazy"
                 />
               </Picture>
+              <div class="absolute bottom-0 pb-[20px] flex flex-col items-center w-full">
+                <Text class="uppercase text-default-inverse font-bold text-[20px] pb-[13px]">
+                  {title}
+                </Text>
+                <Text class="underline uppercase text-default-inverse font-bold text-[14px]">
+                  {linkText} {">>"}
+                </Text>
+              </div>
             </a>
           </div>
         ))}

@@ -1,8 +1,8 @@
 import Icon, {
   AvailableIcons,
-} from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+} from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -110,7 +110,7 @@ function Footer({ sections = [] }: Props) {
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
                 <li>
-                  <Text variant="body" tone="default-inverse">
+                  <Text variant="body" tone="default">
                     <details>
                       <summary>
                         {section.label}

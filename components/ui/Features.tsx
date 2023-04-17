@@ -1,8 +1,8 @@
 import Icon, {
   AvailableIcons,
-} from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+} from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 
 export interface Feature {
   /**

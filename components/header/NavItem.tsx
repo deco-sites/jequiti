@@ -1,4 +1,4 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
 
@@ -26,7 +26,7 @@ function NavItem({ item }: { item: INavItem }) {
       {((children && children.length > 0) || (images && images.length > 0)) &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen mt-[${headerHeight}] max-w-[1336px] mx-auto translate-x-[-50%]`}
+            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start gap-6 border-t-1 border-b-2 border-default w-screen mt-[${headerHeight}] max-w-[1336px] mx-auto translate-x-[-50%]`}
             style={{ top: "0px", left: "50%" }}
           >
             <ul class="flex items-start justify-center gap-6">

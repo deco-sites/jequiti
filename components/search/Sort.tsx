@@ -1,5 +1,5 @@
 import { useMemo } from "preact/hooks";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { JSX } from "preact";
 

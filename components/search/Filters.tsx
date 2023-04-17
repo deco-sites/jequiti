@@ -1,5 +1,5 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Avatar from "deco-sites/jequiti/components/ui/Avatar.tsx";
 import type {
   Filter,
   FilterToggle,

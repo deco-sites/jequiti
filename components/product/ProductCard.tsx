@@ -1,13 +1,13 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import WishlistIcon from "deco-sites/fashion/islands/WishlistButton.tsx";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
-import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
-import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossiblities.ts";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Avatar from "deco-sites/jequiti/components/ui/Avatar.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import WishlistIcon from "deco-sites/jequiti/islands/WishlistButton.tsx";
+import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
+import { formatPrice } from "deco-sites/jequiti/sdk/format.ts";
+import { useVariantPossibilities } from "deco-sites/jequiti/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
-import AddToCartButton from "deco-sites/fashion/islands/AddToCartButton.tsx";
+import AddToCartButton from "deco-sites/jequiti/islands/AddToCartButton.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
@@ -73,9 +73,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group px-[24px] py-[12px] border-default border-1"
+      class="w-full group px-[24px] py-[12px] border-default border-1 flex flex-col"
     >
-      <a href={url} aria-label="product link">
+      <a href={url} aria-label="product link" class="flex flex-col flex-1">
         <div class="relative w-full">
           <div class="absolute top-0 right-0">
             <WishlistIcon
@@ -84,7 +84,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               title={name}
             />
           </div>
-          {discountPercentage && (
+          {discountPercentage !== 0 && (
             <div class="absolute top-0 left-0 bg-[#d13482] px-[7px] py-[4px] leading-none">
               <Text variant="caption" class="text-white font-bold text-[14px]">
                 -{discountPercentage}%
@@ -144,10 +144,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="flex flex-col gap-1 py-2 flex-1">
           <Text class="text-interactive">{brand}</Text>
           <Text
-            class="overflow-hidden overflow-ellipsis line-clamp-2"
+            class="overflow-hidden overflow-ellipsis line-clamp-2 flex flex-1"
             variant="caption"
           >
             {name}

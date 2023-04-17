@@ -187,6 +187,14 @@ const options: Omit<Options, "selfURL"> = {
       css`& > *:nth-child(${pos}) {${
         style.replace(/\[/, "").replace(/\]/, "").replaceAll("_", " ")
       } }`,
+    "tab-radio-content": ([pos, style]) =>
+      css`& [type="radio"]:nth-of-type(${pos}):checked ~  .tab-content:nth-of-type(${pos}) {${
+        style.replace(/\[/, "").replace(/\]/, "").replaceAll("_", " ")
+      } }`,
+    "tab-radio-button": ([pos, style]) =>
+      css`& [type="radio"]:nth-of-type(${pos}):checked ~ .tabs .tab:nth-of-type(${pos}) {${
+        style.replace(/\[/, "").replace(/\]/, "").replaceAll("_", " ")
+      } }`,
   },
 };
 

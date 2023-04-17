@@ -1,7 +1,7 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Highlight {
@@ -24,8 +24,9 @@ function Highlights({ highlights = [], title }: Props) {
       </h2>
 
       <Slider
-        class="gap-6"
+        class=""
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+        slidePerView={6}
       >
         {highlights.map(({ href, src, alt, label }) => (
           <a
