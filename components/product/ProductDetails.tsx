@@ -23,6 +23,7 @@ import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "deco-sites/jequiti/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
+import QuantityAddToCartButton from "../../islands/QuantityAddToCartButton.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -114,24 +115,17 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="fixed bottom-0 right-0 mt-4 sm:mt-10 flex flex gap-2 bg-white w-full p-[8px] sm:(py-0 px-0 static)">
+      <div class="fixed bottom-0 right-0 mt-4 sm:mt-10 flex gap-2 bg-white w-full p-[8px] sm:(py-0 px-0 static)">
         {seller && (
           <>
-            <QuantitySelector
-              disabled={isGift}
-              quantity={0}
-              onChange={(quantity) => {
-                // updateItems({ orderItems: [{ index, quantity }] });
-                // const quantityDiff = quantity - item.quantity;
-              }}
-            />
-            <AddToCartButton
+            <QuantityAddToCartButton
               skuId={productID}
               sellerId={seller}
               price={price ?? 0}
               discount={price && listPrice ? listPrice - price : 0}
               name={product.name ?? ""}
               productGroupId={product.isVariantOf?.productGroupID ?? ""}
+              text={"comprar"}
             />
           </>
         )}
@@ -213,7 +207,7 @@ function Details({
             class="w-full flex flex-col sm:(grid grid-cols-[63px_1fr] w-[60%]) gap-[16px]"
           >
             {/* Dots */}
-            <SliderDots class=" gap-2 override:(justify-start hidden) overflow-auto px-4 sm:(px-0 flex-col flex)">
+            <SliderDots class=" gap-2 override:(justify-start hidden sm:flex) overflow-auto px-4 sm:(px-0 flex-col flex)">
               {images.map((img, _) => (
                 <Image
                   style={{ aspectRatio: ASPECT_RATIO }}

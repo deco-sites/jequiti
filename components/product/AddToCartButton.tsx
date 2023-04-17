@@ -20,6 +20,7 @@ function AddToCartButton(
     price,
     productGroupId,
     name,
+    quantity = 1,
     text = "Adicionar à Sacola",
   }: Props,
 ) {
@@ -30,6 +31,7 @@ function AddToCartButton(
     price,
     productGroupId,
     name,
+    quantity,
   });
 
   return (

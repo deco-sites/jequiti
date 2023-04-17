@@ -9,6 +9,7 @@ export interface Options {
   sellerId?: string;
   price: number;
   discount: number;
+  quantity?: number;
   /**
    * sku name
    */
@@ -17,7 +18,8 @@ export interface Options {
 }
 
 export const useAddToCart = (
-  { skuId, sellerId, price, discount, name, productGroupId }: Options,
+  { skuId, sellerId, price, discount, name, productGroupId, quantity = 1 }:
+    Options,
 ) => {
   const isAddingToCart = useSignal(false);
   const { displayCart } = useUI();
@@ -26,6 +28,7 @@ export const useAddToCart = (
   const onClick = useCallback(async (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log(quantity);
 
     if (!sellerId) {
       return;
@@ -34,7 +37,7 @@ export const useAddToCart = (
     try {
       isAddingToCart.value = true;
       await addItems({
-        orderItems: [{ id: skuId, seller: sellerId, quantity: 1 }],
+        orderItems: [{ id: skuId, seller: sellerId, quantity }],
       });
 
       sendAnalyticsEvent({
@@ -42,7 +45,7 @@ export const useAddToCart = (
         params: {
           items: [{
             item_id: productGroupId,
-            quantity: 1,
+            quantity,
             price,
             discount,
             item_name: name,
@@ -55,7 +58,7 @@ export const useAddToCart = (
     } finally {
       isAddingToCart.value = false;
     }
-  }, [skuId, sellerId]);
+  }, [skuId, sellerId, quantity]);
 
   return { onClick, disabled: loading.value, loading: isAddingToCart.value };
 };

@@ -10,14 +10,16 @@ import * as $$$$$0 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$1 from "./islands/WishlistButton.tsx";
 import * as $$$$$2 from "./islands/AddToCartButton.tsx";
 import * as $$$$$3 from "./islands/HeaderButton.tsx";
-import * as $$$$$4 from "./islands/SliderJS.tsx";
-import * as $$$$$5 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$6 from "./islands/HeaderModals.tsx";
-import * as $$$$$7 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$8 from "./islands/SearchControls.tsx";
-import * as $$$$$9 from "./islands/ScrollTrackJS.tsx";
-import * as $$$$$10 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$11 from "./islands/SendEventButton.tsx";
+import * as $$$$$4 from "./islands/QuantitySelector.tsx";
+import * as $$$$$5 from "./islands/SliderJS.tsx";
+import * as $$$$$6 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$7 from "./islands/HeaderModals.tsx";
+import * as $$$$$8 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$9 from "./islands/SearchControls.tsx";
+import * as $$$$$10 from "./islands/ScrollTrackJS.tsx";
+import * as $$$$$11 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$12 from "./islands/QuantityAddToCartButton.tsx";
+import * as $$$$$13 from "./islands/SendEventButton.tsx";
 import * as $$$$$$$$0 from "./sections/InstagramGrid.tsx";
 import * as $$$$$$$$1 from "./sections/BannerGridCarousel.tsx";
 import * as $$$$$$$$2 from "./sections/Carousel.tsx";
@@ -113,14 +115,16 @@ const manifest = {
     "./islands/WishlistButton.tsx": $$$$$1,
     "./islands/AddToCartButton.tsx": $$$$$2,
     "./islands/HeaderButton.tsx": $$$$$3,
-    "./islands/SliderJS.tsx": $$$$$4,
-    "./islands/HeaderSearchMenu.tsx": $$$$$5,
-    "./islands/HeaderModals.tsx": $$$$$6,
-    "./islands/ProductImageZoom.tsx": $$$$$7,
-    "./islands/SearchControls.tsx": $$$$$8,
-    "./islands/ScrollTrackJS.tsx": $$$$$9,
-    "./islands/ViewSendEvent.tsx": $$$$$10,
-    "./islands/SendEventButton.tsx": $$$$$11,
+    "./islands/QuantitySelector.tsx": $$$$$4,
+    "./islands/SliderJS.tsx": $$$$$5,
+    "./islands/HeaderSearchMenu.tsx": $$$$$6,
+    "./islands/HeaderModals.tsx": $$$$$7,
+    "./islands/ProductImageZoom.tsx": $$$$$8,
+    "./islands/SearchControls.tsx": $$$$$9,
+    "./islands/ScrollTrackJS.tsx": $$$$$10,
+    "./islands/ViewSendEvent.tsx": $$$$$11,
+    "./islands/QuantityAddToCartButton.tsx": $$$$$12,
+    "./islands/SendEventButton.tsx": $$$$$13,
   },
   "sections": {
     "deco-sites/jequiti/sections/InstagramGrid.tsx": $$$$$$$$0,
