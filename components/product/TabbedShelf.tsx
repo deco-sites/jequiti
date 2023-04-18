@@ -14,8 +14,10 @@ import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 
 export interface Props {
   title: string;
+  shelfTitles?: string[];
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
+  shelfs?: LoaderReturnType<Product[][] | null>;
 }
 
 function ShelfItem({ products, title }: Props) {
@@ -86,10 +88,13 @@ function ShelfItem({ products, title }: Props) {
 function TabbedShelf({
   title,
   products,
+  shelfTitles,
+  shelfs,
 }: Props) {
   if (!products || products.length === 0) {
     return null;
   }
+  console.log(shelfs?.length);
 
   return (
     <Container class="flex flex-col py-10 px-0 sm:px-5 gap-[32px]">
@@ -100,49 +105,37 @@ function TabbedShelf({
       <div class="tabbed tab-radio-button-1-[border-color:#00aeb9;color:#00aeb9;] tab-radio-button-2-[border-color:#00aeb9;color:#00aeb9;]  
       tab-radio-button-3-[border-color:#00aeb9;color:#00aeb9;] tab-radio-button-4-[border-color:#00aeb9;color:#00aeb9;]
       tab-radio-content-1-[display:block;] tab-radio-content-2-[display:block;] tab-radio-content-3-[display:block;] tab-radio-content-4-[display:block;] flex flex-col gap-[32px]">
-        <input type="radio" id="tab1" name="css-tabs" class="hidden" checked />
-        <input type="radio" id="tab2" name="css-tabs" class="hidden" />
+        {
+          /* <input type="radio" id="tab2" name="css-tabs" class="hidden" />
         <input type="radio" id="tab3" name="css-tabs" class="hidden" />
-        <input type="radio" id="tab4" name="css-tabs" class="hidden" />
+        <input type="radio" id="tab4" name="css-tabs" class="hidden" /> */
+        }
+
+        {shelfTitles?.map((_, index) => (
+          <input
+            type="radio"
+            id={`tab${index}`}
+            name="css-tabs"
+            class="hidden"
+            checked={index === 0}
+          />
+        ))}
 
         <ul class="tabs flex w-full sm:justify-center overflow-x-auto">
-          <li class="tab p-[10px] border-b-[4px] border-default">
-            <label for="tab1" class="px-[24px] whitespace-nowrap">
-              Perfumaria
-            </label>
-          </li>
-          <li class="tab p-[10px]  border-b-[4px] border-default">
-            <label for="tab2" class="px-[24px]  whitespace-nowrap">
-              Corpo e Banho
-            </label>
-          </li>
-          <li class="tab p-[10px]  border-b-[4px] border-default">
-            <label for="tab3" class="px-[24px]  whitespace-nowrap">
-              Maquiagem
-            </label>
-          </li>
-          <li class="tab p-[10px]  border-b-[4px] border-default">
-            <label for="tab4" class="px-[24px]  whitespace-nowrap">
-              Kits e Presentes
-            </label>
-          </li>
+          {shelfTitles?.map((shelfTitle, index) => (
+            <li class="tab p-[10px] border-b-[4px] border-default">
+              <label for={`tab${index}`} class="px-[24px] whitespace-nowrap">
+                {shelfTitle}
+              </label>
+            </li>
+          ))}
         </ul>
 
-        <div class="tab-content hidden">
-          <ShelfItem products={products} title={title} />
-        </div>
-
-        <div class="tab-content hidden">
-          <ShelfItem products={products} title={title} />
-        </div>
-
-        <div class="tab-content hidden">
-          <ShelfItem products={products} title={title} />
-        </div>
-
-        <div class="tab-content hidden">
-          <ShelfItem products={products} title={title} />
-        </div>
+        {shelfs?.map((shelf) => (
+          <div class="tab-content hidden">
+            <ShelfItem products={shelf} title={title} />
+          </div>
+        ))}
       </div>
     </Container>
   );
