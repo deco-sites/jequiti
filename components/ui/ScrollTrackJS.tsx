@@ -60,17 +60,19 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   let a = false;
 
-  globalThis?.addEventListener("scroll", () => {
+  const addClass = () => {
     if (globalThis.scrollY >= 300 && !a) {
       console.log("passou");
-      element.classList.add("teste");
+      element.classList.add("micro-header");
       a = true;
     }
     if (globalThis.scrollY < 300) {
       a = false;
-      element.classList.remove("teste");
+      element.classList.remove("micro-header");
     }
-  });
+  };
+
+  globalThis?.addEventListener("scroll", addClass);
 
   // const observer = new IntersectionObserver(
   //   (items) =>
@@ -99,16 +101,9 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   // const timeout = interval && setInterval(onClickNext, interval);
 
-  // Unregister callbacks
+  // // Unregister callbacks
   // return () => {
-  //   for (let it = 0; it < (dots?.length ?? 0); it++) {
-  //     dots?.item(it).removeEventListener("click", () => goToItem(it));
-  //   }
-
-  //   prev?.removeEventListener("click", onClickPrev);
-  //   next?.removeEventListener("click", onClickNext);
-
-  //   observer.disconnect();
+  //   globalThis?.removeEventListener("scroll", addClass);
 
   //   clearInterval(timeout);
   // };

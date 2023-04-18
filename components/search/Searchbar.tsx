@@ -106,7 +106,7 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 lg::max-w-[442px] sm:bg-white bg-[#efefef]"
+          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
         >
           <input
             ref={searchInputRef}

@@ -3578,79 +3578,21 @@
           "type": "string",
           "title": "Title"
         },
-        "title1": {
-          "type": "string",
-          "title": "Title1"
-        },
-        "products1": {
+        "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Products1"
+          "title": "Products"
         },
-        "title2": {
-          "type": "string",
-          "title": "Title2"
-        },
-        "products2": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product"
-              }
-            },
-            {
-              "type": "null"
-            }
+        "itemsPerPage": {
+          "type": [
+            "number",
+            "null"
           ],
-          "title": "Products2"
-        },
-        "title3": {
-          "type": "string",
-          "title": "Title3"
-        },
-        "products3": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Products3"
-        },
-        "title4": {
-          "type": "string",
-          "title": "Title4"
-        },
-        "products4": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "title": "Products4"
+          "title": "Items Per Page"
         }
       },
       "required": [
         "title",
-        "title1",
-        "products1",
-        "title2",
-        "products2",
-        "title3",
-        "products3",
-        "title4",
-        "products4"
+        "products"
       ],
       "title": "deco-sites/jequiti/components/product/TabbedShelf.tsx@Props"
     },

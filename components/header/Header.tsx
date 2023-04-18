@@ -3,6 +3,7 @@ import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/jequiti/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Suggestion } from "deco-sites/std/commerce/types.ts";
+import ScrollTrackJS from "deco-sites/jequiti/islands/ScrollTrackJS.tsx";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
@@ -68,10 +69,25 @@ function Header(
     >
       <div
         id={id}
-        class="bg-default fixed w-full z-50  border-b border-default"
+        class="bg-default fixed w-full z-50  border-b border-default "
       >
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            .micro-header-hidden {
+              transition: 0.2s;
+              max-height: 100px;
+            }
+            .micro-header  .micro-header-hidden {
+              max-height: 0;
+              overflow: hidden;
+            }
+            `,
+          }}
+        />
         <Alert alerts={alerts} />
         <Navbar items={navItems} searchbar={searchbar} />
+        <ScrollTrackJS rootId={id} />
       </div>
 
       <Modals

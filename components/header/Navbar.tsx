@@ -99,7 +99,7 @@ function Navbar({ items, searchbar, alerts }: {
             <HeaderButton variant="cart" />
           </div>
         </div>
-        <div class="flex-auto flex justify-between w-full pb-[16px]">
+        <div class="flex-auto flex justify-between w-full micro-header-hidden">
           {items.map((item) => <NavItem item={item} />)}
         </div>
       </div>
