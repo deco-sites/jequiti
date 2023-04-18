@@ -1,12 +1,12 @@
 import { lazy, Suspense } from "preact/compat";
 
-import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
-import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
-import Loading from "deco-sites/fashion/components/ui/Loading.tsx";
-import { headerHeight } from "deco-sites/fashion/components/header/constants.ts";
+import type { Props as SearchbarProps } from "deco-sites/jequiti/components/search/Searchbar.tsx";
+import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
+import Loading from "deco-sites/jequiti/components/ui/Loading.tsx";
+import { headerHeight } from "deco-sites/jequiti/components/header/constants.ts";
 
 const Searchbar = lazy(() =>
-  import("deco-sites/fashion/components/search/Searchbar.tsx")
+  import("deco-sites/jequiti/components/search/Searchbar.tsx")
 );
 
 interface Props {

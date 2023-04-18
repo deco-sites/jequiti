@@ -1,8 +1,9 @@
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 
 function SearchButton() {
   const { displaySearchbar } = useUI();
@@ -27,11 +28,12 @@ function MenuButton() {
     <Button
       variant="icon"
       aria-label="open menu"
+      class="text-interactive"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={38} height={38} strokeWidth={0.01} />
     </Button>
   );
 }
@@ -51,7 +53,7 @@ function CartButton() {
     <Button
       {...dataDeco}
       variant="icon"
-      class="relative"
+      class="relative text-interactive"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {
@@ -69,9 +71,23 @@ function CartButton() {
         });
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <Icon
+        id="ShoppingCart"
+        width={20}
+        height={20}
+        strokeWidth={2}
+        class="hidden sm:inline"
+      />
+      <Icon
+        id="ShoppingCart"
+        width={28}
+        height={44}
+        strokeWidth={2}
+        class="sm:hidden"
+      />
+      <Text variant="caption" class="hidden sm:inline">Sacola</Text>
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] left-0 top-0 rounded-full bg-[#00aeb9] text-white w-4 h-4 flex items-center justify-center">
           {totalItems}
         </span>
       )}

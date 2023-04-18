@@ -1,15 +1,16 @@
-import Filters from "deco-sites/fashion/components/search/Filters.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import SearchControls from "deco-sites/fashion/islands/SearchControls.tsx";
-import ViewSendEvent from "deco-sites/fashion/islands/ViewSendEvent.tsx";
+import Filters from "deco-sites/jequiti/components/search/Filters.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import SearchControls from "deco-sites/jequiti/islands/SearchControls.tsx";
+import ViewSendEvent from "deco-sites/jequiti/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import Breadcrumb from "../ui/Breadcrumb.tsx";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -40,20 +41,24 @@ function Result({
 
   return (
     <>
-      <Container class="px-4 sm:py-10">
-        <SearchControls
-          sortOptions={sortOptions}
-          filters={filters}
-          breadcrumb={breadcrumb}
-          displayFilter={variant === "drawer"}
-        />
+      <Container class="px-4">
+        <div class="flex flex-row items-center sm:p-0 mb-2">
+          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+        </div>
 
-        <div class="flex flex-row">
-          {variant === "aside" && filters.length > 0 && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
+        <div class="flex flex-col">
+          {(!variant || variant === "aside") && filters.length > 0 && (
+            <aside class="hidden lg:block w-full min-w-[250px] bg-[#eee] p-[1rem]">
+              <h2>Filtre os resultados:</h2>
               <Filters filters={filters} />
             </aside>
           )}
+          <SearchControls
+            sortOptions={sortOptions}
+            filters={filters}
+            breadcrumb={breadcrumb}
+            displayFilter={variant === "drawer"}
+          />
           <div class="flex-grow">
             <ProductGallery products={products} columns={columns} />
           </div>

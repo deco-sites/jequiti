@@ -1,6 +1,6 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import { useId } from "preact/hooks";
 
 const script = (id: string) => `
@@ -17,9 +17,6 @@ const callback = () => {
       localStorage.setItem(KEY, ACCEPTED);
       elem.classList.add(HIDDEN);
     });
-    elem.querySelector('[data-button-cc-close]').addEventListener('click', function () {
-      elem.classList.add(HIDDEN);
-    });
     elem.classList.remove(HIDDEN);
   }
 };
@@ -34,23 +31,24 @@ function CookieConsent() {
     <>
       <div
         id={id}
-        class="transform-gpu translate-y-[200%] transition fixed bottom-0 sm:bottom-4 w-screen z-50"
+        class="transform-gpu translate-y-[200%] transition fixed bottom-0 sm:bottom-4 w-screen z-50 "
       >
-        <Container class="px-4 py-4 rounded border border-default flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow bg-default">
-          <Text class="flex-grow" variant="caption">
-            Utilizamos cookies em nosso site para melhorar seu desempenho,
-            segurança e personalizar conteúdo e anúncios.
+        <Container class="px-4 py-4 rounded border border-default flex flex-col sm:flex-row gap-4 items-start sm:items-center shadow bg-default ">
+          <Text class="flex-grow " variant="caption">
+            Utilizamos cookies para oferecer a melhor experiência e personalizar
+            conteúdo. Ao seguir navegando, você concorda com a nossa Política de
+            Privacidade e Termos de Uso.{" "}
+            <a href="https://www.deco.cx">
+              <Text class="underline text-interactive" variant="caption">
+                Saiba mais
+              </Text>
+            </a>
           </Text>
 
-          <a href="https://www.deco.cx">
-            <Text class="underline" variant="caption">
-              Nossa política de privacidade
-            </Text>
-          </a>
-
-          <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-            <Button data-button-cc-accept variant="primary">Aceitar</Button>
-            <Button data-button-cc-close variant="secondary">Fechar</Button>
+          <div class="flex justify-end gap-2 w-full sm:w-[30%]">
+            <Button data-button-cc-accept variant="primary" class="uppercase">
+              Continuar e fechar
+            </Button>
           </div>
         </Container>
       </div>

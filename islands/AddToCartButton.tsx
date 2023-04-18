@@ -1,1 +1,1 @@
-export { default } from "deco-sites/fashion/components/product/AddToCartButton.tsx";
+export { default } from "deco-sites/jequiti/components/product/AddToCartButton.tsx";

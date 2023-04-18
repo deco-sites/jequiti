@@ -1,11 +1,16 @@
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import { useSignal } from "@preact/signals";
 import type { INavItem } from "./NavItem.tsx";
 
 export interface Props {
   items: INavItem[];
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
 }
 
 function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
@@ -24,7 +29,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   return (
     <li>
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-center w-full ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
@@ -39,24 +44,31 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
           <Button variant="icon">
             <Icon
               class={open.value === true ? "hidden" : "block"}
-              id="Plus"
+              id="ChevronRight"
               height={20}
               width={20}
               strokeWidth={1.5}
             />
             <Icon
               class={open.value === true ? "block" : "hidden"}
-              id="Minus"
+              id="ChevronLeft"
               height={20}
               width={20}
               strokeWidth={1.5}
             />
+            <div class={open.value === true ? "block" : "hidden"}>Voltar</div>
           </Button>
         )}
       </div>
 
       {hasChildren && (
         <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
+          {item.children!.map((node) => (
+            <MenuItem
+              item={node}
+              level={level + 1}
+            />
+          ))}
           <li>
             <a href={item.href} class="w-full py-2 pl-2 inline-block">
               <Text class="underline" variant="caption">
@@ -64,33 +76,44 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
               </Text>
             </a>
           </li>
-          {item.children!.map((node) => (
-            <MenuItem
-              item={node}
-              level={level + 1}
-            />
-          ))}
         </ul>
       )}
     </li>
   );
 }
 
-function Menu({ items }: Props) {
+function Menu({ items, alerts }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
-        {items.map((item) => <MenuItem item={item} />)}
-      </ul>
-
-      <ul class="flex flex-col py-2 bg-hover">
+      <ul class="flex flex-col py-2">
+        <li>
+          <a
+            class="flex items-center gap-4 px-4 py-2"
+            href="https://www.deco.cx"
+          >
+            <Icon
+              id="User"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
+            <Text variant="caption">Minha conta</Text>
+          </a>
+        </li>
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
             href="/wishlist"
           >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
+            <Icon
+              id="Heart"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
+            <Text variant="caption">Favoritos</Text>
           </a>
         </li>
         <li>
@@ -98,8 +121,14 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
+            <Icon
+              id="MapPin"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
+            <Text variant="caption">Pedidos</Text>
           </a>
         </li>
         <li>
@@ -107,8 +136,14 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
+            <Icon
+              id="Cash"
+              width={20}
+              height={20}
+              strokeWidth={2}
+              class="text-interactive"
+            />
+            <Text variant="caption">Cashback</Text>
           </a>
         </li>
         <li>
@@ -116,10 +151,22 @@ function Menu({ items }: Props) {
             class="flex items-center gap-4 px-4 py-2"
             href="https://www.deco.cx"
           >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
+            <Text variant="caption">Consultor(a)</Text>
           </a>
         </li>
+      </ul>
+      <div class="px-4">
+        <h2 class="font-bold">Categorias</h2>
+        <ul class=" flex-grow flex flex-col">
+          {items.map((item) => <MenuItem item={item} />)}
+        </ul>
+      </div>
+      <ul class="px-4 flex-grow flex flex-col">
+        {alerts?.map((alert) => (
+          <li>
+            <a href={alert.href}>{alert.text}</a>
+          </li>
+        ))}
       </ul>
     </>
   );

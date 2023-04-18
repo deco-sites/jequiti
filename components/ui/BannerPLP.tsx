@@ -1,5 +1,5 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -16,7 +16,7 @@ export interface Banner {
     /** @description Image for big screens */
     desktop: LiveImage;
     /** @description Image for small screens */
-    mobile: LiveImage;
+    mobile?: LiveImage;
     /** @description image alt text */
     alt?: string;
   };
@@ -31,36 +31,44 @@ function BannerUI({ banner }: { banner: Banner }) {
   const { title, subtitle, image } = banner;
 
   return (
-    <div class="grid grid-cols-1 grid-rows-1">
-      <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
-        <Source
-          src={image.mobile}
-          width={360}
-          height={120}
-          media="(max-width: 767px)"
-        />
-        <Source
-          src={image.desktop}
-          width={1440}
-          height={200}
-          media="(min-width: 767px)"
-        />
-        <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
-      </Picture>
+    <Container>
+      <div class="flex relative">
+        <Picture
+          preload
+          class="col-start-1 col-span-1 row-start-1 row-span-1 hidden lg:inline"
+        >
+          <Source
+            src={image.desktop}
+            width={1330}
+            height={300}
+            media="(min-width: 767px)"
+          />
+          <img
+            style={{ filter: "brightness(0.8)" }}
+            class="w-full"
+            src={image.desktop}
+            alt={image.alt ?? title}
+          />
+        </Picture>
 
-      <Container class="flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
-        <h1>
-          <Text variant="heading-1" tone="default-inverse">
-            {title}
-          </Text>
-        </h1>
-        <h2>
-          <Text variant="heading-3" tone="default-inverse">
-            {subtitle}
-          </Text>
-        </h2>
-      </Container>
-    </div>
+        <Container class="lg:absolute static bottom-0 flex flex-col items-center justify-center text-center w-full pb-[33px] pt-[18px] lg:(pb-0 pt-0)">
+          <h1>
+            <Text
+              variant="heading-1"
+              tone="default"
+              class="uppercase lg:text-default-inverse text-[41px] lg:text-[32px]"
+            >
+              {title}
+            </Text>
+          </h1>
+          <h2>
+            <Text variant="heading-3" tone="default-inverse">
+              {subtitle}
+            </Text>
+          </h2>
+        </Container>
+      </div>
+    </Container>
   );
 }
 

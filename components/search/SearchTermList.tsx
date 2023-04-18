@@ -1,5 +1,5 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import { JSX } from "preact";
 
 interface Props

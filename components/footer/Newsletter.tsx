@@ -1,29 +1,57 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import type { Image } from "deco-sites/std/components/types.ts";
 
-function Newsletter() {
+interface Props {
+  socials?: Array<{ href: string; image: Image; alt: string }>;
+}
+
+function Newsletter({ socials }: Props) {
   return (
-    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-20">
+    <div class="flex flex-col items-center gap-6 max-w-[997px] mx-auto">
       <div class="flex flex-col gap-2 max-w-[400px]">
-        <Text variant="heading-2" tone="default-inverse">
-          Cadastre-se
+        <Text
+          variant="heading-2"
+          tone="default"
+          class="text-center uppercase text-[26px] lg:text-[37px]"
+        >
+          Fique por dentro!
         </Text>
-        <Text variant="caption" tone="default-inverse">
-          Fique por dentro das novidades e ganhe 15% de desconto na primeira
-          compra. Para mais informações clique aqui.
+        <Text variant="caption" tone="default" class="text-center">
+          Quer saber todas as novidades, lançamentos e ofertas exclusivas? Deixe
+          seu e-mail com a gente.
         </Text>
       </div>
-      <form class="flex flex-row items-center gap-2 font-body text-body w-full sm:w-[408px]">
+      <form class="flex flex-col lg:flex-row lg:items-center gap-[10px] font-body text-body w-full ">
         <input
-          class="py-2 px-3 flex-grow bg-footer rounded text-default-inverse border-1 border-default"
-          placeholder="Seu e-mail"
+          class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
+          placeholder="Seu nome"
         />
-        <button
-          class="py-2 px-3 bg-interactive-inverse rounded"
+        <input
+          class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
+          placeholder="Digite seu e-mail favorito"
+        />
+        <Button
+          class="py-2 px-3 rounded-none w-full lg:max-w-[282px] uppercase"
           type="bgutton" // prevent form's default behavior
+          variant="secondary"
         >
           Cadastrar
-        </button>
+        </Button>
       </form>
+      <Text variant="caption" tone="default" class="text-center">
+        Ao se cadastrar, você concorda com a nossa{" "}
+        <a href="/politica-de-privacidade" class="underline ">
+          política de privacidade
+        </a>
+      </Text>
+      <div>
+        {socials?.map((social) => (
+          <a href={social.href}>
+            <img src={social.image} alt={social.alt} width={40} height={40} />
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

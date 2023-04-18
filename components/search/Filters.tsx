@@ -1,5 +1,5 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Avatar from "deco-sites/jequiti/components/ui/Avatar.tsx";
 import type {
   Filter,
   FilterToggle,
@@ -19,7 +19,9 @@ function FilterValues({ key, values }: FilterToggle) {
     : "flex-col";
 
   return (
-    <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
+    <ul
+      class={`flex flex-wrap gap-2 ${flexDirection} absolute z-10 bg-[#eee] p-[24px]`}
+    >
       {values.map(({ label, value, url, selected, quantity }) => {
         if (key === "cor") {
           return (
@@ -48,11 +50,12 @@ function FilterValues({ key, values }: FilterToggle) {
 
         return (
           <a href={url} class="flex items-center gap-2">
-            <input type="checkbox" checked={selected} class="hidden" />
+            <input
+              type="checkbox"
+              checked={selected}
+              class="pointer-events-none"
+            />
             <Text variant="caption">{label}</Text>
-            <Text tone="subdued" variant="caption">
-              ({quantity})
-            </Text>
           </a>
         );
       })}
@@ -62,14 +65,16 @@ function FilterValues({ key, values }: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-6 p-4">
+    <ul class="flex w-full gap-6 justify-between relative">
       {filters
         .filter(isToggle)
         .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <Text variant="body">{filter.label}</Text>
+          <details class="flex flex-col gap-4">
+            <summary>
+              <Text variant="body">{filter.label}</Text>
+            </summary>
             <FilterValues {...filter} />
-          </li>
+          </details>
         ))}
     </ul>
   );

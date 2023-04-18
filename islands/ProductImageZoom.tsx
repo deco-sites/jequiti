@@ -1,1 +1,1 @@
-export { default } from "deco-sites/fashion/components/product/ProductImageZoom.tsx";
+export { default } from "deco-sites/jequiti/components/product/ProductImageZoom.tsx";

@@ -1,8 +1,8 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import SearchResult, {
   Props as SearchResultProps,
-} from "deco-sites/fashion/components/search/SearchResult.tsx";
+} from "deco-sites/jequiti/components/search/SearchResult.tsx";
 export type Props = SearchResultProps;
 function WishlistGallery(props: Props) {
   const isEmpty = !props.page || props.page.products.length === 0;

@@ -1,6 +1,6 @@
-export { default } from "deco-sites/fashion/components/ui/Features.tsx";
+export { default } from "deco-sites/jequiti/components/ui/Features.tsx";
 export type {
   Feature,
   Props,
-} from "deco-sites/fashion/components/ui/Features.tsx";
-export type { AvailableIcons } from "deco-sites/fashion/components/ui/Icon.tsx";
+} from "deco-sites/jequiti/components/ui/Features.tsx";
+export type { AvailableIcons } from "deco-sites/jequiti/components/ui/Icon.tsx";

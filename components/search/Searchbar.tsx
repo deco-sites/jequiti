@@ -10,13 +10,13 @@
  */
 
 import { useEffect, useRef } from "preact/compat";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import ProductCard from "deco-sites/fashion/components/product/ProductCard.tsx";
-import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Button from "deco-sites/jequiti/components/ui/Button.tsx";
+import ProductCard from "deco-sites/jequiti/components/product/ProductCard.tsx";
+import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
+import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 
@@ -73,7 +73,7 @@ export type Props = EditableProps & {
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "O que você procura hoje?",
   action = "/s",
   name = "q",
   query,
@@ -101,31 +101,17 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
-      <div class="flex gap-4">
+    <div class="flex flex-col w-full">
+      <div class="flex gap-4 w-full">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
         >
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-subdued"
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </Button>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-[#efefef] sm:border-default pl-[16px] bg-[#efefef] sm:bg-white"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -158,8 +144,37 @@ function Searchbar({
               setSearch("");
             }}
           >
-            <Text variant="caption" tone="default">limpar</Text>
+            <Text variant="caption" tone="default">
+              <Icon
+                id="XMark"
+                width={18}
+                height={18}
+                strokeWidth={1}
+              />
+            </Text>
           </button>
+          <Button
+            variant="icon"
+            aria-label="Search"
+            htmlFor="searchbar"
+            tabIndex={-1}
+            type="submit"
+          >
+            <Icon
+              id="MagnifyingGlass"
+              width={18}
+              height={18}
+              strokeWidth={0.01}
+              class="text-interactive hidden sm:inline"
+            />
+            <Icon
+              id="MagnifyingGlass"
+              width={24}
+              height={24}
+              strokeWidth={0.01}
+              class="text-interactive sm:hidden"
+            />
+          </Button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>

@@ -1,12 +1,14 @@
-import Modals from "deco-sites/fashion/islands/HeaderModals.tsx";
+import Modals from "deco-sites/jequiti/islands/HeaderModals.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
-import type { EditableProps as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import type { EditableProps as SearchbarProps } from "deco-sites/jequiti/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { Suggestion } from "deco-sites/std/commerce/types.ts";
+import ScrollTrackJS from "deco-sites/jequiti/islands/ScrollTrackJS.tsx";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
+import { headerHeight, headerHeightMobile } from "./constants.ts";
+import { useId } from "preact/hooks";
 
 export interface NavItem {
   label: string;
@@ -19,14 +21,17 @@ export interface NavItem {
       href: string;
     }>;
   }>;
-  image?: {
-    src?: Image;
-    alt?: string;
-  };
+  images?: Array<{ src?: Image; alt?: string; href?: string }>;
+  imagesWidth?: number;
+  imagesHeight?: number;
 }
 
 export interface Props {
-  alerts: string[];
+  alerts?: Array<{
+    text: string;
+    href: string;
+    children?: Array<{ text: string; href: string }>;
+  }>;
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -39,7 +44,7 @@ export interface Props {
    * @title Product suggestions
    * @description Product suggestions displayed on search
    */
-  products?: LoaderReturnType<Product[] | null>;
+  // products?: LoaderReturnType<Product[] | null>;
 
   /**
    * @title Enable Top Search terms
@@ -51,21 +56,43 @@ function Header(
   {
     alerts,
     searchbar: _searchbar,
-    products,
+    // products,
     navItems = [],
     suggestions,
   }: Props,
 ) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const searchbar = { ..._searchbar, suggestions };
+  const id = useId();
   return (
-    <header class={`h-[${headerHeight}]`}>
-      <div class="bg-default fixed w-full z-50">
+    <header
+      class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}
+    >
+      <div
+        id={id}
+        class="bg-default fixed w-full z-50  border-b border-default "
+      >
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+            .micro-header-hidden {
+              transition: 0.2s;
+              max-height: 100px;
+            }
+            .micro-header  .micro-header-hidden {
+              max-height: 0;
+              overflow: hidden;
+            }
+            `,
+          }}
+        />
         <Alert alerts={alerts} />
         <Navbar items={navItems} searchbar={searchbar} />
+        <ScrollTrackJS rootId={id} />
       </div>
 
       <Modals
         menu={{ items: navItems }}
+        alerts={alerts}
         searchbar={searchbar}
       />
     </header>

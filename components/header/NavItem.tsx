@@ -1,4 +1,4 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
 
@@ -6,15 +6,24 @@ export interface INavItem {
   label: string;
   href: string;
   children?: INavItem[];
-  image?: { src?: string; alt?: string };
+  images?: Array<{ src?: string; alt?: string; href?: string }>;
+  imagesWidth?: number;
+  imagesHeight?: number;
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, image } = item;
+  const {
+    href,
+    label,
+    children,
+    images,
+    imagesWidth = 360,
+    imagesHeight = 248,
+  } = item;
 
   return (
-    <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
+    <li class="group flex items-center pb-[16px]">
+      <a href={href}>
         <Text
           class="group-hover:border-black border-solid border-b border-white"
           variant="menu"
@@ -23,34 +32,34 @@ function NavItem({ item }: { item: INavItem }) {
         </Text>
       </a>
 
-      {children && children.length > 0 &&
+      {((children && children.length > 0) || (images && images.length > 0)) &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen mt-[${headerHeight}]`}
-            style={{ top: "0px", left: "0px" }}
+            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start gap-6 border-t-1 border-b-2 border-default w-screen mt-[${headerHeight}] max-w-[1336px] mx-auto translate-x-[-50%] justify-between`}
+            style={{ top: "0px", left: "50%" }}
           >
-            {image?.src && (
-              <Image
-                class="p-6"
-                src={image.src}
-                alt={image.alt}
-                width={300}
-                height={332}
-                loading="lazy"
-              />
-            )}
             <ul class="flex items-start justify-center gap-6">
-              {children.map((node) => (
+              {children?.map((node) => (
                 <li class="p-6">
-                  <a class="hover:underline" href={node.href}>
-                    <Text variant="menu">{node.label}</Text>
+                  <a href={node.href}>
+                    <Text
+                      variant="menu"
+                      class="hover:text-interactive override:(font-bold) text-[16px]"
+                    >
+                      {node.label}
+                    </Text>
                   </a>
 
-                  <ul class="flex flex-col gap-1 mt-4">
+                  <ul class="flex flex-col gap-1">
                     {node.children?.map((leaf) => (
                       <li>
-                        <a class="hover:underline" href={leaf.href}>
-                          <Text variant="caption">{leaf.label}</Text>
+                        <a href={leaf.href}>
+                          <Text
+                            variant="caption"
+                            class=" text-[16px] hover:text-interactive "
+                          >
+                            {leaf.label}
+                          </Text>
                         </a>
                       </li>
                     ))}
@@ -58,6 +67,20 @@ function NavItem({ item }: { item: INavItem }) {
                 </li>
               ))}
             </ul>
+            {images?.map((image) =>
+              image?.src && (
+                <a href={image.href}>
+                  <Image
+                    class="p-6"
+                    src={image.src}
+                    alt={image.alt}
+                    width={imagesWidth}
+                    height={imagesHeight}
+                    loading="lazy"
+                  />
+                </a>
+              )
+            )}
           </div>
         )}
     </li>

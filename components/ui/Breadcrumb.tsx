@@ -1,5 +1,5 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
+import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import type { BreadcrumbList } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
@@ -12,9 +12,9 @@ function Item({ name, item }: { name?: string; item?: string }) {
   }
 
   return (
-    <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
+    <li class="whitespace-nowrap overflow-hidden last-of-type:text-[#7a206c]">
       <a href={item} class="hover:underline">
-        <Text variant="caption">
+        <Text variant="caption" class="text-[inherit]">
           {name}
         </Text>
       </a>
@@ -24,12 +24,12 @@ function Item({ name, item }: { name?: string; item?: string }) {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="flex flex-row gap-2 items-center w-full">
+    <ul class="flex flex-row gap-2 items-center w-full py-[8px] flex-wrap">
       <Item name="Home" item="/" />
       {itemListElement.map((item) => (
         <>
           <li class="mt-0.5">
-            <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
+            /
           </li>
           <Item {...item} />
         </>
