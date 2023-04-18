@@ -110,7 +110,7 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
         }}
       >
       </style>
-      <SliderDots class="col-span-full gap-[8px] z-10 ">
+      <SliderDots class="absolute bottom-0 right-0  left-0 gap-[8px] z-10 ">
         {images?.map((_) => (
           <div class="pt-[26px]">
             <div
@@ -142,7 +142,7 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2 absolute  translate-x-[-50%]">
+      <div class="absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] ">
         <Button
           class="h-12 w-12 rounded-full bg-white"
           // variant="icon"
@@ -157,7 +157,7 @@ function Controls() {
           />
         </Button>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 absolute right-[-50%] translate-x-[-50%]">
+      <div class="flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-0 translate-x-0 translate-y-[-50%] lg:translate-x-[50%]">
         <Button
           class="h-12 w-12 rounded-full bg-white"
           // variant="icon"
@@ -183,7 +183,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
     <Container>
       <div
         id={id}
-        class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
+        class="flex relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
       >
         <Slider class="col-span-full row-span-full scrollbar-none gap-6">
           {images?.map((image, index) => (

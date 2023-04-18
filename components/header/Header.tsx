@@ -63,7 +63,9 @@ function Header(
   const searchbar = { ..._searchbar, suggestions };
   const id = useId();
   return (
-    <header class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}>
+    <header
+      class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}
+    >
       <div
         id={id}
         class="bg-default fixed w-full z-50  border-b border-default"

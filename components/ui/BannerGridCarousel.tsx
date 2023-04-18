@@ -55,7 +55,9 @@ function ProductShelf({
       {title &&
         (
           <h2 class="text-center row-start-1 col-span-full">
-            <Text variant="heading-2">{title}</Text>
+            <Text variant="heading-2" class="text-[25px] lg:text-[37px]">
+              {title}
+            </Text>
           </h2>
         )}
 
@@ -64,7 +66,7 @@ function ProductShelf({
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
         slidePerView={{
           desktop: 4,
-          tablet: 3,
+          tablet: 2,
           phone: 1,
         }}
       >

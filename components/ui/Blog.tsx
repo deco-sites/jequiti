@@ -39,7 +39,7 @@ export interface Props {
   banners: Banner[];
 }
 
-export default function BannnerGrid({
+export default function BannerGrid({
   title,
   itemsPerLine,
   borderRadius,
@@ -47,12 +47,12 @@ export default function BannnerGrid({
 }: Props) {
   return (
     <Container>
-      <section class="w-full px-4 md:px-0 mx-auto">
+      <section class="w-full px-4 lg:px-0 mx-auto">
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
               <h2 class={"text-lg  font-semibold uppercase "}>
-                <Text variant="heading-2">
+                <Text variant="heading-2" class="text-[25px] lg:text-[37px]">
                   {title}
                 </Text>
               </h2>
@@ -63,7 +63,7 @@ export default function BannnerGrid({
           snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
           slidePerView={{
             desktop: 4,
-            tablet: 3,
+            tablet: 2,
             phone: 1,
           }}
         >

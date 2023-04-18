@@ -13,7 +13,7 @@ function Newsletter({ socials }: Props) {
         <Text
           variant="heading-2"
           tone="default"
-          class="text-center uppercase text-[26px] sm:text-[37px]"
+          class="text-center uppercase text-[26px] lg:text-[37px]"
         >
           Fique por dentro!
         </Text>
@@ -22,7 +22,7 @@ function Newsletter({ socials }: Props) {
           seu e-mail com a gente.
         </Text>
       </div>
-      <form class="flex flex-col sm:flex-row sm:items-center gap-[10px] font-body text-body w-full ">
+      <form class="flex flex-col lg:flex-row lg:items-center gap-[10px] font-body text-body w-full ">
         <input
           class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
           placeholder="Seu nome"
@@ -32,7 +32,7 @@ function Newsletter({ socials }: Props) {
           placeholder="Digite seu e-mail favorito"
         />
         <Button
-          class="py-2 px-3 rounded-none w-full sm:max-w-[282px] uppercase"
+          class="py-2 px-3 rounded-none w-full lg:max-w-[282px] uppercase"
           type="bgutton" // prevent form's default behavior
           variant="secondary"
         >

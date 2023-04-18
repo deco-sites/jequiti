@@ -10,7 +10,7 @@ export interface Props {
 function Alert({ alerts = [] }: Props) {
   return (
     <>
-      <div class="bg-[#efefef] sm:block hidden">
+      <div class="bg-[#efefef] lg:block hidden">
         <div class="max-w-[1336px] w-full mx-auto flex gap-[1.5rem]">
           {alerts.map((alert) => {
             if (!alert?.children?.length) {
@@ -30,7 +30,7 @@ function Alert({ alerts = [] }: Props) {
           })}
         </div>
       </div>
-      <div class="sm:hidden flex">
+      <div class="lg:hidden flex">
         <a
           href=""
           class="px-[15px] flex items-center h-[42px] bg-interactive w-[fit-content] "

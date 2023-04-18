@@ -22,7 +22,7 @@ function Navbar({ items, searchbar, alerts }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full  `}
+        class={`lg:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full  `}
       >
         <div class="flex flex-row justify-between items-center w-full px-2 gap-2">
           <HeaderButton variant="menu" />
@@ -55,8 +55,8 @@ function Navbar({ items, searchbar, alerts }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-col justify-between items-center w-full pl-2 pr-3 max-w-[1336px] mx-auto">
-        <div class="md:flex flex-row items-center w-full py-[24px]">
+      <div class="hidden lg:flex flex-col justify-between items-center w-full pl-2 pr-3 max-w-[1336px] mx-auto">
+        <div class="flex flex-row items-center w-full py-[24px]">
           <div class="flex-1">
             <Searchbar {...searchbar} />
           </div>

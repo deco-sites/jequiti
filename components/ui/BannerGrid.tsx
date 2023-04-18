@@ -54,7 +54,7 @@ export default function BannerGrid({
         <div
           class={`grid gap-4 md:gap-6 grid-cols-${
             itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "1"
-          } md:grid-cols-${
+          } lg:grid-cols-${
             itemsPerLine && itemsPerLine.desktop
               ? itemsPerLine.desktop
               : banners.length
@@ -65,7 +65,7 @@ export default function BannerGrid({
           ) => (
             <a
               href={href}
-              class={`overflow-hidden max-w-[400px] ${
+              class={`overflow-hidden mx-auto max-w-[400px] ${
                 borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
               } ${
                 borderRadius?.desktop
