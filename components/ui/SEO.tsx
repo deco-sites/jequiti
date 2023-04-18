@@ -19,11 +19,11 @@ export default function BannerGrid({
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
-              <h2
+              <h1
                 class={"text-lg font-semibold uppercase text-[32px] text-center"}
               >
                 {title}
-              </h2>
+              </h1>
             </div>
           )}
         <div class="max-w-[675px] mx-auto text-center">

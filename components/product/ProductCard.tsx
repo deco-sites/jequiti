@@ -53,7 +53,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
   const {
     url,
     productID,
-    name: skuName,
     image: images,
     offers,
     isVariantOf,
@@ -144,25 +143,28 @@ function ProductCard({ product, preload, itemListName }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2 flex-1">
-          <Text class="text-interactive">{brand}</Text>
+        <div class="flex flex-col gap-[8px] py-2 flex-1">
+          <Text class="text-interactive uppercase text-[12px]">{brand}</Text>
           <Text
             class="overflow-hidden overflow-ellipsis line-clamp-2 flex flex-1"
             variant="caption"
           >
             {name}
-            {skuName && `, ${skuName}`}
           </Text>
-          <div class="flex flex-col gap-2">
-            <div class="flex items-center gap-2">
+          <div class="flex flex-col gap-[8px]">
+            <div class="flex items-end gap-2">
               <Text
-                class="line-through"
+                class="line-through leading-none"
                 variant="list-price"
                 tone="subdued"
               >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </Text>
-              <Text variant="caption" tone="price">
+              <Text
+                variant="caption"
+                tone="price"
+                class="override:(font-bold) text-[20px]"
+              >
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
             </div>

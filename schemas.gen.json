@@ -2626,6 +2626,13 @@
           "type": "string",
           "title": "Title"
         },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Subtitle"
+        },
         "itemsPerPage": {
           "type": [
             "number",

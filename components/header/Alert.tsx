@@ -32,7 +32,7 @@ function Alert({ alerts = [] }: Props) {
       </div>
       <div class="lg:hidden flex">
         <a
-          href=""
+          href="/queroserumaconsultora"
           class="px-[15px] flex items-center h-[42px] bg-interactive w-[fit-content] "
         >
           <Text class="text-white text-[14px] font-bold">
@@ -40,7 +40,7 @@ function Alert({ alerts = [] }: Props) {
           </Text>
         </a>
         <a
-          href=""
+          href="/acesso-consultora"
           class="px-[15px] flex items-center h-[42px] bg-white w-[fit-content] "
         >
           <Text class="text-default text-[14px] font-bold">

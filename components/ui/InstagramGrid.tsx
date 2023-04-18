@@ -71,7 +71,7 @@ export default function InstagramGrid({
             </div>
           )}
         <div
-          class={`grid lg:grid-rows-2 grid-rows-1 grid-cols-2 lg:grid-cols-6 gap-[8px] nth-child-3-[display:none;] lg:nth-child-3-[grid-area:span_2/span_2;] `}
+          class={`grid lg:grid-rows-2 grid-rows-1 grid-cols-2 lg:grid-cols-6 gap-[8px] nth-child-3-[display:none;] lg:nth-child-3-[display:block;] lg:nth-child-3-[grid-area:span_2/span_2;] `}
         >
           {banners.map(({ href, srcMobile, srcDesktop, alt }, index) => (
             <a
