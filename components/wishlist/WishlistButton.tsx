@@ -21,6 +21,7 @@ function WishlistButton({ variant = "icon", ...item }: Props) {
   return (
     <Button
       variant={variant === "icon" ? "icon" : "secondary"}
+      aria-label="Favoritos"
       loading={fetching.value}
       onClick={async (e) => {
         e.stopPropagation();

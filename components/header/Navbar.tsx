@@ -29,6 +29,7 @@ function Navbar({ items, searchbar, alerts }: {
           <a
             href="https://institucional.jequiti.com.br/catalogo/"
             class="text-interactive flex items-center"
+            aria-label="Catalogo"
           >
             <Icon id="Catalog" width={40} height={40} />
           </a>
@@ -43,9 +44,15 @@ function Navbar({ items, searchbar, alerts }: {
 
           <div class="flex gap-1">
             {/* <HeaderButton variant="search" /> */}
-            <a href="/login" class="text-interactive flex items-center">
+            <Button
+              as="a"
+              variant="icon"
+              href="/login"
+              aria-label="Log in"
+              class="text-interactive flex items-center"
+            >
               <Icon id="User" width={25} height={30} />
-            </a>
+            </Button>
             <HeaderButton variant="cart" />
           </div>
         </div>

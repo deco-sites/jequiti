@@ -28,6 +28,7 @@ export interface Banner {
 
 export interface Props {
   title: string;
+  subtitle?: string;
   itemsPerPage?: number;
   images: Banner[];
   borderRadius: {
@@ -38,6 +39,7 @@ export interface Props {
 
 function ProductShelf({
   title,
+  subtitle,
   images,
   borderRadius,
 }: Props) {
@@ -60,6 +62,7 @@ function ProductShelf({
             </Text>
           </h2>
         )}
+      {subtitle && <Text class="pb-[15px] text-center">{subtitle}</Text>}
 
       <Slider
         class="col-span-full row-start-2 row-end-5"
