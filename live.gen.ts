@@ -4,6 +4,7 @@
 
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
+import * as $0 from "./functions/vtexLoadMultipleProductLists.ts";
 import * as $$$$0 from "./routes/_app.tsx";
 import * as $$$$1 from "./routes/api/[...catchall].tsx";
 import * as $$$$$0 from "./islands/ShippingSimulation.tsx";
@@ -98,6 +99,27 @@ import * as i2$$$7 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as i2$$$8 from "deco-sites/std/sections/SEOPDP.tsx";
 
 const manifest = {
+  "functions": {
+    "deco-sites/jequiti/functions/vtexLoadMultipleProductLists.ts": $0,
+    "deco-sites/std/functions/vtexConfig.ts": i2$0,
+    "deco-sites/std/functions/vtexProductListingPage.ts": i2$1,
+    "deco-sites/std/functions/vndaProductList.ts": i2$2,
+    "deco-sites/std/functions/vndaProductDetailsPage.ts": i2$3,
+    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": i2$4,
+    "deco-sites/std/functions/vtexSuggestions.ts": i2$5,
+    "deco-sites/std/functions/vtexNavbar.ts": i2$6,
+    "deco-sites/std/functions/vtexWishlist.ts": i2$7,
+    "deco-sites/std/functions/shopifyProductListingPage.ts": i2$8,
+    "deco-sites/std/functions/vtexProductList.ts": i2$9,
+    "deco-sites/std/functions/occProductDetailsPage.ts": i2$10,
+    "deco-sites/std/functions/vndaProductListingPage.ts": i2$11,
+    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": i2$12,
+    "deco-sites/std/functions/vtexProductDetailsPage.ts": i2$13,
+    "deco-sites/std/functions/vtexLegacyProductList.ts": i2$14,
+    "deco-sites/std/functions/shopifyProductList.ts": i2$15,
+    "deco-sites/std/functions/shopifyProductDetailsPage.ts": i2$16,
+    "deco-sites/std/functions/vtexLegacyRelatedProductsLoader.ts": i2$17,
+  },
   "routes": {
     "./routes/_app.tsx": $$$$0,
     "./routes/api/[...catchall].tsx": $$$$1,
@@ -180,26 +202,6 @@ const manifest = {
   "flags": {
     "$live/flags/audience.ts": i2$$$$$$$0,
     "$live/flags/everyone.ts": i2$$$$$$$1,
-  },
-  "functions": {
-    "deco-sites/std/functions/vtexConfig.ts": i2$0,
-    "deco-sites/std/functions/vtexProductListingPage.ts": i2$1,
-    "deco-sites/std/functions/vndaProductList.ts": i2$2,
-    "deco-sites/std/functions/vndaProductDetailsPage.ts": i2$3,
-    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": i2$4,
-    "deco-sites/std/functions/vtexSuggestions.ts": i2$5,
-    "deco-sites/std/functions/vtexNavbar.ts": i2$6,
-    "deco-sites/std/functions/vtexWishlist.ts": i2$7,
-    "deco-sites/std/functions/shopifyProductListingPage.ts": i2$8,
-    "deco-sites/std/functions/vtexProductList.ts": i2$9,
-    "deco-sites/std/functions/occProductDetailsPage.ts": i2$10,
-    "deco-sites/std/functions/vndaProductListingPage.ts": i2$11,
-    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": i2$12,
-    "deco-sites/std/functions/vtexProductDetailsPage.ts": i2$13,
-    "deco-sites/std/functions/vtexLegacyProductList.ts": i2$14,
-    "deco-sites/std/functions/shopifyProductList.ts": i2$15,
-    "deco-sites/std/functions/shopifyProductDetailsPage.ts": i2$16,
-    "deco-sites/std/functions/vtexLegacyRelatedProductsLoader.ts": i2$17,
   },
   "accounts": {
     "deco-sites/std/accounts/vnda.ts": i2$$0,
