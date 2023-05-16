@@ -100,6 +100,7 @@ function Searchbar({
     ? suggestions.value.products
     : products;
 
+  // console.log('_products',searches , searches.length > 0 , hasSuggestions,_products )
   return (
     <div class="flex flex-col w-full">
       <div class="flex gap-4 w-full">
@@ -178,10 +179,14 @@ function Searchbar({
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0)">
-        {searches && searches.length > 0 && !hasSuggestions && (
+
+      <div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0) absolute">
+        {/* comentei por que ficava 100% do tempo aberto */}
+        {
+          /* {searches && searches.length > 0 && !hasSuggestions && (
           <SearchTermList title="Mais buscados" terms={searches} />
-        )}
+        )} */
+        }
         {hasSuggestions && !emptySuggestions && (
           <SearchTermList
             id="search-suggestion"

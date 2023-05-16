@@ -1,4 +1,8 @@
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
+import AlertDropdown from "deco-sites/jequiti/components/header/AlertDropdown.tsx";
+
+// import AlertDropdown from "deco-sites/jequiti/components/header/AlertDropdown.tsx";
+// import HeaderButton from "./Buttons";
 export interface Props {
   alerts?: Array<{
     text: string;
@@ -13,6 +17,10 @@ function Alert({ alerts = [] }: Props) {
       <div class="bg-[#efefef] lg:block hidden micro-header-hidden">
         <div class="max-w-[1336px] w-full mx-auto flex gap-[1.5rem]">
           {alerts.map((alert) => {
+            if (alert?.children?.length && alert?.children?.length > 0) {
+              //@ts-ignore ignorei por que o erro está tratado no if acima
+              return <AlertDropdown alert={alert} />;
+            }
             if (!alert?.children?.length) {
               return (
                 <a href={alert.href}>
