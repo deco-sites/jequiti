@@ -27,25 +27,25 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <Container class="my-[15px]">
+    <Container class="my-4">
       <div class="border-default border-y overflow-x-hidden">
-        <div class="flex flex-row w-fit-content overflow-x-auto mx-0 fit-content sm:(py-[15px] justify-evenly)">
+        <div class="flex flex-row w-fit-content overflow-x-auto mx-0 fit-content sm:(py-4 justify-evenly)">
           {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row gap-4 py-6 px-[10px] text-interactive items-center min-w-[228px] sm:(py-0 px-8)">
+            <div class="flex flex-row gap-4 py-6 px-2 items-center min-w-[228px] sm:(py-0 px-8)">
               <Icon
                 id={id}
                 width={40}
                 height={40}
                 strokeWidth={2}
-                class="min-w-[40px]"
+                class="min-w-[40px] text-interactive"
               />
               <div class="flex flex-col">
-                <Text variant="heading-3" class="text-interactive">
+                <div class="font-bold text-lg text-interactive leading-none">
                   {title}
-                </Text>
-                <Text tone="subdued" variant="caption">
+                </div>
+                <div class="text-md text-default-light">
                   {description}
-                </Text>
+                </div>
               </div>
             </div>
           ))}

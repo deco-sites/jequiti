@@ -47,7 +47,7 @@ export default function BannerGrid({
 }: Props) {
   return (
     <Container>
-      <section class="w-full px-4 lg:px-0 mx-auto">
+      <section class="w-full px-4 lg:px-0 mx-auto py-12">
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
@@ -58,25 +58,9 @@ export default function BannerGrid({
               </h2>
             </div>
           )}
-        <Slider
-          class="col-span-full row-start-2 row-end-5 flex items-stretch gap-[8px]"
-          snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
-          slidePerView={{
-            desktop: 4,
-            tablet: 2,
-            phone: 1,
-          }}
-        >
+        <Slider class="col-span-full row-start-2 row-end-5 flex items-stretch gap-[8px]" snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch" slidePerView={{ desktop: 4, tablet: 2, phone: 1, }} >
           {banners.map((
-            {
-              href,
-              srcMobile,
-              srcDesktop,
-              alt,
-              title: bannerTitle,
-              text: bannerText,
-              date: bannerDate,
-            },
+            { href, srcMobile, srcDesktop, alt, title: bannerTitle, text: bannerText, date: bannerDate, },
           ) => (
             <div class="flex flex-col ">
               <a
@@ -90,43 +74,23 @@ export default function BannerGrid({
                 }`}
               >
                 <Picture>
-                  <Source
-                    media="(max-width: 767px)"
-                    src={srcMobile}
-                    width={334}
-                    height={175}
-                  />
-                  <Source
-                    media="(min-width: 768px)"
-                    src={srcDesktop ? srcDesktop : srcMobile}
-                    width={334}
-                    height={175}
-                  />
-                  <img
-                    class="w-full"
-                    sizes="(max-width: 640px) 100vw, 30vw"
-                    src={srcMobile}
-                    alt={alt}
-                    decoding="async"
-                    loading="lazy"
-                  />
+                  <Source media="(max-width: 767px)" src={srcMobile} width={334} height={175} />
+                  <Source media="(min-width: 768px)" src={srcDesktop ? srcDesktop : srcMobile} width={334} height={175} />
+                  <img class="w-full" sizes="(max-width: 640px) 100vw, 30vw" src={srcMobile} alt={alt} decoding="async" loading="lazy" />
                 </Picture>
               </a>
-              <div class="flex-grow flex  flex-col  ">
+              <div class="flex-grow flex flex-col leading-5">
                 <div>
-                  <Text variant="caption" class="py-[8px]">{bannerDate}</Text>
+                  <span class="py-[8px] block text-[10px] text-default-gray">{bannerDate}</span>
                 </div>
                 <div>
-                  <Text class="font-bold">{bannerTitle}</Text>
+                  <p class="font-bold text-default-light text-md">{bannerTitle}</p>
                 </div>
                 <div>
-                  <Text>{bannerText}</Text>
+                  <p class="text-default-light text-md">{bannerText}</p>
                 </div>
                 <div class="flex flex-grow items-end my-[14px]">
-                  <a
-                    href={href}
-                    class="uppercase font-bold underline text-[14px]"
-                  >
+                  <a href={href} class="uppercase font-bold underline text-[14px]" >
                     Saiba mais {">>"}
                   </a>
                 </div>

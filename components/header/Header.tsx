@@ -86,7 +86,7 @@ function Header(
           }}
         />
         <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
+        {/* <Navbar items={navItems} searchbar={searchbar} /> */}
         <ScrollTrackJS rootId={id} />
       </div>
 

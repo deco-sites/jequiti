@@ -47,9 +47,9 @@ const installmentToString = (
 
   // const withTaxes = sellingPrice < price;
 
-  return `em até ${billingDuration}x de R$ ${
+  return `em até <strong>${billingDuration}x</strong> de <strong>R$ ${
     formatPrice(billingIncrement, priceCurrency!)
-  }`;
+  }</strong>`;
 };
 
 export const useOffer = (aggregateOffer?: AggregateOffer) => {

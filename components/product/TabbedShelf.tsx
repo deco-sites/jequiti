@@ -123,8 +123,8 @@ function TabbedShelf({
 
         <ul class="tabs flex w-full sm:justify-center overflow-x-auto">
           {shelfTitles?.map((shelfTitle, index) => (
-            <li class="tab p-[10px] border-b-[4px] border-default">
-              <label for={`tab${index}`} class="px-[24px] whitespace-nowrap">
+            <li class="tab p-[14px] border-b-[4px] border-default text-default-light">
+              <label for={`tab${index}`} class="px-5 whitespace-nowrap text-lg">
                 {shelfTitle}
               </label>
             </li>
