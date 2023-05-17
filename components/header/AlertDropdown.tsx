@@ -26,6 +26,9 @@ export default function AlertDropdown(
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       class="flex items-center"
+      style={text === "Consultor(a)"
+        ? { flex: "1", justifyContent: "flex-end" }
+        : {}}
     >
       <a href={href}>
         <Text
@@ -46,14 +49,16 @@ export default function AlertDropdown(
 
       {dropDownVisibility
         ? (
-          <div class="absolute top-8">
+          <div class="absolute top-8 flex-col flex">
             <Icon
               id="Triangle"
               width={25}
               height={12}
-              class="ml-2"
+              class={text === "Consultor(a)"
+                ? "self-end mr-2 z-10"
+                : "ml-2 z-10"}
             />
-            <ul class="bg-white py-2 px-4 shadow-md	rounded z-10	">
+            <ul class="bg-white py-2 px-4 shadow-md	rounded 	">
               {children.map((child, index) => (
                 <li key={index}>
                   <a
