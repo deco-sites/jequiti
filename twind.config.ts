@@ -52,7 +52,7 @@ const options: Omit<Options, "selfURL"> = {
       },
       textColor: {
         "default": "#212121",
-        "default-gray":"#636363",
+        "default-gray": "#636363",
         "default-light": "#575756",
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
