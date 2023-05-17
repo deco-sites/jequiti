@@ -13,13 +13,13 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 
 export interface Props {
-    title: string;
-    shelfTitles?: string[];
-    products: LoaderReturnType<Product[] | null>;
-    itemsPerPage?: number;
-    shelfs?: LoaderReturnType<Product[][] | null>;
-    seeMore?: string;
-    seeMoreLink?: string;
+  title: string;
+  shelfTitles?: string[];
+  products: LoaderReturnType<Product[] | null>;
+  itemsPerPage?: number;
+  shelfs?: LoaderReturnType<Product[][] | null>;
+  seeMore?: string;
+  seeMoreLink?: string;
 }
 
 function ShelfItem({ products, title }: Props) {
@@ -88,12 +88,12 @@ function ShelfItem({ products, title }: Props) {
   );
 }
 function TabbedShelf({
-    title,
-    products,
-    shelfTitles,
-    shelfs,
-    seeMore,
-    seeMoreLink,
+  title,
+  products,
+  shelfTitles,
+  shelfs,
+  seeMore,
+  seeMoreLink,
 }: Props) {
   if (!products || products.length === 0) {
     return null;
@@ -141,9 +141,9 @@ function TabbedShelf({
         ))}
         {!!seeMore && !!seeMoreLink}
         <div class="text-center mt-4">
-            <a href={seeMoreLink} class="text-[#00AEB9] font-bold text-sm ">
-                {seeMore}
-            </a>
+          <a href={seeMoreLink} class="text-[#00AEB9] font-bold text-sm ">
+            {seeMore}
+          </a>
         </div>
       </div>
     </Container>

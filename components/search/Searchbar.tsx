@@ -155,7 +155,6 @@ function Searchbar({
             </Text>
           </button>
           <Button
-          
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"

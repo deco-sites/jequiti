@@ -100,7 +100,10 @@ export default function BannerWithText({
 
           {cta && (
             <a href={cta?.href}>
-              <Button class="rounded-sm px-8 text-brand-primary tracking-[1px] border-2" variant="secondary">
+              <Button
+                class="rounded-sm px-8 text-brand-primary tracking-[1px] border-2"
+                variant="secondary"
+              >
                 {cta?.text}
               </Button>
             </a>

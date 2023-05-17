@@ -19,13 +19,19 @@ export default function BannerGrid({
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
-              <h1 class={"text-heading-4 font-heading-4 text-1-500 lg:text-[32px] text-center"} >
+              <h1
+                class={"text-heading-4 font-heading-4 text-1-500 lg:text-[32px] text-center"}
+              >
                 {title}
               </h1>
             </div>
           )}
         <div class="max-w-[675px] mx-auto text-center">
-          <p class="text-lg leading-6" dangerouslySetInnerHTML={{__html:text || ""}}></p>
+          <p
+            class="text-lg leading-6"
+            dangerouslySetInnerHTML={{ __html: text || "" }}
+          >
+          </p>
         </div>
       </section>
     </Container>

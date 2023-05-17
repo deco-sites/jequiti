@@ -54,7 +54,8 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
 
   if (!root || !slider || !items || items.length === 0) {
-    console.warn( "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
+    console.warn(
+      "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
       { root, slider, items, rootId },
     );
 
@@ -69,7 +70,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
 
-      const ratio = intersectionX( rect, sliderRect, ) / rect.width;
+      const ratio = intersectionX(rect, sliderRect) / rect.width;
       if (ratio > THRESHOLD) {
         indices.push(index);
       }
@@ -82,12 +83,18 @@ const setup = ({ rootId, behavior, interval }: Props) => {
     const item = items.item(index);
 
     if (!isHTMLElement(item)) {
-      console.warn( `Element at index ${index} is not an html element. Skipping carousel`, );
+      console.warn(
+        `Element at index ${index} is not an html element. Skipping carousel`,
+      );
 
       return;
     }
 
-    slider.scrollTo({ top: 0, behavior, left: item.offsetLeft - root.offsetLeft, });
+    slider.scrollTo({
+      top: 0,
+      behavior,
+      left: item.offsetLeft - root.offsetLeft,
+    });
   };
 
   const onClickPrev = () => {
@@ -98,7 +105,9 @@ const setup = ({ rootId, behavior, interval }: Props) => {
     const isShowingFirst = indices[0] === 0;
     const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
 
-    goToItem( isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage, );
+    goToItem(
+      isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
+    );
   };
 
   const onClickNext = () => {
@@ -115,7 +124,8 @@ const setup = ({ rootId, behavior, interval }: Props) => {
   const observer = new IntersectionObserver(
     (items) =>
       items.forEach((item) => {
-        const index = Number(item.target.getAttribute(ATTRIBUTES["data-slider-item"])) || 0;
+        const index =
+          Number(item.target.getAttribute(ATTRIBUTES["data-slider-item"])) || 0;
         const dot = dots?.item(index);
 
         if (item.isIntersecting) {

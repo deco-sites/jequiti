@@ -52,7 +52,7 @@ export default function BannerGrid({
           (
             <div class="pb-6 md:py-0 md:pb-10 flex items-center justify-center">
               <h2 class={"lg:text-lg text-heading-4 font-heading-4 text-1-500"}>
-                  {title}
+                {title}
               </h2>
             </div>
           )}

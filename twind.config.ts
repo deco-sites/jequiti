@@ -70,10 +70,9 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
-        "1-500":"#212121",
-        "2-500":"#575756",
-        "brand-primary":"#7a206c"
-
+        "1-500": "#212121",
+        "2-500": "#575756",
+        "brand-primary": "#7a206c",
       },
       borderColor: {
         "default": "#EEEEEE",
