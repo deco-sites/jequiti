@@ -45,15 +45,10 @@ export interface Props {
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
+  const { alt, mobile, desktop, action, } = image;
 
   return (
-    <div class="relative h-[364px] sm:h-[496px] w-[100%] overflow-y-hidden">
+    <div class="relative max-h-[364px] sm:max-h-[496px] w-[100%] overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -67,8 +62,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
-            width={1330}
-            height={496}
+            width={1128}
+            height={420}
           />
           <img
             class="object-cover w-full sm:h-full"
@@ -113,25 +108,7 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
       <SliderDots class="absolute bottom-0 right-0  left-0 gap-[8px] z-10 ">
         {images?.map((_) => (
           <div class="pt-[26px]">
-            <div
-              class={tw`group-disabled:${
-                animation(
-                  `${interval}s ease-out 1 forwards`,
-                  keyframes`
-                          from: {
-                            --dot-progress: 0%;
-                          }
-                          to {
-                            --dot-progress: 100%;
-                          }
-                        `,
-                )
-              } w-[24px] h-[4px]  rounded-none`}
-              style={{
-                background:
-                  "linear-gradient(to right, #00aeb9 var(--dot-progress), #d1d1d1 var(--dot-progress))",
-              }}
-            />
+            <div class={"bg-[#d1d1d1] w-6 h-1"} />
           </div>
         ))}
       </SliderDots>
@@ -142,7 +119,7 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
 function Controls() {
   return (
     <>
-      <div class="absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] ">
+      <div class="lg:flex hidden absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] ">
         <Button
           class="h-12 w-12 rounded-full bg-white"
           // variant="icon"
@@ -157,7 +134,7 @@ function Controls() {
           />
         </Button>
       </div>
-      <div class="flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-0 translate-x-0 translate-y-[-50%] lg:translate-x-[50%]">
+      <div class="lg:flex hidden flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-0 translate-x-0 translate-y-[-50%] lg:translate-x-[50%]">
         <Button
           class="h-12 w-12 rounded-full bg-white"
           // variant="icon"
@@ -181,11 +158,8 @@ function BannerCarousel({ images, preload, interval }: Props) {
 
   return (
     <Container>
-      <div
-        id={id}
-        class="flex relative grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
-      >
-        <Slider class="col-span-full row-span-full scrollbar-none gap-6">
+      <div id={id} class="flex relative">
+        <Slider class=" row-span-full scrollbar-none pb-[30px]">
           {images?.map((image, index) => (
             <BannerItem image={image} lcp={index === 0 && preload} />
           ))}

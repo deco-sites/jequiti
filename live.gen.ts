@@ -7,43 +7,43 @@ import { DecoManifest } from "$live/types.ts";
 import * as $0 from "./functions/vtexLoadMultipleProductLists.ts";
 import * as $$$$0 from "./routes/api/[...catchall].tsx";
 import * as $$$$1 from "./routes/_app.tsx";
-import * as $$$$$0 from "./islands/WishlistButton.tsx";
+import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$2 from "./islands/HeaderButton.tsx";
+import * as $$$$$2 from "./islands/SearchBar.tsx";
 import * as $$$$$3 from "./islands/SendEventButton.tsx";
-import * as $$$$$4 from "./islands/HeaderSearchMenu.tsx";
-import * as $$$$$5 from "./islands/SearchBar.tsx";
-import * as $$$$$6 from "./islands/ScrollTrackJS.tsx";
-import * as $$$$$7 from "./islands/AlertDropdown.tsx";
-import * as $$$$$8 from "./islands/QuantitySelector.tsx";
-import * as $$$$$9 from "./islands/AddToCartButton.tsx";
-import * as $$$$$10 from "./islands/HeaderModals.tsx";
-import * as $$$$$11 from "./islands/SliderJS.tsx";
-import * as $$$$$12 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$13 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$14 from "./islands/QuantityAddToCartButton.tsx";
-import * as $$$$$15 from "./islands/SearchControls.tsx";
-import * as $$$$$$$$0 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$1 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$2 from "./sections/DesignSystem.story.tsx";
-import * as $$$$$$$$3 from "./sections/BannerGridCarousel.tsx";
-import * as $$$$$$$$4 from "./sections/Features.tsx";
-import * as $$$$$$$$5 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$6 from "./sections/SEO.tsx";
-import * as $$$$$$$$7 from "./sections/BannerGrid.tsx";
-import * as $$$$$$$$8 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$9 from "./sections/BannerWithText.tsx";
-import * as $$$$$$$$10 from "./sections/InstagramGrid.tsx";
+import * as $$$$$4 from "./islands/AlertDropdown.tsx";
+import * as $$$$$5 from "./islands/SearchControls.tsx";
+import * as $$$$$6 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$7 from "./islands/HeaderModals.tsx";
+import * as $$$$$8 from "./islands/QuantityAddToCartButton.tsx";
+import * as $$$$$9 from "./islands/ScrollTrackJS.tsx";
+import * as $$$$$10 from "./islands/SliderJS.tsx";
+import * as $$$$$11 from "./islands/QuantitySelector.tsx";
+import * as $$$$$12 from "./islands/WishlistButton.tsx";
+import * as $$$$$13 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$14 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$15 from "./islands/HeaderButton.tsx";
+import * as $$$$$$$$0 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$1 from "./sections/SEO.tsx";
+import * as $$$$$$$$2 from "./sections/BannerGridCarousel.tsx";
+import * as $$$$$$$$3 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$4 from "./sections/BannerWithText.tsx";
+import * as $$$$$$$$5 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$6 from "./sections/TabbedShelf.tsx";
+import * as $$$$$$$$7 from "./sections/Highlights.tsx";
+import * as $$$$$$$$8 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$9 from "./sections/BannerGrid.tsx";
+import * as $$$$$$$$10 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$11 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$12 from "./sections/Footer.tsx";
+import * as $$$$$$$$12 from "./sections/Carousel.tsx";
 import * as $$$$$$$$13 from "./sections/Blog.tsx";
-import * as $$$$$$$$14 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$15 from "./sections/Header.tsx";
-import * as $$$$$$$$16 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$17 from "./sections/Highlights.tsx";
-import * as $$$$$$$$18 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$19 from "./sections/TabbedShelf.tsx";
-import * as $$$$$$$$20 from "./sections/Carousel.tsx";
+import * as $$$$$$$$14 from "./sections/DesignSystem.story.tsx";
+import * as $$$$$$$$15 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$16 from "./sections/Header.tsx";
+import * as $$$$$$$$17 from "./sections/InstagramGrid.tsx";
+import * as $$$$$$$$18 from "./sections/Features.tsx";
+import * as $$$$$$$$19 from "./sections/Footer.tsx";
+import * as $$$$$$$$20 from "./sections/BannerPLP.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -135,45 +135,45 @@ const manifest = {
     "./routes/[...catchall].tsx": $live_catchall,
   },
   "islands": {
-    "./islands/WishlistButton.tsx": $$$$$0,
+    "./islands/AddToCartButton.tsx": $$$$$0,
     "./islands/ShippingSimulation.tsx": $$$$$1,
-    "./islands/HeaderButton.tsx": $$$$$2,
+    "./islands/SearchBar.tsx": $$$$$2,
     "./islands/SendEventButton.tsx": $$$$$3,
-    "./islands/HeaderSearchMenu.tsx": $$$$$4,
-    "./islands/SearchBar.tsx": $$$$$5,
-    "./islands/ScrollTrackJS.tsx": $$$$$6,
-    "./islands/AlertDropdown.tsx": $$$$$7,
-    "./islands/QuantitySelector.tsx": $$$$$8,
-    "./islands/AddToCartButton.tsx": $$$$$9,
-    "./islands/HeaderModals.tsx": $$$$$10,
-    "./islands/SliderJS.tsx": $$$$$11,
-    "./islands/ProductImageZoom.tsx": $$$$$12,
-    "./islands/ViewSendEvent.tsx": $$$$$13,
-    "./islands/QuantityAddToCartButton.tsx": $$$$$14,
-    "./islands/SearchControls.tsx": $$$$$15,
+    "./islands/AlertDropdown.tsx": $$$$$4,
+    "./islands/SearchControls.tsx": $$$$$5,
+    "./islands/HeaderSearchMenu.tsx": $$$$$6,
+    "./islands/HeaderModals.tsx": $$$$$7,
+    "./islands/QuantityAddToCartButton.tsx": $$$$$8,
+    "./islands/ScrollTrackJS.tsx": $$$$$9,
+    "./islands/SliderJS.tsx": $$$$$10,
+    "./islands/QuantitySelector.tsx": $$$$$11,
+    "./islands/WishlistButton.tsx": $$$$$12,
+    "./islands/ProductImageZoom.tsx": $$$$$13,
+    "./islands/ViewSendEvent.tsx": $$$$$14,
+    "./islands/HeaderButton.tsx": $$$$$15,
   },
   "sections": {
-    "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$0,
-    "deco-sites/jequiti/sections/LinkTree.tsx": $$$$$$$$1,
-    "deco-sites/jequiti/sections/DesignSystem.story.tsx": $$$$$$$$2,
-    "deco-sites/jequiti/sections/BannerGridCarousel.tsx": $$$$$$$$3,
-    "deco-sites/jequiti/sections/Features.tsx": $$$$$$$$4,
-    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$5,
-    "deco-sites/jequiti/sections/SEO.tsx": $$$$$$$$6,
-    "deco-sites/jequiti/sections/BannerGrid.tsx": $$$$$$$$7,
-    "deco-sites/jequiti/sections/SearchResult.tsx": $$$$$$$$8,
-    "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$9,
-    "deco-sites/jequiti/sections/InstagramGrid.tsx": $$$$$$$$10,
+    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$0,
+    "deco-sites/jequiti/sections/SEO.tsx": $$$$$$$$1,
+    "deco-sites/jequiti/sections/BannerGridCarousel.tsx": $$$$$$$$2,
+    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$3,
+    "deco-sites/jequiti/sections/BannerWithText.tsx": $$$$$$$$4,
+    "deco-sites/jequiti/sections/LinkTree.tsx": $$$$$$$$5,
+    "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$6,
+    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$7,
+    "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$8,
+    "deco-sites/jequiti/sections/BannerGrid.tsx": $$$$$$$$9,
+    "deco-sites/jequiti/sections/CookieConsent.tsx": $$$$$$$$10,
     "deco-sites/jequiti/sections/ProductShelf.tsx": $$$$$$$$11,
-    "deco-sites/jequiti/sections/Footer.tsx": $$$$$$$$12,
+    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$12,
     "deco-sites/jequiti/sections/Blog.tsx": $$$$$$$$13,
-    "deco-sites/jequiti/sections/CookieConsent.tsx": $$$$$$$$14,
-    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$15,
-    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$16,
-    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$17,
-    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$18,
-    "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$19,
-    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$20,
+    "deco-sites/jequiti/sections/DesignSystem.story.tsx": $$$$$$$$14,
+    "deco-sites/jequiti/sections/SearchResult.tsx": $$$$$$$$15,
+    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$16,
+    "deco-sites/jequiti/sections/InstagramGrid.tsx": $$$$$$$$17,
+    "deco-sites/jequiti/sections/Features.tsx": $$$$$$$$18,
+    "deco-sites/jequiti/sections/Footer.tsx": $$$$$$$$19,
+    "deco-sites/jequiti/sections/BannerPLP.tsx": $$$$$$$$20,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,

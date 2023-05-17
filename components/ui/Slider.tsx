@@ -45,11 +45,9 @@ type SliderDotsProps = JSX.IntrinsicElements["ol"];
 
 export function SliderDots({ children, class: _class }: SliderDotsProps) {
   return (
-    <ol
-      class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
-    >
+    <ol class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`} >
       {Children.map(children, (child, index) => (
-        <li class="scroll-snap-center">
+        <li class="scroll-snap-center flex">
           <button
             data-dot={index}
             aria-label={`go to slider item ${index}`}

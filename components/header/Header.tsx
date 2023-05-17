@@ -65,7 +65,7 @@ function Header(
   const id = useId();
   return (
     <header
-      class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}]`}
+      class={`h-[${headerHeightMobile}] sm:h-[${headerHeight}] lg:(max-w-[1200px] w-[90%])`}
     >
       <div
         id={id}
