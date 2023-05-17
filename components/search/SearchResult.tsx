@@ -41,10 +41,12 @@ function Result({
 
   return (
     <>
-      <Container class="px-4">
-        <div class="flex flex-row items-center sm:p-0 mb-2">
+      <Container>
+        {
+          /* <div class="flex flex-row items-center sm:p-0 mb-2">
           <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-        </div>
+        </div> */
+        }
 
         <div class="flex flex-col">
           {(!variant || variant === "aside") && filters.length > 0 && (

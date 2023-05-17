@@ -38,12 +38,13 @@ import * as $$$$$$$$11 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$12 from "./sections/Footer.tsx";
 import * as $$$$$$$$13 from "./sections/Blog.tsx";
 import * as $$$$$$$$14 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$15 from "./sections/Header.tsx";
-import * as $$$$$$$$16 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$17 from "./sections/Highlights.tsx";
-import * as $$$$$$$$18 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$19 from "./sections/TabbedShelf.tsx";
-import * as $$$$$$$$20 from "./sections/Carousel.tsx";
+import * as $$$$$$$$15 from "./sections/BreadCrumbPLP.tsx";
+import * as $$$$$$$$16 from "./sections/Header.tsx";
+import * as $$$$$$$$17 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$18 from "./sections/Highlights.tsx";
+import * as $$$$$$$$19 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$20 from "./sections/TabbedShelf.tsx";
+import * as $$$$$$$$21 from "./sections/Carousel.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -168,12 +169,13 @@ const manifest = {
     "deco-sites/jequiti/sections/Footer.tsx": $$$$$$$$12,
     "deco-sites/jequiti/sections/Blog.tsx": $$$$$$$$13,
     "deco-sites/jequiti/sections/CookieConsent.tsx": $$$$$$$$14,
-    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$15,
-    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$16,
-    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$17,
-    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$18,
-    "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$19,
-    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$20,
+    "deco-sites/jequiti/sections/BreadCrumbPLP.tsx": $$$$$$$$15,
+    "deco-sites/jequiti/sections/Header.tsx": $$$$$$$$16,
+    "deco-sites/jequiti/sections/ProductDetails.tsx": $$$$$$$$17,
+    "deco-sites/jequiti/sections/Highlights.tsx": $$$$$$$$18,
+    "deco-sites/jequiti/sections/WhatsApp.tsx": $$$$$$$$19,
+    "deco-sites/jequiti/sections/TabbedShelf.tsx": $$$$$$$$20,
+    "deco-sites/jequiti/sections/Carousel.tsx": $$$$$$$$21,
     "$live/sections/PageInclude.tsx": i2$$$9,
     "deco-sites/std/sections/configYourViews.global.tsx": i2$$$0,
     "deco-sites/std/sections/SEO.tsx": i2$$$1,
