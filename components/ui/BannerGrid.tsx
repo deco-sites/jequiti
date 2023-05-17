@@ -55,7 +55,9 @@ export default function BannerGrid({
           class={`grid gap-4 md:gap-6 grid-cols-${
             itemsPerLine && itemsPerLine.mobile ? itemsPerLine.mobile : "1"
           } lg:grid-cols-${
-            itemsPerLine && itemsPerLine.desktop ? itemsPerLine.desktop : banners.length
+            itemsPerLine && itemsPerLine.desktop
+              ? itemsPerLine.desktop
+              : banners.length
           }`}
         >
           {banners.map((
@@ -66,13 +68,32 @@ export default function BannerGrid({
               class={`overflow-hidden mx-auto max-w-[400px] ${
                 borderRadius?.mobile && `rounded-[${borderRadius.mobile}px]`
               } ${
-                borderRadius?.desktop ? `sm:rounded-[${borderRadius.desktop}px]` : `sm:rounded-none`
+                borderRadius?.desktop
+                  ? `sm:rounded-[${borderRadius.desktop}px]`
+                  : `sm:rounded-none`
               }`}
             >
               <Picture>
-                <Source media="(max-width: 767px)" src={srcMobile} width={343} height={343} />
-                <Source media="(min-width: 768px)" src={srcDesktop ? srcDesktop : srcMobile} width={343} height={343} />
-                <img class="w-full" sizes="(max-width: 640px) 100vw, 30vw" src={srcMobile} alt={alt} decoding="async" loading="lazy" />
+                <Source
+                  media="(max-width: 767px)"
+                  src={srcMobile}
+                  width={343}
+                  height={343}
+                />
+                <Source
+                  media="(min-width: 768px)"
+                  src={srcDesktop ? srcDesktop : srcMobile}
+                  width={343}
+                  height={343}
+                />
+                <img
+                  class="w-full"
+                  sizes="(max-width: 640px) 100vw, 30vw"
+                  src={srcMobile}
+                  alt={alt}
+                  decoding="async"
+                  loading="lazy"
+                />
               </Picture>
             </a>
           ))}

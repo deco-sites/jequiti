@@ -29,7 +29,7 @@ export interface Banner {
 export interface Props {
   title: string;
   subtitle?: string;
-  emphasisText?:string;
+  emphasisText?: string;
   itemsPerPage?: number;
   images: Banner[];
   borderRadius: {
@@ -43,7 +43,7 @@ function ProductShelf({
   subtitle,
   images,
   borderRadius,
-  emphasisText
+  emphasisText,
 }: Props) {
   const id = useId();
 
@@ -62,18 +62,21 @@ function ProductShelf({
           </h2>
         )}
       {(subtitle || emphasisText) && (
-            <div class="flex flex-col justify-center px-[16px] gap-2">
-                <span class="text-center leading-none inline-flex mx-auto text-lg text-default-light">
-                    {subtitle}
-                </span>
-                <span class="text-center leading-none inline-flex mx-auto text-lg font-bold text-default-light">
-                    {emphasisText}
-                </span>
-            </div>
+        <div class="flex flex-col justify-center px-[16px] gap-2">
+          <span class="text-center leading-none inline-flex mx-auto text-lg text-default-light">
+            {subtitle}
+          </span>
+          <span class="text-center leading-none inline-flex mx-auto text-lg font-bold text-default-light">
+            {emphasisText}
+          </span>
+        </div>
       )}
 
       <div id={id} class="relative pt-[30px]">
-        <Slider class="gap-4" snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 sm:last:mr-0 mx-[-8px]" slidePerView={{ desktop: 4, tablet: 2, phone: 1, }}
+        <Slider
+          class="gap-4"
+          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 sm:last:mr-0 mx-[-8px]"
+          slidePerView={{ desktop: 4, tablet: 2, phone: 1 }}
         >
           {images.map((
             { href, srcMobile, srcDesktop, alt, title, linkText },

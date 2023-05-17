@@ -45,7 +45,7 @@ export interface Props {
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const { alt, mobile, desktop, action, } = image;
+  const { alt, mobile, desktop, action } = image;
 
   return (
     <div class="relative max-h-[364px] sm:max-h-[496px] w-[100%] overflow-y-hidden">
