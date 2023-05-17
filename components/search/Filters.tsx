@@ -1,5 +1,6 @@
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Avatar from "deco-sites/jequiti/components/ui/Avatar.tsx";
+import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import type {
   Filter,
   FilterToggle,
@@ -67,10 +68,27 @@ function Filters({ filters }: Props) {
     <ul class="flex w-full gap-6 justify-between relative">
       {filters
         .filter(isToggle)
-        .map((filter) => (
-          <details class="flex flex-col gap-4 list-none">
-            <summary class="no-marker">
+        .map((filter, index) => (
+          <details
+            key={index}
+            class="flex flex-col gap-4 detail-chevron cursor-pointer"
+          >
+            <summary class="no-marker flex items-center">
               <Text variant="body">{filter.label}</Text>
+              <Icon
+                id="ChevronDown"
+                width={15}
+                height={15}
+                strokeWidth={3}
+                class={"ml-2 z-10 closed-chevron"}
+              />
+              <Icon
+                id="ChevronUp"
+                width={15}
+                height={15}
+                strokeWidth={3}
+                class={"ml-2 z-10 opened-chevron"}
+              />
             </summary>
             <FilterValues {...filter} />
           </details>

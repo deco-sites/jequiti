@@ -197,6 +197,25 @@ const options: Omit<Options, "selfURL"> = {
       css`& [type="radio"]:nth-of-type(${pos}):checked ~ .tabs .tab:nth-of-type(${pos}) {${
         style.replace(/\[/, "").replace(/\]/, "").replaceAll("_", " ")
       } }`,
+    "no-marker": {
+      "&::-webkit-details-marker": {
+        "content": "none",
+      },
+      "&::marker": {
+        "content": "none",
+      },
+    },
+    "detail-chevron": {
+      ".opened-chevron": {
+        "display": "none",
+      },
+      "&[open] .closed-chevron": {
+        "display": "none",
+      },
+      "&[open] .opened-chevron": {
+        "display": "block",
+      },
+    },
   },
 };
 
