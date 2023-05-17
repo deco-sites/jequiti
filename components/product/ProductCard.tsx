@@ -69,11 +69,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
   );
 
   return (
-    <div
-      data-deco="view-product"
-      id={`product-card-${productID}`}
-      class="w-full group px-[24px] py-[12px] border-default border-1 flex flex-col"
-    >
+    <div data-deco="view-product" id={`product-card-${productID}`} class="w-full group px-[24px] py-[12px] border-default border-1 flex flex-col font-sans" >
       <a href={url} aria-label="product link" class="flex flex-col flex-1">
         <div class="relative w-full">
           <div class="absolute top-0 right-0">
@@ -143,35 +139,28 @@ function ProductCard({ product, preload, itemListName }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-[8px] py-2 flex-1">
-          <Text class="text-interactive uppercase text-[12px]">{brand}</Text>
+        <div class="flex flex-col py-2 flex-1">
+          <Text class="text-interactive uppercase text-[12px] font-medium">{brand}</Text>
           <Text
-            class="overflow-hidden overflow-ellipsis line-clamp-2 flex flex-1"
+            class="overflow-hidden overflow-ellipsis line-clamp-2 text-base h-[42px] text-default"
             variant="caption"
           >
             {name}
           </Text>
-          <div class="flex flex-col gap-[8px]">
-            <div class="flex items-end gap-2">
-              <Text
-                class="line-through leading-none"
-                variant="list-price"
-                tone="subdued"
-              >
+          <div class="flex flex-col gap-2 my-[10px]">
+            <div class="flex items-center gap-2">
+              <span class="line-through leading-none text-sm  text-default-gray" >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
-              <Text
-                variant="caption"
-                tone="price"
-                class="override:(font-bold) text-[20px]"
-              >
+              </span>
+              <span class="override:(font-bold) text-[20px] text-interactive" >
                 {formatPrice(price, offers!.priceCurrency!)}
-              </Text>
+              </span>
             </div>
-            <Text tone="subdued" variant="caption">
+            {installments && <span class="text-sm text-default-gray" dangerouslySetInnerHTML={{__html:installments}}>
               {installments}
-            </Text>
+            </span>}
           </div>
+          
           {seller && (
             <AddToCartButton
               skuId={productID}

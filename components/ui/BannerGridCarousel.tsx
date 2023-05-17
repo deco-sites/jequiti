@@ -29,6 +29,7 @@ export interface Banner {
 export interface Props {
   title: string;
   subtitle?: string;
+  emphasisText?:string;
   itemsPerPage?: number;
   images: Banner[];
   borderRadius: {
@@ -42,6 +43,7 @@ function ProductShelf({
   subtitle,
   images,
   borderRadius,
+  emphasisText
 }: Props) {
   const id = useId();
 
@@ -59,28 +61,24 @@ function ProductShelf({
             </Text>
           </h2>
         )}
-      {subtitle && (
-        <div class="flex justify-center px-[16px]">
-          <Text class="pb-[15px] text-center inline-flex pb-[50px] mx-auto max-w-[600px]">
-            {subtitle}
-          </Text>
-        </div>
+      {(subtitle || emphasisText) && (
+            <div class="flex flex-col justify-center px-[16px] gap-2">
+                <span class="text-center leading-none inline-flex mx-auto text-lg text-default-light">
+                    {subtitle}
+                </span>
+                <span class="text-center leading-none inline-flex mx-auto text-lg font-bold text-default-light">
+                    {emphasisText}
+                </span>
+            </div>
       )}
 
-      <div id={id} class="relative">
-        <Slider
-          class="col-span-full row-start-2 row-end-5"
-          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0"
-          slidePerView={{
-            desktop: 4,
-            tablet: 2,
-            phone: 1,
-          }}
+      <div id={id} class="relative pt-[30px]">
+        <Slider class="gap-4" snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 sm:last:mr-0 mx-[-8px]" slidePerView={{ desktop: 4, tablet: 2, phone: 1, }}
         >
           {images.map((
             { href, srcMobile, srcDesktop, alt, title, linkText },
           ) => (
-            <div class="max-w-[300px] mx-auto">
+            <div class="mx-auto mx-2">
               <a
                 href={href}
                 class={`overflow-hidden relative ${
@@ -129,7 +127,7 @@ function ProductShelf({
         <>
           <div class="absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] ">
             <Button
-              class="h-12 w-12 rounded-full bg-white"
+              class="h-12 w-12 rounded-full bg-white shadow-lg"
               // variant="icon"
               data-slide="prev"
               aria-label="Previous item"
@@ -144,7 +142,7 @@ function ProductShelf({
           </div>
           <div class="flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-0 translate-x-0 translate-y-[-50%] lg:translate-x-[50%]">
             <Button
-              class="h-12 w-12 rounded-full bg-white"
+              class="h-12 w-12 rounded-full bg-white shadow-lg"
               // variant="icon"
               data-slide="next"
               aria-label="Next item"

@@ -46,7 +46,7 @@ export default function BannerWithText({
   banner,
 }: Props) {
   return (
-    <Container class="sm:py-[100px]">
+    <Container class="sm:py-10">
       <section class="flex w-full flex-col px-4 items-center md:px-0 mx-auto lg:flex-row">
         <div class="w-full sm:w-[50%]">
           <a
@@ -83,7 +83,7 @@ export default function BannerWithText({
             </Picture>
           </a>
         </div>
-        <div class="w-full flex items-center lg:items-start flex-col sm:w-[50%] lg:p-[80px] gap-[25px]">
+        <div class="w-full flex items-center lg:items-start flex-col sm:w-[50%] lg:p-[6.25rem] gap-[25px]">
           {title &&
             (
               <div class="gap-[25px] md:gap-[25px] flex flex-col justify-center mt-6 lg:justify-start">

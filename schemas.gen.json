@@ -2878,6 +2878,13 @@
           ],
           "title": "Subtitle"
         },
+        "emphasisText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Emphasis Text"
+        },
         "itemsPerPage": {
           "type": [
             "number",
