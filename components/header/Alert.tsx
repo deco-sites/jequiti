@@ -51,7 +51,7 @@ function Alert({ alerts = [] }: Props) {
           href="/acesso-consultora"
           class="px-[15px] flex items-center h-[42px] bg-white w-[fit-content] "
         >
-          <Text class="text-default text-[14px] font-bold">
+          <Text class="text-1-500 text-[14px] font-bold">
             Ja ser Consultor(a)
           </Text>
         </a>

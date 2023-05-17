@@ -63,7 +63,6 @@ const options: Omit<Options, "selfURL"> = {
       textColor: {
         "default": "#212121",
         "default-gray": "#636363",
-        "default-light": "#575756",
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
@@ -71,6 +70,10 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "1-500":"#212121",
+        "2-500":"#575756",
+        "brand-primary":"#7a206c"
+
       },
       borderColor: {
         "default": "#EEEEEE",
@@ -87,6 +90,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": ["42px", "67.2px"],
         "heading-2": ["37px", "28.8px"],
         "heading-3": ["20px", "24px"],
+        "heading-4": ["26px", "28px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
@@ -97,6 +101,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": "700",
         "heading-2": "700",
         "heading-3": "500",
+        "heading-4": "700",
         "menu": "400",
         "button": "700",
         "body": "400",

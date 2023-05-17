@@ -33,7 +33,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
   return (
     <div class="flex border-1 border-default ">
       <Button
-        class="h-[32px] w-[32px] rounded-0 text-interactive disabled:text-default"
+        class="h-[32px] w-[32px] rounded-0 text-1-500 disabled:text-1-500"
         variant="icon"
         onClick={decrement}
         disabled={disabled}
@@ -43,7 +43,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
       </Button>
       <style dangerouslySetInnerHTML={{ __html: innerStyle }} />
       <input
-        class="text-center text-default text-body font-body bg-transparent outline-none disabled:opacity-50 flex-1"
+        class="text-center text-1-500 text-body font-body bg-transparent outline-none disabled:opacity-50 flex-1"
         type="number"
         inputMode="numeric"
         pattern="[0-9]*"
@@ -54,7 +54,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
         onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
       />
       <Button
-        class="h-[32px] w-[32px] text-interactive disabled:text-default"
+        class="h-[32px] w-[32px] text-1-500 disabled:text-1-500"
         variant="icon"
         onClick={increment}
         disabled={disabled}

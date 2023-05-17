@@ -155,6 +155,7 @@ function Searchbar({
             </Text>
           </button>
           <Button
+          
             variant="icon"
             aria-label="Search"
             htmlFor="searchbar"
@@ -166,14 +167,14 @@ function Searchbar({
               width={18}
               height={18}
               strokeWidth={0.01}
-              class="text-interactive hidden sm:inline"
+              class="text-brand-primary hidden sm:inline"
             />
             <Icon
               id="MagnifyingGlass"
               width={24}
               height={24}
               strokeWidth={0.01}
-              class="text-interactive sm:hidden"
+              class="text-brand-primary sm:hidden"
             />
           </Button>
         </form>

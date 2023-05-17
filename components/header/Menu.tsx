@@ -96,7 +96,7 @@ function Menu({ items, alerts }: Props) {
               width={20}
               height={20}
               strokeWidth={2}
-              class="text-interactive"
+              class="text-1-500"
             />
             <Text variant="caption">Minha conta</Text>
           </a>
@@ -111,7 +111,7 @@ function Menu({ items, alerts }: Props) {
               width={20}
               height={20}
               strokeWidth={2}
-              class="text-interactive"
+              class="text-1-500"
             />
             <Text variant="caption">Favoritos</Text>
           </a>
@@ -126,7 +126,7 @@ function Menu({ items, alerts }: Props) {
               width={20}
               height={20}
               strokeWidth={2}
-              class="text-interactive"
+              class="text-1-500"
             />
             <Text variant="caption">Pedidos</Text>
           </a>
@@ -141,7 +141,7 @@ function Menu({ items, alerts }: Props) {
               width={20}
               height={20}
               strokeWidth={2}
-              class="text-interactive"
+              class="text-1-500"
             />
             <Text variant="caption">Cashback</Text>
           </a>

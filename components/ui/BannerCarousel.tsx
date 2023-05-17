@@ -108,7 +108,7 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
       <SliderDots class="absolute bottom-0 right-0  left-0 gap-[8px] z-10 ">
         {images?.map((_) => (
           <div class="pt-[26px]">
-            <div class={"bg-[#d1d1d1] w-6 h-1"} />
+            <div class={"bg-[#d1d1d1] w-6 h-1 group-disabled:bg-[#00aeb9]"} />
           </div>
         ))}
       </SliderDots>
@@ -127,7 +127,7 @@ function Controls() {
           aria-label="Previous item"
         >
           <Icon
-            class="text-default"
+            class="text-1-500"
             size={20}
             id="ChevronLeft"
             strokeWidth={3}
@@ -142,7 +142,7 @@ function Controls() {
           aria-label="Next item"
         >
           <Icon
-            class="text-default"
+            class="text-1-500"
             size={20}
             id="ChevronRight"
             strokeWidth={3}
@@ -155,7 +155,7 @@ function Controls() {
 
 function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
-
+console.log("interval", interval)
   return (
     <Container>
       <div id={id} class="flex relative">

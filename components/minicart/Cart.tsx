@@ -29,7 +29,7 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6 text-interactive">
+      <div class="flex flex-col justify-center items-center h-full gap-6 text-1-500">
         <Icon id="ShoppingCart" width={64} height={84} />
         <Text variant="caption">Sua sacola está vazia :{"("}</Text>
       </div>

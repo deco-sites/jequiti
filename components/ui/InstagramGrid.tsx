@@ -54,17 +54,12 @@ export default function InstagramGrid({
         {title &&
           (
             <div class="py-6 md:py-0 md:pb-[40px] flex flex-col items-center justify-center mt-6">
-              <h2
-                class={"text-lg font-semibold uppercase pb-[2rem] text-center"}
-              >
-                <Text variant="heading-2" class="text-[25px] lg:text-[37px]">
+              <h2 class={"text-heading-4 font-heading-4 px-4 lg:text-lg pb-[2rem] text-center text-1-500"} >
                   {title}
-                </Text>
               </h2>
-              {subtitle && <Text class="pb-[15px] text-center">{subtitle}
-              </Text>}
+              {subtitle && <p class="text-2-500 text-lg text-center px-4 leading-6">{subtitle} </p>}
               {link && (
-                <a href={link.link} class="text-[#00aeb9] font-bold italic">
+                <a href={link.link} class="text-[#00aeb9] pt-2 font-bold italic text-lg">
                   {link.text}
                 </a>
               )}

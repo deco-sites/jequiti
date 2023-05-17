@@ -3059,6 +3059,20 @@
         "shelfs": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]|null",
           "title": "Shelfs"
+        },
+        "seeMore": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "See More"
+        },
+        "seeMoreLink": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "See More Link"
         }
       },
       "required": [

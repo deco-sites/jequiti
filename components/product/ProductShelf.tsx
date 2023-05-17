@@ -34,10 +34,10 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="flex flex-col py-10 px-0 sm:px-5"
+      class="flex flex-col py-5 px-0 sm:px-5"
     >
-      <h2 class="text-center">
-        <div class="font-bold text-[37px] text-default pb-[30px]">
+      <h2 class="text-center px-4">
+        <div class="font-bold text-heading-4 text-1-500 pb-[30px]">
           {title}
         </div>
       </h2>
@@ -45,7 +45,7 @@ function ProductShelf({
         <Slider
           class="override:(items-stretch) gap-4 "
           snap="snap-center sm:snap-start last:mr-[10px] sm:last:mr-0 flex items-stretch mx-[-8px]"
-          slidePerView={{ desktop: 4, tablet: 3, phone: 1.25 }}
+          slidePerView={{ desktop: 4, tablet: 3, phone: 1.4 }}
         >
           {products?.map((product) => (
             <div class="flex flex-1 max-w-[270px] sm:max-w-[320px] flex items-stretch mx-2">
@@ -60,7 +60,7 @@ function ProductShelf({
             aria-label="Previous item"
           >
             <Icon
-              class="text-default"
+              class="text-1-500"
               size={20}
               id="ChevronLeft"
               strokeWidth={3}
@@ -74,7 +74,7 @@ function ProductShelf({
             aria-label="Next item"
           >
             <Icon
-              class="text-default"
+              class="text-1-500"
               size={20}
               id="ChevronRight"
               strokeWidth={3}

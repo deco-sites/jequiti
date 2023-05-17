@@ -50,7 +50,7 @@ function LinkTree({
             <li class="w-full">
               <a
                 href={link.href}
-                class="text-interactive-inverse text-caption rounded-3xl text-center w-full flex justify-center items-center min-h-[36px] hover:(bg-interactive-inverse text-interactive) border border-default"
+                class="text-1-500-inverse text-caption rounded-3xl text-center w-full flex justify-center items-center min-h-[36px] hover:(bg-interactive-inverse text-1-500) border border-default"
               >
                 {link.label}
               </a>
@@ -64,7 +64,7 @@ function LinkTree({
             <li>
               <a
                 href={link.href}
-                class="text-interactive-inverse block rounded"
+                class="text-1-500-inverse block rounded"
               >
                 <Icon id={link.label} size={36} strokeWidth={0.8} />
               </a>

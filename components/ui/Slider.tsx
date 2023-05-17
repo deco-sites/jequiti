@@ -54,7 +54,7 @@ export function SliderDots({ children, class: _class }: SliderDotsProps) {
           <li class="scroll-snap-center flex">
             <button
               data-dot={index}
-              aria-label={`go to slider item ${index}`}
+              aria-label={`go to slider item ${index} `}
               class="focus:outline-none group"
             >
               {child}

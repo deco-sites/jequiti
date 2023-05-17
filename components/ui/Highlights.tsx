@@ -25,15 +25,15 @@ function Highlights({ highlights = [], title }: Props) {
   return (
     <Container class="flex flex-col py-10" id={id}>
       <h2 class="text-center">
-        <div class="text-[26px] lg:text-[37px] pb-8 font-bold text-default">
+        <div class="text-heading-4 lg:text-[37px] pb-8 font-bold text-1-500 leading-7">
           {title}
         </div>
       </h2>
       <div class="relative">
         <Slider
-          class=""
+          class="gap-4"
           snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
-          slidePerView={{ desktop: 6, tablet: 4, phone: 2.7 }}
+          slidePerView={{ desktop: 6, tablet: 4, phone: 3.1 }}
         >
           {highlights.map(({ href, src, alt, label }) => (
             <a href={href} class="flex flex-col gap-[4px] items-center">
@@ -44,7 +44,7 @@ function Highlights({ highlights = [], title }: Props) {
                 width={120}
                 height={120}
               />
-              <div class="font-bold text-interactive text-md">{label}</div>
+              <div class="font-bold text-brand-primary text-md">{label}</div>
             </a>
           ))}
         </Slider>
@@ -55,7 +55,7 @@ function Highlights({ highlights = [], title }: Props) {
             aria-label="Previous item"
           >
             <Icon
-              class="text-default"
+              class="text-1-500"
               size={20}
               id="ChevronLeft"
               strokeWidth={3}
@@ -69,7 +69,7 @@ function Highlights({ highlights = [], title }: Props) {
             aria-label="Next item"
           >
             <Icon
-              class="text-default"
+              class="text-1-500"
               size={20}
               id="ChevronRight"
               strokeWidth={3}

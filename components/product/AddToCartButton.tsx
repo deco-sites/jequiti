@@ -41,7 +41,7 @@ function AddToCartButton(
       data-deco="add-to-cart"
       variant={variant}
       {...props}
-      class="w-full rounded-none uppercase"
+      class="w-full rounded-none uppercase text-brand-primary text-[16px]"
     >
       {text}
     </Button>
