@@ -5,7 +5,6 @@ import type {
   FilterToggle,
   ProductListingPage,
 } from "deco-sites/std/commerce/types.ts";
-
 interface Props {
   filters: ProductListingPage["filters"];
 }
@@ -69,8 +68,8 @@ function Filters({ filters }: Props) {
       {filters
         .filter(isToggle)
         .map((filter) => (
-          <details class="flex flex-col gap-4">
-            <summary>
+          <details class="flex flex-col gap-4 list-none">
+            <summary class="no-marker">
               <Text variant="body">{filter.label}</Text>
             </summary>
             <FilterValues {...filter} />
