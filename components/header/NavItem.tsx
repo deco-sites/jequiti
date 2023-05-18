@@ -44,7 +44,7 @@ function NavItem({ item }: { item: INavItem }) {
                   <a href={node.href}>
                     <Text
                       variant="menu"
-                      class="hover:text-interactive override:(font-bold) text-[16px]"
+                      class="hover:text-1-500 override:(font-bold) text-[16px]"
                     >
                       {node.label}
                     </Text>
@@ -56,7 +56,7 @@ function NavItem({ item }: { item: INavItem }) {
                         <a href={leaf.href}>
                           <Text
                             variant="caption"
-                            class=" text-[16px] hover:text-interactive "
+                            class=" text-[16px] hover:text-1-500 "
                           >
                             {leaf.label}
                           </Text>

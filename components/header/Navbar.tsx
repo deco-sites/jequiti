@@ -28,7 +28,7 @@ function Navbar({ items, searchbar, alerts }: {
           <HeaderButton variant="menu" />
           <a
             href="https://institucional.jequiti.com.br/catalogo/"
-            class="text-interactive flex items-center"
+            class="text-brand-primary flex items-center"
             aria-label="Catalogo"
           >
             <Icon id="Catalog" width={40} height={40} />
@@ -49,7 +49,7 @@ function Navbar({ items, searchbar, alerts }: {
               variant="icon"
               href="/login"
               aria-label="Log in"
-              class="text-interactive flex items-center"
+              class="text-brand-primary flex items-center"
             >
               <Icon id="User" width={25} height={30} />
             </Button>
@@ -82,7 +82,7 @@ function Navbar({ items, searchbar, alerts }: {
               variant="icon"
               href="/login"
               aria-label="Log in"
-              class="text-interactive"
+              class="text-1-500"
             >
               <Icon id="User" width={16} height={16} strokeWidth={0.4} />
               <Text variant="caption" tone="default">Minha Conta</Text>
@@ -92,7 +92,7 @@ function Navbar({ items, searchbar, alerts }: {
               variant="icon"
               href="/wishlist"
               aria-label="Wishlist"
-              class="text-interactive"
+              class="text-1-500"
             >
               <Icon
                 id="Heart"

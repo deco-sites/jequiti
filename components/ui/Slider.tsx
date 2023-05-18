@@ -48,17 +48,20 @@ export function SliderDots({ children, class: _class }: SliderDotsProps) {
     <ol
       class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
     >
-      {Children.map(children, (child, index) => (
-        <li class="scroll-snap-center">
-          <button
-            data-dot={index}
-            aria-label={`go to slider item ${index}`}
-            class="focus:outline-none group"
-          >
-            {child}
-          </button>
-        </li>
-      ))}
+      {Children.map(
+        children,
+        (child, index) => (
+          <li class="scroll-snap-center flex">
+            <button
+              data-dot={index}
+              aria-label={`go to slider item ${index} `}
+              class="focus:outline-none group"
+            >
+              {child}
+            </button>
+          </li>
+        ),
+      )}
     </ol>
   );
 }

@@ -40,7 +40,7 @@ function SearchControls(
         </div>
         <Button
           class={displayFilter
-            ? "font-bold text-interactive lg:(font-normal text-default)"
+            ? "font-bold text-1-500 lg:(font-normal text-default)"
             : "lg:hidden"}
           variant="tertiary"
           onClick={() => {

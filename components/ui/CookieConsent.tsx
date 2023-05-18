@@ -39,7 +39,7 @@ function CookieConsent() {
             conteúdo. Ao seguir navegando, você concorda com a nossa Política de
             Privacidade e Termos de Uso.{" "}
             <a href="https://www.deco.cx">
-              <Text class="underline text-interactive" variant="caption">
+              <Text class="underline text-1-500" variant="caption">
                 Saiba mais
               </Text>
             </a>

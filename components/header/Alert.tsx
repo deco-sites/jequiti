@@ -15,7 +15,7 @@ function Alert({ alerts = [] }: Props) {
   return (
     <>
       <div class="bg-[#efefef] lg:block hidden micro-header-hidden">
-        <div class="max-w-[1336px] w-full mx-auto flex gap-[1.5rem]">
+        <div class="w-full mx-auto flex gap-[1.5rem]">
           {alerts.map((alert) => {
             if (alert?.children?.length && alert?.children?.length > 0) {
               //@ts-ignore ignorei por que o erro está tratado no if acima
@@ -25,7 +25,7 @@ function Alert({ alerts = [] }: Props) {
               return (
                 <a href={alert.href}>
                   <Text
-                    class="flex items-center h-[44px]"
+                    class="flex items-center h-10"
                     variant="caption"
                     tone="default"
                   >
@@ -51,7 +51,7 @@ function Alert({ alerts = [] }: Props) {
           href="/acesso-consultora"
           class="px-[15px] flex items-center h-[42px] bg-white w-[fit-content] "
         >
-          <Text class="text-default text-[14px] font-bold">
+          <Text class="text-1-500 text-[14px] font-bold">
             Ja ser Consultor(a)
           </Text>
         </a>

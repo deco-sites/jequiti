@@ -31,19 +31,19 @@ function FeatureHighlights(
       <div class="border-default border-y overflow-x-hidden">
         <div class="flex flex-row w-fit-content overflow-x-auto mx-0 fit-content sm:(py-4 justify-evenly)">
           {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row gap-4 py-6 px-2 items-center min-w-[228px] sm:(py-0 px-8)">
+            <div class="flex flex-row gap-4 py-6 px-2 items-center min-w-[288px] sm:(py-0 px-8)">
               <Icon
                 id={id}
                 width={40}
                 height={40}
                 strokeWidth={2}
-                class="min-w-[40px] text-interactive"
+                class="min-w-[40px] text-brand-primary"
               />
               <div class="flex flex-col">
-                <div class="font-bold text-lg text-interactive leading-none">
+                <div class="font-bold text-lg text-brand-primary leading-6">
                   {title}
                 </div>
-                <div class="text-md text-default-light">
+                <div class="text-md text-2-500 leading-6">
                   {description}
                 </div>
               </div>

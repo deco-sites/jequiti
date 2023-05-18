@@ -18,6 +18,8 @@ export interface Props {
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
   shelfs?: LoaderReturnType<Product[][] | null>;
+  seeMore?: string;
+  seeMoreLink?: string;
 }
 
 function ShelfItem({ products, title }: Props) {
@@ -90,21 +92,22 @@ function TabbedShelf({
   products,
   shelfTitles,
   shelfs,
+  seeMore,
+  seeMoreLink,
 }: Props) {
   if (!products || products.length === 0) {
     return null;
   }
-  console.log(shelfs?.length);
 
   return (
     <Container class="flex flex-col py-10 px-0 sm:px-5 gap-[32px]">
-      <h2 class="text-center">
-        <Text variant="heading-2" class="uppercase">{title}</Text>
+      <h2 class="text-center text-heading-4 font-heading-4 text-1-500">
+        {title}
       </h2>
 
       <div class="tabbed tab-radio-button-1-[border-color:#00aeb9;color:#00aeb9;] tab-radio-button-2-[border-color:#00aeb9;color:#00aeb9;]  
       tab-radio-button-3-[border-color:#00aeb9;color:#00aeb9;] tab-radio-button-4-[border-color:#00aeb9;color:#00aeb9;]
-      tab-radio-content-1-[display:block;] tab-radio-content-2-[display:block;] tab-radio-content-3-[display:block;] tab-radio-content-4-[display:block;] flex flex-col gap-[32px]">
+      tab-radio-content-1-[display:block;] tab-radio-content-2-[display:block;] tab-radio-content-3-[display:block;] tab-radio-content-4-[display:block;] flex flex-col gap-4">
         {
           /* <input type="radio" id="tab2" name="css-tabs" class="hidden" />
         <input type="radio" id="tab3" name="css-tabs" class="hidden" />
@@ -121,9 +124,9 @@ function TabbedShelf({
           />
         ))}
 
-        <ul class="tabs flex w-full sm:justify-center overflow-x-auto">
+        <ul class="tabs flex w-full pb-6 sm:justify-center overflow-x-auto">
           {shelfTitles?.map((shelfTitle, index) => (
-            <li class="tab p-[14px] border-b-[4px] border-default text-default-light">
+            <li class="tab p-[14px] border-b-[4px] border-default text-2-500">
               <label for={`tab${index}`} class="px-5 whitespace-nowrap text-lg">
                 {shelfTitle}
               </label>
@@ -136,6 +139,12 @@ function TabbedShelf({
             <ShelfItem products={shelf} title={title} />
           </div>
         ))}
+        {!!seeMore && !!seeMoreLink}
+        <div class="text-center mt-4">
+          <a href={seeMoreLink} class="text-[#00AEB9] font-bold text-sm ">
+            {seeMore}
+          </a>
+        </div>
       </div>
     </Container>
   );

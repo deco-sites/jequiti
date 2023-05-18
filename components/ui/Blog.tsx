@@ -47,19 +47,17 @@ export default function BannerGrid({
 }: Props) {
   return (
     <Container>
-      <section class="w-full px-4 lg:px-0 mx-auto py-12">
+      <section class="w-full px-4 lg:px-0 mx-auto py-6">
         {title &&
           (
-            <div class="py-6 md:py-0 md:pb-[40px] flex items-center justify-center mt-6">
-              <h2 class={"text-lg  font-semibold uppercase "}>
-                <Text variant="heading-2" class="text-[25px] lg:text-[37px]">
-                  {title}
-                </Text>
+            <div class="pb-6 md:py-0 md:pb-10 flex items-center justify-center">
+              <h2 class={"lg:text-lg text-heading-4 font-heading-4 text-1-500"}>
+                {title}
               </h2>
             </div>
           )}
         <Slider
-          class="col-span-full row-start-2 row-end-5 flex items-stretch gap-[8px]"
+          class="col-span-full row-start-2 row-end-5 flex items-stretch gap-2"
           snap="snap-center sm:snap-start first:ml-6 sm:first:ml-0 last:mr-[10px] sm:last:mr-0 flex items-stretch"
           slidePerView={{ desktop: 4, tablet: 2, phone: 1 }}
         >
@@ -115,12 +113,12 @@ export default function BannerGrid({
                   </span>
                 </div>
                 <div>
-                  <p class="font-bold text-default-light text-md">
+                  <p class="font-bold text-2-500 text-md">
                     {bannerTitle}
                   </p>
                 </div>
                 <div>
-                  <p class="text-default-light text-md">{bannerText}</p>
+                  <p class="text-2-500 text-md">{bannerText}</p>
                 </div>
                 <div class="flex flex-grow items-end my-[14px]">
                   <a

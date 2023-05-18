@@ -72,7 +72,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
     <div
       data-deco="view-product"
       id={`product-card-${productID}`}
-      class="w-full group px-[24px] py-[12px] border-default border-1 flex flex-col font-sans"
+      class="w-full group p-2 lg:(px-[24px] py-[12px]) border-default border-1 flex flex-col font-sans"
     >
       <a href={url} aria-label="product link" class="flex flex-col flex-1">
         <div class="relative w-full">
@@ -144,11 +144,11 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </div>
 
         <div class="flex flex-col py-2 flex-1">
-          <Text class="text-interactive uppercase text-[12px] font-medium">
+          <Text class="text-brand-primary uppercase text-xs font-medium">
             {brand}
           </Text>
           <Text
-            class="overflow-hidden overflow-ellipsis line-clamp-2 text-base h-[42px] text-default"
+            class="overflow-hidden overflow-ellipsis line-clamp-2 text-base h-[42px] text-1-500 leading-6"
             variant="caption"
           >
             {name}
@@ -158,7 +158,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
               <span class="line-through leading-none text-sm  text-default-gray">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </span>
-              <span class="override:(font-bold) text-[20px] text-interactive">
+              <span class="override:(font-bold) text-[20px] text-brand-primary">
                 {formatPrice(price, offers!.priceCurrency!)}
               </span>
             </div>

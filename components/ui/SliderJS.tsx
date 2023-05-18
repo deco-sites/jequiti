@@ -70,11 +70,7 @@ const setup = ({ rootId, behavior, interval }: Props) => {
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
 
-      const ratio = intersectionX(
-        rect,
-        sliderRect,
-      ) / rect.width;
-
+      const ratio = intersectionX(rect, sliderRect) / rect.width;
       if (ratio > THRESHOLD) {
         indices.push(index);
       }
@@ -173,7 +169,6 @@ function Slider({ rootId, behavior = "smooth", interval }: Props) {
     behavior,
     interval,
   ]);
-
   return <div data-slider-controller-js />;
 }
 

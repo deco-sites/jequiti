@@ -28,7 +28,7 @@ function MenuButton() {
     <Button
       variant="icon"
       aria-label="open menu"
-      class="text-interactive"
+      class="text-brand-primary"
       onClick={() => {
         displayMenu.value = true;
       }}
@@ -53,7 +53,7 @@ function CartButton() {
     <Button
       {...dataDeco}
       variant="icon"
-      class="relative text-interactive"
+      class="relative text-brand-primary"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {

@@ -24,11 +24,11 @@ function Newsletter({ socials }: Props) {
       </div>
       <form class="flex flex-col lg:flex-row lg:items-center gap-[10px] font-body text-body w-full ">
         <input
-          class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
+          class="py-2 px-3 flex-grow bg-footer rounded-none text-1-500 border-1 border-default"
           placeholder="Seu nome"
         />
         <input
-          class="py-2 px-3 flex-grow bg-footer rounded-none text-default border-1 border-default"
+          class="py-2 px-3 flex-grow bg-footer rounded-none text-1-500 border-1 border-default"
           placeholder="Digite seu e-mail favorito"
         />
         <Button

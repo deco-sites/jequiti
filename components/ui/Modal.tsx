@@ -107,7 +107,7 @@ const Modal = ({
             )
             : (
               <div class="absolute right-0 top-0">
-                <Button variant="icon" onClick={onClose} class="text-default">
+                <Button variant="icon" onClick={onClose} class="text-1-500">
                   <Icon id="XMark" width={30} height={30} strokeWidth={2} />
                 </Button>
               </div>

@@ -28,7 +28,6 @@ export const useAddToCart = (
   const onClick = useCallback(async (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(quantity);
 
     if (!sellerId) {
       return;

@@ -63,20 +63,20 @@ function ProductShelf({
         )}
       {(subtitle || emphasisText) && (
         <div class="flex flex-col justify-center px-[16px] gap-2">
-          <span class="text-center leading-none inline-flex mx-auto text-lg text-default-light">
+          <span class="text-center leading-none inline-flex mx-auto text-lg text-2-500">
             {subtitle}
           </span>
-          <span class="text-center leading-none inline-flex mx-auto text-lg font-bold text-default-light">
+          <span class="text-center leading-none inline-flex mx-auto text-lg font-bold text-2-500">
             {emphasisText}
           </span>
         </div>
       )}
 
-      <div id={id} class="relative pt-[30px]">
+      <div id={id} class="relative pt-4">
         <Slider
           class="gap-4"
           snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 sm:last:mr-0 mx-[-8px]"
-          slidePerView={{ desktop: 4, tablet: 2, phone: 1 }}
+          slidePerView={{ desktop: 4, tablet: 2, phone: 1.6 }}
         >
           {images.map((
             { href, srcMobile, srcDesktop, alt, title, linkText },
@@ -128,30 +128,30 @@ function ProductShelf({
         </Slider>
 
         <>
-          <div class="absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] ">
+          <div class="absolute top-1/2 flex items-center justify-center z-10 col-start-1 row-start-2 absolute left-[15%] lg:translate-x-0   translate-y-[-50%] lg:translate-x-[-50%] lg:left-0 ">
             <Button
-              class="h-12 w-12 rounded-full bg-white shadow-lg"
+              class="h-9 w-9 lg:(h-12 w-12) rounded-full bg-white shadow-lg"
               // variant="icon"
               data-slide="prev"
               aria-label="Previous item"
             >
               <Icon
-                class="text-default"
+                class="text-1-500"
                 size={20}
                 id="ChevronLeft"
                 strokeWidth={3}
               />
             </Button>
           </div>
-          <div class="flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-0 translate-x-0 translate-y-[-50%] lg:translate-x-[50%]">
+          <div class="flex absolute top-1/2 items-center justify-center z-10 col-start-3 row-start-2 absolute right-[15%] translate-x-0 translate-y-[-50%] lg:translate-x-[50%] lg:right-0 ">
             <Button
-              class="h-12 w-12 rounded-full bg-white shadow-lg"
+              class="h-9 w-9 lg:(h-12 w-12) rounded-full bg-white shadow-lg"
               // variant="icon"
               data-slide="next"
               aria-label="Next item"
             >
               <Icon
-                class="text-default"
+                class="text-1-500"
                 size={20}
                 id="ChevronRight"
                 strokeWidth={3}

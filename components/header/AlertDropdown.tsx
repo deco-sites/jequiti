@@ -63,7 +63,7 @@ export default function AlertDropdown(
                 <li key={index}>
                   <a
                     href={child.href}
-                    class="font-caption text-caption text-default flex items-center hover:text-price "
+                    class="font-caption text-caption text-1-500 flex items-center hover:text-price "
                   >
                     {child.text}
                   </a>
