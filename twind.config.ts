@@ -230,6 +230,31 @@ const options: Omit<Options, "selfURL"> = {
         "display": "block",
       },
     },
+    "custom-checkbox": {
+      "background": "white",
+      "display": "block",
+      "width": "24px",
+      "height": "24px",
+      "border": "2px solid #b8b8b8",
+      "position": "relative",
+      "border-radius": "2px",
+    },
+    "checked": {
+      "background": "#7a206c",
+      "border": "2px solid #7a206c",
+    },
+    "checkmark": {
+      "left": " 8px",
+      "top": " 4px",
+      "width": " 5px",
+      "height": " 10px",
+      "border": " solid white",
+      "border-width": " 0 3px 3px 0",
+      "-webkit-transform": " rotate(45deg)",
+      "-ms-transform": " rotate(45deg)",
+      "transform": " rotate(45deg)",
+      "position": "absolute",
+    },
   },
 };
 

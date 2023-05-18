@@ -50,11 +50,23 @@ function FilterValues({ key, values }: FilterToggle) {
 
         return (
           <a href={url} class="flex items-center gap-2">
-            <input
+            {
+              /* <input
               type="checkbox"
               checked={selected}
               class="pointer-events-none"
-            />
+            /> */
+            }
+            <span
+              class={selected ? "custom-checkbox checked" : "custom-checkbox"}
+            >
+              {selected
+                ? (
+                  <span class={"checkmark"}>
+                  </span>
+                )
+                : null}
+            </span>
             <Text variant="caption">{label}</Text>
           </a>
         );
