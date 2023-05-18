@@ -4,17 +4,26 @@ import Filters from "deco-sites/jequiti/components/search/Filters.tsx";
 import Sort from "deco-sites/jequiti/components/search/Sort.tsx";
 import Modal from "deco-sites/jequiti/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
-
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
+type Dispatch<A> = (value: A) => void;
 type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
   & {
     displayFilter?: boolean;
+    grid: boolean;
+    setGrid: Dispatch<boolean>;
   };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
+  {
+    filters,
+    breadcrumb,
+    displayFilter,
+    sortOptions,
+    grid,
+    setGrid,
+  }: Props,
 ) {
   const open = useSignal(false);
   const breadcrumbLength = breadcrumb.itemListElement.length - 1;
@@ -36,7 +45,7 @@ function SearchControls(
             <div class="bg-[#e3e3e3] hover:text-[#7a206c] cursor-pointer px-2 flex items-center h-6 text-sm">
               {item?.label}{" "}
               <a href={item?.url} class="block rotate-45 text-3xl ml-1">
-                <span>+</span>
+                +
               </a>
             </div>
           ))}
@@ -66,6 +75,9 @@ function SearchControls(
         <div>
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
+        <button onClick={() => setGrid(!grid)}>
+          {grid.toString()}
+        </button>
       </div>
 
       <Modal

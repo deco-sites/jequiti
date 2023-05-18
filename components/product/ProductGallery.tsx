@@ -14,11 +14,18 @@ export interface Props {
    * @description Number of products per line on grid
    */
   columns: Columns;
+  grid: boolean;
 }
 
-function ProductGallery({ columns, products }: Props) {
-  const { desktop = 4, tablet = 3, mobile = 2 } = columns ?? {};
+function ProductGallery({ columns, products, grid = true }: Props) {
+  let { desktop = 4, tablet = 3, mobile = 2 } = columns ?? {};
+  const returnValueMinus1 = (val: number) => val > 1 ? val - 1 : 1;
 
+  if (!grid) {
+    desktop = returnValueMinus1(desktop);
+    tablet = returnValueMinus1(tablet);
+    mobile = returnValueMinus1(mobile);
+  }
   return (
     <div
       class={`grid grid-cols-${mobile} gap-2 items-stretch sm:(grid-cols-${tablet} gap-10) lg:(grid-cols-${desktop} gap-10)`}

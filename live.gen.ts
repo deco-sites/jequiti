@@ -16,13 +16,14 @@ import * as $$$$$5 from "./islands/SearchBar.tsx";
 import * as $$$$$6 from "./islands/ScrollTrackJS.tsx";
 import * as $$$$$7 from "./islands/AlertDropdown.tsx";
 import * as $$$$$8 from "./islands/QuantitySelector.tsx";
-import * as $$$$$9 from "./islands/AddToCartButton.tsx";
-import * as $$$$$10 from "./islands/HeaderModals.tsx";
-import * as $$$$$11 from "./islands/SliderJS.tsx";
-import * as $$$$$12 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$13 from "./islands/ViewSendEvent.tsx";
-import * as $$$$$14 from "./islands/QuantityAddToCartButton.tsx";
-import * as $$$$$15 from "./islands/SearchControls.tsx";
+import * as $$$$$9 from "./islands/searchResult.tsx";
+import * as $$$$$10 from "./islands/AddToCartButton.tsx";
+import * as $$$$$11 from "./islands/HeaderModals.tsx";
+import * as $$$$$12 from "./islands/SliderJS.tsx";
+import * as $$$$$13 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$14 from "./islands/ViewSendEvent.tsx";
+import * as $$$$$15 from "./islands/QuantityAddToCartButton.tsx";
+import * as $$$$$16 from "./islands/SearchControls.tsx";
 import * as $$$$$$$$0 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$1 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$2 from "./sections/DesignSystem.story.tsx";
@@ -145,13 +146,14 @@ const manifest = {
     "./islands/ScrollTrackJS.tsx": $$$$$6,
     "./islands/AlertDropdown.tsx": $$$$$7,
     "./islands/QuantitySelector.tsx": $$$$$8,
-    "./islands/AddToCartButton.tsx": $$$$$9,
-    "./islands/HeaderModals.tsx": $$$$$10,
-    "./islands/SliderJS.tsx": $$$$$11,
-    "./islands/ProductImageZoom.tsx": $$$$$12,
-    "./islands/ViewSendEvent.tsx": $$$$$13,
-    "./islands/QuantityAddToCartButton.tsx": $$$$$14,
-    "./islands/SearchControls.tsx": $$$$$15,
+    "./islands/searchResult.tsx": $$$$$9,
+    "./islands/AddToCartButton.tsx": $$$$$10,
+    "./islands/HeaderModals.tsx": $$$$$11,
+    "./islands/SliderJS.tsx": $$$$$12,
+    "./islands/ProductImageZoom.tsx": $$$$$13,
+    "./islands/ViewSendEvent.tsx": $$$$$14,
+    "./islands/QuantityAddToCartButton.tsx": $$$$$15,
+    "./islands/SearchControls.tsx": $$$$$16,
   },
   "sections": {
     "deco-sites/jequiti/sections/WishlistGallery.tsx": $$$$$$$$0,

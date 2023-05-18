@@ -10,8 +10,7 @@ import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import Breadcrumb from "../ui/Breadcrumb.tsx";
-
+import { useState } from "preact/hooks";
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
   /**
@@ -39,15 +38,10 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
+  const [grid, setGrid] = useState(true);
   return (
     <>
       <Container>
-        {
-          /* <div class="flex flex-row items-center sm:p-0 mb-2">
-          <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-        </div> */
-        }
-
         <div class="flex flex-col">
           {(!variant || variant === "aside") && filters.length > 0 && (
             <aside class="hidden lg:block w-full min-w-[250px] bg-[#eee] p-[1rem]">
@@ -60,9 +54,15 @@ function Result({
             filters={filters}
             breadcrumb={breadcrumb}
             displayFilter={variant === "drawer"}
+            grid={grid}
+            setGrid={setGrid}
           />
           <div class="flex-grow">
-            <ProductGallery products={products} columns={columns} />
+            <ProductGallery
+              products={products}
+              columns={columns}
+              grid={grid}
+            />
           </div>
         </div>
 
