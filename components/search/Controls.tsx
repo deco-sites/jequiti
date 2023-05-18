@@ -1,12 +1,9 @@
-import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Filters from "deco-sites/jequiti/components/search/Filters.tsx";
 import Sort from "deco-sites/jequiti/components/search/Sort.tsx";
 import Modal from "deco-sites/jequiti/components/ui/Modal.tsx";
-import Breadcrumb from "deco-sites/jequiti/components/ui/Breadcrumb.tsx";
 import { useSignal } from "@preact/signals";
-import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
@@ -20,23 +17,39 @@ function SearchControls(
   { filters, breadcrumb, displayFilter, sortOptions }: Props,
 ) {
   const open = useSignal(false);
+  const breadcrumbLength = breadcrumb.itemListElement.length - 1;
+  const selectedItems = filters.map((filter) => {
+    if (Array.isArray(filter.values)) {
+      const selected = filter.values.filter((value) => value.selected);
+      return selected;
+    }
+    return;
+  }, []).filter((item) => item?.length).flat();
 
   return (
     <div class="flex flex-col justify-between p-4 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
       <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
         <div class="hidden lg:flex gap-[5px]">
-          Filtrado por:
-          {filters.map((filter) => {
-            if (Array.isArray(filter.values)) {
-              const selected = filter.values.filter((value) => value.selected);
-              return selected;
-            }
-            return;
-          }, []).filter((item) => item?.length).flat().map((item) => (
-            <div class="bg-[#e3e3e3] py-[2px] px-[4px]">
-              {item?.label} <a href={item?.url}>X</a>
+          <span class="font-extrabold">Filtrado por:</span>
+
+          {selectedItems.map((item) => (
+            <div class="bg-[#e3e3e3] hover:text-[#7a206c] cursor-pointer px-2 flex items-center h-6 text-sm">
+              {item?.label}{" "}
+              <a href={item?.url} class="block rotate-45 text-3xl ml-1">
+                <span>+</span>
+              </a>
             </div>
           ))}
+
+          {selectedItems.length > 0 &&
+            (
+              <a
+                href={breadcrumb.itemListElement[breadcrumbLength].item}
+                class="text-sm bg-[#7a206c] text-white px-3 flex items-center hover:bg-white	hover:text-[#7a206c] border-[#7a206c] border-2 h-6"
+              >
+                Limpar tudo
+              </a>
+            )}
         </div>
         <Button
           class={displayFilter

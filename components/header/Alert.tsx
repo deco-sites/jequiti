@@ -18,7 +18,6 @@ function Alert({ alerts = [] }: Props) {
         <div class="w-full mx-auto flex gap-[1.5rem]">
           {alerts.map((alert) => {
             if (alert?.children?.length && alert?.children?.length > 0) {
-              //@ts-ignore ignorei por que o erro está tratado no if acima
               return <AlertDropdown alert={alert} />;
             }
             if (!alert?.children?.length) {

@@ -4,7 +4,7 @@ import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 type Alert = {
   text: string;
   href: string;
-  children: Array<{ text: string; href: string }>;
+  children?: Array<{ text: string; href: string }>;
 };
 export interface Props {
   alert: Alert;
@@ -21,6 +21,7 @@ export default function AlertDropdown(
   function handleLeave() {
     setDropDownVisibility(false);
   }
+  if (children?.length) return null;
   return (
     <div
       onMouseEnter={handleEnter}
@@ -59,7 +60,7 @@ export default function AlertDropdown(
                 : "ml-2 z-10"}
             />
             <ul class="bg-white py-2 px-4 shadow-md	rounded 	">
-              {children.map((child, index) => (
+              {children && children.map((child, index) => (
                 <li key={index}>
                   <a
                     href={child.href}

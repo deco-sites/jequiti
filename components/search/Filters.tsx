@@ -20,7 +20,7 @@ function FilterValues({ key, values }: FilterToggle) {
 
   return (
     <ul
-      class={`flex flex-wrap gap-2 ${flexDirection} absolute z-10 bg-[#eee] p-[24px]`}
+      class={`flex flex-col gap-2 ${flexDirection} absolute z-10 bg-[#eee] p-[24px] max-h-48 overflow-y-scroll`}
     >
       {values.map(({ label, value, url, selected, quantity }) => {
         if (key === "cor") {
@@ -50,15 +50,8 @@ function FilterValues({ key, values }: FilterToggle) {
 
         return (
           <a href={url} class="flex items-center gap-2">
-            {
-              /* <input
-              type="checkbox"
-              checked={selected}
-              class="pointer-events-none"
-            /> */
-            }
             <span
-              class={selected ? "custom-checkbox checked" : "custom-checkbox"}
+              class={`custom-checkbox ${selected ? "checked" : ""}`}
             >
               {selected
                 ? (
