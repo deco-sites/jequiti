@@ -5,7 +5,7 @@ import Sort from "deco-sites/jequiti/components/search/Sort.tsx";
 import Modal from "deco-sites/jequiti/components/ui/Modal.tsx";
 import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-
+import useIsMobile from "../hooks/useIsMobile.tsx";
 type Dispatch<A> = (value: A) => void;
 type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
@@ -34,7 +34,7 @@ function SearchControls(
     }
     return;
   }, []).filter((item) => item?.length).flat();
-
+  const mobile = useIsMobile();
   return (
     <div class="flex flex-col justify-between p-4 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
       <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
@@ -75,8 +75,23 @@ function SearchControls(
         <div>
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
-        <button onClick={() => setGrid(!grid)}>
-          {grid.toString()}
+        <button
+          onClick={() => setGrid(!grid)}
+          class="flex focus:outline-none font-extrabold gap-1	"
+        >
+          {!mobile ? "Visualização:" : ""}
+          <Icon
+            id={!mobile ? "GridDesk" : "GridMobile"}
+            width={26}
+            height={25}
+            fill={grid ? "#7a206c" : "#d1d1d1"}
+          />
+          <Icon
+            id={!mobile ? "GridDesk2" : "GridMobile2"}
+            width={26}
+            height={25}
+            fill={!grid ? "#7a206c" : "#d1d1d1"}
+          />
         </button>
       </div>
 

@@ -3081,6 +3081,22 @@
             {
               "type": "string",
               "const": "Triangle"
+            },
+            {
+              "type": "string",
+              "const": "GridDesk"
+            },
+            {
+              "type": "string",
+              "const": "GridDesk2"
+            },
+            {
+              "type": "string",
+              "const": "GridMobile"
+            },
+            {
+              "type": "string",
+              "const": "GridMobile2"
             }
           ],
           "type": "string",
@@ -3753,6 +3769,22 @@
             {
               "type": "string",
               "const": "Triangle"
+            },
+            {
+              "type": "string",
+              "const": "GridDesk"
+            },
+            {
+              "type": "string",
+              "const": "GridDesk2"
+            },
+            {
+              "type": "string",
+              "const": "GridMobile"
+            },
+            {
+              "type": "string",
+              "const": "GridMobile2"
             }
           ],
           "type": "string",

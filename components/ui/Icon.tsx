@@ -39,7 +39,11 @@ export type AvailableIcons =
   | "Cash"
   | "Funnel"
   | "SortList"
-  | "Triangle";
+  | "Triangle"
+  | "GridDesk"
+  | "GridDesk2"
+  | "GridMobile"
+  | "GridMobile2";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

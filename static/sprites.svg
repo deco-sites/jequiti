@@ -44,10 +44,15 @@
 	<symbol id="FilterList" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M6.66667 12H9.33333V10.6667H6.66667V12ZM2 4V5.33333H14V4H2ZM4 8.66667H12V7.33333H4V8.66667Z" fill="currentColor"/></symbol>
 	<symbol id="ChevronUp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke="currentColor" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.52851 5.52827C7.78886 5.26792 8.21097 5.26792 8.47132 5.52827L12.4713 9.52827C12.7317 9.78862 12.7317 10.2107 12.4713 10.4711C12.211 10.7314 11.7889 10.7314 11.5285 10.4711L7.99992 6.94248L4.47132 10.4711C4.21097 10.7314 3.78886 10.7314 3.52851 10.4711C3.26816 10.2107 3.26816 9.78862 3.52851 9.52827L7.52851 5.52827Z" fill="black"/></symbol>
 	<symbol id="Triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 15" stroke="currentColor" fill="none"><polygon points="15,0 0,16 30,16" id="Triangle" style="fill:white;stroke:#eee;stroke-width:1" /></symbol>
+	
 	<symbol id="Trash" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
   
-  <path d="M2 4.47705H3.33333H14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-  <path
+  	<path id="GridDesk"  d='M.1 12V0h7v12zM9.1 12V0h7v12zM18.1 12V0h7v12zM.1 25V14h7v11zM9.1 25V14h7v11zM18.1 25V14h7v11z'/>
+	<path id="GridDesk2" d='M0 0h5v7H0zM6.7 0h5v7h-5zM13.4 0h5v7h-5zM20.1 0h5v7h-5zM0 9h5v7H0zM6.7 9h5v7h-5zM13.4 9h5v7h-5zM20.1 9h5v7h-5zM0 18h5v7H0zM6.7 18h5v7h-5zM13.4 18h5v7h-5zM20.1 18h5v7h-5z'/>
+ 	<path id="GridMobile" d='M0 25V0h10.87v25zM14.13 25V0H25v25z'/>
+	<path id="GridMobile2" d='M0 .5h24v24H0z'/>
+	<path d="M2 4.47705H3.33333H14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+	<path
     d="M5.33301 4.47714V2.98479C5.33301 2.58899 5.47348 2.2094 5.72353 1.92953C5.97358 1.64966 6.31272 1.49243 6.66634 1.49243H9.33301C9.68663 1.49243 10.0258 1.64966 10.2758 1.92953C10.5259 2.2094 10.6663 2.58899 10.6663 2.98479V4.47714M12.6663 4.47714V14.9236C12.6663 15.3194 12.5259 15.699 12.2758 15.9789C12.0258 16.2588 11.6866 16.416 11.333 16.416H4.66634C4.31272 16.416 3.97358 16.2588 3.72353 15.9789C3.47348 15.699 3.33301 15.3194 3.33301 14.9236V4.47714H12.6663Z"
     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
 </symbol>
