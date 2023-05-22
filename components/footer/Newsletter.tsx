@@ -17,22 +17,26 @@ function Newsletter({ socials }: Props) {
         >
           Fique por dentro!
         </Text>
-        <Text variant="caption" tone="default" class="text-center">
+        <Text
+          variant="caption"
+          tone="default"
+          class="text-center text-base mt-2 text-grey "
+        >
           Quer saber todas as novidades, lançamentos e ofertas exclusivas? Deixe
           seu e-mail com a gente.
         </Text>
       </div>
       <form class="flex flex-col lg:flex-row lg:items-center gap-[10px] font-body text-body w-full ">
         <input
-          class="py-2 px-3 flex-grow bg-footer rounded-none text-1-500 border-1 border-default"
+          class="py-3 px-3 flex-grow bg-footer rounded-none border-1 border-grey text-grey placeholder-gray-700 box-border"
           placeholder="Seu nome"
         />
         <input
-          class="py-2 px-3 flex-grow bg-footer rounded-none text-1-500 border-1 border-default"
+          class="py-3 px-3 flex-grow bg-footer rounded-none text-1-500 border-1 border-grey placeholder-gray-700 box-border"
           placeholder="Digite seu e-mail favorito"
         />
         <Button
-          class="py-2 px-3 rounded-none w-full lg:max-w-[282px] uppercase"
+          class="py-4 px-3 rounded-none w-full lg:max-w-[282px] uppercase border-4 text-brand-primary"
           type="bgutton" // prevent form's default behavior
           variant="secondary"
         >

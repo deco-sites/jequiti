@@ -39,20 +39,26 @@ function Sort({ sortOptions }: Props) {
         />{" "}
         <Text
           variant="caption"
-          class="font-bold text-1-500 lg:(font-normal text-default)"
+          class="font-bold text-1-500 md:(font-bold text-default text-lg) text-[#7a206c]"
         >
-          Ordenar por
+          Ordenar por:
         </Text>
       </div>
       <select
         id="sort"
         name="sort"
         onInput={applySort}
-        class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-1-500 hover:bg-hover cursor-pointer outline-none"
+        class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-1-500 hover:bg-hover cursor-pointer outline-none font-normal "
       >
         {sortOptions.map(({ value, label }) => (
-          <option key={value} value={value} selected={value === sort}>
-            <Text variant="caption">{label}</Text>
+          <option
+            key={value}
+            value={value}
+            selected={value === sort}
+          >
+            <Text variant="caption">
+              {label}
+            </Text>
           </option>
         ))}
       </select>

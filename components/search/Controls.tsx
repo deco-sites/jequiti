@@ -37,9 +37,11 @@ function SearchControls(
   const mobile = useIsMobile();
   return (
     <div class="flex flex-col justify-between p-4 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
-      <div class="flex flex-row w-full items-center justify-between border-b-1 border-default sm:(gap-4 border-none)">
-        <div class="hidden lg:flex gap-[5px]">
-          <span class="font-extrabold">Filtrado por:</span>
+      <div class="flex flex-row w-full items-center justify-end border-b-1 border-default sm:(gap-4 border-none)">
+        <div class="hidden lg:flex gap-[5px]  flex-1">
+          <span class="font-extrabold text-lg ">
+            Filtrado por:
+          </span>
 
           {selectedItems.map((item) => (
             <div class="bg-[#e3e3e3] hover:text-[#7a206c] cursor-pointer px-2 flex items-center h-6 text-sm">
@@ -62,7 +64,7 @@ function SearchControls(
         </div>
         <Button
           class={displayFilter
-            ? "font-bold text-1-500 lg:(font-normal text-default)"
+            ? "font-bold text-1-500 lg:(font-normal text-default )"
             : "lg:hidden"}
           variant="tertiary"
           onClick={() => {
@@ -70,27 +72,29 @@ function SearchControls(
           }}
         >
           <Icon id="Funnel" width={16} height={16} />
-          Filtrar
+          <span class="text-[#7a206c] ">
+            Filtrar
+          </span>
         </Button>
         <div>
           {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
         </div>
         <button
           onClick={() => setGrid(!grid)}
-          class="flex focus:outline-none font-extrabold gap-1	"
+          class="flex focus:outline-none font-extrabold gap-1	 text-lg"
         >
           {!mobile ? "Visualização:" : ""}
           <Icon
             id={!mobile ? "GridDesk" : "GridMobile"}
             width={26}
             height={25}
-            fill={grid ? "#7a206c" : "#d1d1d1"}
+            fill={!grid ? "#7a206c" : "#d1d1d1"}
           />
           <Icon
             id={!mobile ? "GridDesk2" : "GridMobile2"}
             width={26}
             height={25}
-            fill={!grid ? "#7a206c" : "#d1d1d1"}
+            fill={grid ? "#7a206c" : "#d1d1d1"}
           />
         </button>
       </div>

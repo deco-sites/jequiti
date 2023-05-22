@@ -73,6 +73,7 @@ const options: Omit<Options, "selfURL"> = {
         "1-500": "#212121",
         "2-500": "#575756",
         "brand-primary": "#7a206c",
+        "grey": "#585858",
       },
       borderColor: {
         "default": "#EEEEEE",
@@ -81,6 +82,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "grey": "#585858",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
