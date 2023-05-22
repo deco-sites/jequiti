@@ -40,17 +40,17 @@ function Alert({ alerts = [] }: Props) {
       <div class="lg:hidden flex">
         <a
           href="/queroserumaconsultora"
-          class="px-[15px] flex items-center h-[42px] bg-interactive w-[fit-content] "
+          class="px-2 flex items-center h-[42px] bg-interactive w-[fit-content] "
         >
-          <Text class="text-white text-[14px] font-bold">
+          <Text class="text-white text-sm font-bold">
             Quero ser Consultor(a)
           </Text>
         </a>
         <a
           href="/acesso-consultora"
-          class="px-[15px] flex items-center h-[42px] bg-white w-[fit-content] "
+          class="px-2 flex items-center h-[42px] bg-white w-[fit-content] "
         >
-          <Text class="text-1-500 text-[14px] font-bold">
+          <Text class="text-1-500 text-sm font-bold">
             Ja ser Consultor(a)
           </Text>
         </a>

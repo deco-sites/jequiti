@@ -117,28 +117,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
               }}
             >
               <Sizes {...product} />
-              {/* FIXME: Understand why fresh breaks rendering this component */}
-              {
-                /* <SendEventButton
-                as="a"
-                href={product.url}
-                event={{
-                  name: "select_item",
-                  params: {
-                    item_list_name: itemListName,
-                    items: [
-                      mapProductToAnalyticsItem({
-                        product,
-                        price,
-                        listPrice,
-                      }),
-                    ],
-                  },
-                }}
-              >
-                Visualizar Produto
-              </SendEventButton> */
-              }
             </div>
           )}
         </div>
@@ -154,7 +132,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             {name}
           </Text>
           <div class="flex flex-col gap-2 my-[10px]">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <span class="line-through leading-none text-sm  text-default-gray">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </span>

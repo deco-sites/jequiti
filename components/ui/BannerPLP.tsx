@@ -51,7 +51,8 @@ function BannerUI({ banner }: { banner: Banner }) {
           />
         </Picture>
 
-        <Container class="lg:absolute static bottom-0 flex flex-col items-center justify-center text-center w-full pb-[33px] pt-[18px] lg:(pb-0 pt-0)">
+        {
+          /* <Container class="lg:absolute static bottom-0 flex flex-col items-center justify-center text-center w-full pb-[33px] pt-[18px] lg:(pb-0 pt-0)">
           <h1>
             <Text
               variant="heading-1"
@@ -66,7 +67,8 @@ function BannerUI({ banner }: { banner: Banner }) {
               {subtitle}
             </Text>
           </h2>
-        </Container>
+        </Container> */
+        }
       </div>
     </Container>
   );

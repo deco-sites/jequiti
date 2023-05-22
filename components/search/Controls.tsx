@@ -36,8 +36,8 @@ function SearchControls(
   }, []).filter((item) => item?.length).flat();
   const mobile = useIsMobile();
   return (
-    <div class="flex flex-col justify-between p-4 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
-      <div class="flex flex-row w-full items-center justify-end border-b-1 border-default sm:(gap-4 border-none)">
+    <div class="flex flex-col justify-between p-1 mb-[25px] border-y-1 sm:(p-0 gap-4 flex-row h-[60px] )">
+      <div class="flex flex-row w-full items-center justify-between border-default sm:(gap-4 border-none)">
         <div class="hidden lg:flex gap-[5px]  flex-1">
           <span class="font-extrabold text-lg ">
             Filtrado por:

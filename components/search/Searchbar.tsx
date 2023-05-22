@@ -107,12 +107,12 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
+          class="flex-grow flex gap-3 px-2 py-3 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
         >
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-[#efefef] sm:border-default pl-[16px] bg-[#efefef] sm:bg-white"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-[#efefef] sm:border-default  bg-[#efefef] sm:bg-white"
             name={name}
             defaultValue={query}
             onInput={(e) => {

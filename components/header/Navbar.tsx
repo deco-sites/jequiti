@@ -24,7 +24,7 @@ function Navbar({ items, searchbar, alerts }: {
       <div
         class={`lg:hidden flex flex-col justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full  `}
       >
-        <div class="flex flex-row justify-between items-center w-full px-2 gap-2">
+        <div class="flex flex-row justify-between items-center w-full  gap-1">
           <HeaderButton variant="menu" />
           <a
             href="https://institucional.jequiti.com.br/catalogo/"
