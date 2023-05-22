@@ -95,7 +95,7 @@ export interface Props {
 
 function Footer({ sections = [], sections2 = [], socials = [] }: Props) {
   return (
-    <footer class="w-full flex flex-col divide-y-1 divide-default mt-[30px]">
+    <footer class="w-full flex flex-col divide-default mt-[30px]">
       <div>
         <div class="w-full bg-footer">
           <Container class="w-full bg-footer flex flex-col divide-y-1 divide-default">
@@ -143,11 +143,24 @@ function Footer({ sections = [], sections2 = [], socials = [] }: Props) {
               {sections.map((section) => (
                 <li>
                   <Text variant="body" tone="default">
-                    <details>
-                      <summary>
+                    <details class=" detail-chevron">
+                      <summary class="no-marker flex items-center justify-between border-b-1 pb-4">
                         {section.label}
+                        <Icon
+                          id="ChevronRight"
+                          width={15}
+                          height={15}
+                          strokeWidth={3}
+                          class={"ml-2 z-10 closed-chevron"}
+                        />
+                        <Icon
+                          id="ChevronDown"
+                          width={15}
+                          height={15}
+                          strokeWidth={3}
+                          class={"ml-2 z-10 opened-chevron"}
+                        />
                       </summary>
-
                       <ul
                         class={`flex ${
                           isIcon(section.children[0]) ? "flex-row" : "flex-col"
@@ -200,7 +213,7 @@ function Footer({ sections = [], sections2 = [], socials = [] }: Props) {
                   </div>
                 </li>
               ))}
-              <li>
+              <li class="border-t-1 pt-8">
                 <Text
                   class="flex items-center gap-1"
                   variant="body"
