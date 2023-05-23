@@ -1,7 +1,7 @@
 import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 

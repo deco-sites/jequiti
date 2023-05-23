@@ -8,7 +8,6 @@ import {
 import SliderControllerJS from "deco-sites/jequiti/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { useId } from "preact/hooks";
-import { animation, keyframes, tw } from "twind/css";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Container from "./Container.tsx";
 

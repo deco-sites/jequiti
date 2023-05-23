@@ -15,9 +15,9 @@ import { useOffer } from "deco-sites/jequiti/sdk/useOffer.ts";
 export interface Props {
   title: string;
   shelfTitles?: string[];
-  products: LoaderReturnType<Product[] | null>;
+  products: Product[] | null;
   itemsPerPage?: number;
-  shelfs?: LoaderReturnType<Product[][] | null>;
+  shelfs?: Array<LoaderReturnType<Product[] | null>>;
   seeMore?: string;
   seeMoreLink?: string;
 }
@@ -136,7 +136,7 @@ function TabbedShelf({
 
         {shelfs?.map((shelf) => (
           <div class="tab-content hidden">
-            <ShelfItem products={shelf} title={title} />
+            <ShelfItem products={shelf.products} title={title} />
           </div>
         ))}
         {!!seeMore && !!seeMoreLink}
