@@ -16,11 +16,14 @@ const bestInstallment = (
     return curr;
   }
 
-  if (acc.price > curr.price) {
+  const accPrice = acc.billingIncrement ? acc.billingIncrement : acc.price;
+  const currPrice = curr.billingIncrement ? curr.billingIncrement : curr.price;
+
+  if (accPrice > currPrice) {
     return curr;
   }
 
-  if (acc.price < curr.price) {
+  if (accPrice < currPrice) {
     return acc;
   }
 
@@ -30,7 +33,6 @@ const bestInstallment = (
   ) {
     return curr;
   }
-
   return acc;
 };
 

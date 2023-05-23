@@ -93,7 +93,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Prices */}
       <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
+        <div class="flex flex-row gap-2 items-center flex-wrap">
           <Text
             tone="subdued"
             variant="list-price"
@@ -108,9 +108,15 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           >
             {formatPrice(price, offers!.priceCurrency!)}
           </Text>
-          <Text tone="subdued" variant="caption">
-            {installments}
-          </Text>
+          {installments
+            ? (
+              <Text
+                tone="subdued"
+                variant="caption"
+                dangerouslySetInnerHTML={{ __html: installments }}
+              />
+            )
+            : null}
         </div>
         {discount && (
           <div class="mt-[8px]">

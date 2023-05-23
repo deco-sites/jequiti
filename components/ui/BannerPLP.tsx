@@ -50,25 +50,6 @@ function BannerUI({ banner }: { banner: Banner }) {
             alt={image.alt ?? title}
           />
         </Picture>
-
-        {
-          /* <Container class="lg:absolute static bottom-0 flex flex-col items-center justify-center text-center w-full pb-[33px] pt-[18px] lg:(pb-0 pt-0)">
-          <h1>
-            <Text
-              variant="heading-1"
-              tone="default"
-              class="uppercase lg:text-default-inverse text-[41px] lg:text-[32px]"
-            >
-              {title}
-            </Text>
-          </h1>
-          <h2>
-            <Text variant="heading-3" tone="default-inverse">
-              {subtitle}
-            </Text>
-          </h2>
-        </Container> */
-        }
       </div>
     </Container>
   );
