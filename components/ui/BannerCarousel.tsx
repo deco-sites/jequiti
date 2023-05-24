@@ -154,7 +154,6 @@ function Controls() {
 
 function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
-  console.log("interval", interval);
   return (
     <Container>
       <div id={id} class="flex relative">

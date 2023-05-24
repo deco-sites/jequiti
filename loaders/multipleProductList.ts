@@ -89,7 +89,6 @@ const loader = async (
   const products = vtexProducts
     .map((pp) => pp.map((p) => toProduct(p, p.items[0], 0, options)));
 
-  console.log(products);
   setSegment(segment, ctx.response.headers);
   return products;
 };

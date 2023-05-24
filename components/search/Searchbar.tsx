@@ -100,7 +100,6 @@ function Searchbar({
     ? suggestions.value.products
     : products;
 
-  // console.log('_products',searches , searches.length > 0 , hasSuggestions,_products )
   return (
     <div class="flex flex-col w-full">
       <div class="flex gap-4 w-full">

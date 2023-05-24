@@ -28,7 +28,6 @@ function ShelfItem({ products, title }: Props) {
   if (!products || products.length === 0) {
     return null;
   }
-  console.log(111, products);
   return (
     <div id={id} class="relative">
       <Slider
