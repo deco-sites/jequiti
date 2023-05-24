@@ -46,6 +46,7 @@
               "deco-sites/std/accounts/yourViews.ts",
               "$live/loaders/workflows/events.ts",
               "$live/loaders/workflows/get.ts",
+              "deco-sites/jequiti/loaders/multipleProductList.ts",
               "deco-sites/std/loaders/vtex/cart.ts",
               "deco-sites/std/loaders/vtex/intelligentSearch/productDetailsPage.ts",
               "deco-sites/std/loaders/vtex/intelligentSearch/productList.ts",
@@ -3401,7 +3402,7 @@
           "type": "object",
           "allOf": [
             {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZXZlbnRzLnRz@Props"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2V2ZW50cy50cw==@Props"
             }
           ],
           "required": [
@@ -3419,7 +3420,7 @@
         }
       ]
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZXZlbnRzLnRz@Props": {
+    "ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2V2ZW50cy50cw==@Props": {
       "type": "object",
       "properties": {
         "id": {
@@ -3444,7 +3445,7 @@
       "required": [
         "id"
       ],
-      "title": "/home/matheusgr/deco/live-new/loaders/workflows/events.ts@Props"
+      "title": "deco-cx/live/loaders/workflows/events.ts@Props"
     },
     "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessstatusWorkflowExecution": {
       "type": "object",
@@ -3468,7 +3469,7 @@
       "required": [],
       "title": "indexedAccessinputWorkflowExecution"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvY29tbW9ucy93b3JrZmxvd3MvdHlwZXMudHM=@WorkflowExecution": {
+    "ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowExecution": {
       "anyOf": [
         {
           "$ref": "#/definitions/Resolvable"
@@ -3507,7 +3508,7 @@
             "status",
             "workflow"
           ],
-          "title": "/home/matheusgr/deco/live-new/commons/workflows/types.ts@WorkflowExecution"
+          "title": "deco-cx/live/commons/workflows/types.ts@WorkflowExecution"
         },
         {
           "title": "$live/loaders/workflows/get.ts",
@@ -3515,7 +3516,7 @@
           "type": "object",
           "allOf": [
             {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZ2V0LnRz@Props"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2dldC50cw==@Props"
             }
           ],
           "required": [
@@ -3533,7 +3534,7 @@
         }
       ]
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZ2V0LnRz@Props": {
+    "ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2dldC50cw==@Props": {
       "type": "object",
       "properties": {
         "id": {
@@ -3544,7 +3545,132 @@
       "required": [
         "id"
       ],
-      "title": "/home/matheusgr/deco/live-new/loaders/workflows/get.ts@Props"
+      "title": "deco-cx/live/loaders/workflows/get.ts@Props"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]"
+      },
+      "title": "Product[][]"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]|null": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Resolvable"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "title": "VTEX product list - Intelligent Search",
+          "description": "Usefull for shelves and galleries.",
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@partialQueryProps[]"
+            }
+          ],
+          "required": [
+            "__resolveType"
+          ],
+          "properties": {
+            "__resolveType": {
+              "type": "string",
+              "enum": [
+                "deco-sites/jequiti/loaders/multipleProductList.ts"
+              ],
+              "default": "deco-sites/jequiti/loaders/multipleProductList.ts"
+            }
+          }
+        }
+      ]
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@CommonProps": {
+      "type": "object",
+      "properties": {
+        "hideUnavailableItems": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Hide Unavailable Items",
+          "description": "Do not return out of stock items"
+        }
+      },
+      "required": [],
+      "title": "CommonProps"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@partialQueryProps": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@CommonProps"
+        }
+      ],
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "query to use on search",
+          "title": "Query"
+        },
+        "sort": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "price:desc"
+            },
+            {
+              "type": "string",
+              "const": "price:asc"
+            },
+            {
+              "type": "string",
+              "const": "orders:desc"
+            },
+            {
+              "type": "string",
+              "const": "name:desc"
+            },
+            {
+              "type": "string",
+              "const": "name:asc"
+            },
+            {
+              "type": "string",
+              "const": "release:desc"
+            },
+            {
+              "type": "string",
+              "const": "discount:desc"
+            },
+            {
+              "type": "string",
+              "const": ""
+            }
+          ],
+          "type": "string",
+          "description": "search sort parameter",
+          "title": "Sort"
+        },
+        "count": {
+          "type": "number",
+          "description": "total number of items to display",
+          "title": "Count"
+        }
+      },
+      "required": [],
+      "title": "partialQueryProps"
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@partialQueryProps[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@partialQueryProps"
+      },
+      "title": "deco-sites/jequiti/loaders/multipleProductList.ts@partialQueryProps[]"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@Fields": {
       "type": "object",
@@ -6723,37 +6849,37 @@
       ],
       "title": "deco-sites/jequiti/components/ui/ShippingSimulation.tsx@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3BhZ2UudHM=@Page": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page": {
       "$ref": "#/root/pages",
       "title": "Page"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvZGV2UGFnZS50cw==@DevConfig": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL2RldlBhZ2UudHM=@DevConfig": {
       "type": "object",
       "properties": {
         "page": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3BhZ2UudHM=@Page",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page",
           "title": "Page"
         }
       },
       "required": [
         "page"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/devPage.ts@DevConfig"
+      "title": "deco-cx/live/handlers/devPage.ts@DevConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvZnJlc2gudHM=@FreshConfig": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL2ZyZXNoLnRz@FreshConfig": {
       "type": "object",
       "properties": {
         "page": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3BhZ2UudHM=@Page",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page",
           "title": "Page"
         }
       },
       "required": [
         "page"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/fresh.ts@FreshConfig"
+      "title": "deco-cx/live/handlers/fresh.ts@FreshConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcHJveHkudHM=@Props": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL3Byb3h5LnRz@Props": {
       "type": "object",
       "properties": {
         "url": {
@@ -6773,9 +6899,9 @@
       "required": [
         "url"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/proxy.ts@Props"
+      "title": "deco-cx/live/handlers/proxy.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcmVkaXJlY3QudHM=@RedirectConfig": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JlZGlyZWN0LnRz@RedirectConfig": {
       "type": "object",
       "properties": {
         "to": {
@@ -6786,13 +6912,13 @@
       "required": [
         "to"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/redirect.ts@RedirectConfig"
+      "title": "deco-cx/live/handlers/redirect.ts@RedirectConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL2hhbmRsZXIudHM=@Handler": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler": {
       "$ref": "#/root/handlers",
       "title": "Handler"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route": {
       "type": "object",
       "properties": {
         "pathTemplate": {
@@ -6803,7 +6929,7 @@
           "type": "object",
           "properties": {
             "value": {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL2hhbmRsZXIudHM=@Handler",
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler",
               "title": "Value"
             }
           },
@@ -6819,14 +6945,14 @@
       ],
       "title": "Route"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route[]": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route"
+        "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route"
       },
       "title": "Route[]"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcm91dGVyLnRz@RouterConfig": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JvdXRlci50cw==@RouterConfig": {
       "type": "object",
       "properties": {
         "base": {
@@ -6837,16 +6963,16 @@
           "title": "Base"
         },
         "routes": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]",
           "title": "Routes"
         }
       },
       "required": [
         "routes"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/router.ts@RouterConfig"
+      "title": "deco-cx/live/handlers/router.ts@RouterConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcm91dGVzU2VsZWN0aW9uLnRz@SelectionConfig": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JvdXRlc1NlbGVjdGlvbi50cw==@SelectionConfig": {
       "type": "object",
       "properties": {
         "audiences": {
@@ -6867,37 +6993,37 @@
       "required": [
         "audiences"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/routesSelection.ts@SelectionConfig"
+      "title": "deco-cx/live/handlers/routesSelection.ts@SelectionConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3dvcmtmbG93LnRz@Workflow": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy93b3JrZmxvdy50cw==@Workflow": {
       "$ref": "#/root/workflows",
       "title": "Workflow"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvd29ya2Zsb3dSdW5uZXIudHM=@Config": {
+    "ZGVjby1jeC9saXZlL2hhbmRsZXJzL3dvcmtmbG93UnVubmVyLnRz@Config": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3dvcmtmbG93LnRz@Workflow",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy93b3JrZmxvdy50cw==@Workflow",
           "title": "Workflow"
         }
       },
       "required": [
         "workflow"
       ],
-      "title": "/home/matheusgr/deco/live-new/handlers/workflowRunner.ts@Config"
+      "title": "deco-cx/live/handlers/workflowRunner.ts@Config"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3NlY3Rpb24udHM=@Section": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section": {
       "$ref": "#/root/sections",
       "title": "Section"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3NlY3Rpb24udHM=@Section[]": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3NlY3Rpb24udHM=@Section"
+        "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section"
       },
       "title": "Section[]"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvcGFnZXMvTGl2ZVBhZ2UudHN4@Props": {
+    "ZGVjby1jeC9saXZlL3BhZ2VzL0xpdmVQYWdlLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "name": {
@@ -6905,11 +7031,11 @@
           "title": "Name"
         },
         "layout": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3BhZ2UudHM=@Page",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page",
           "title": "Layout"
         },
         "sections": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3NlY3Rpb24udHM=@Section[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section[]",
           "title": "Sections"
         }
       },
@@ -6917,22 +7043,22 @@
         "name",
         "sections"
       ],
-      "title": "/home/matheusgr/deco/live-new/pages/LivePage.tsx@Props"
+      "title": "deco-cx/live/pages/LivePage.tsx@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvUGFnZUluY2x1ZGUudHN4@Props": {
+    "ZGVjby1jeC9saXZlL3NlY3Rpb25zL1BhZ2VJbmNsdWRlLnRzeA==@Props": {
       "type": "object",
       "properties": {
         "page": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3BhZ2UudHM=@Page",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9wYWdlLnRz@Page",
           "title": "Page"
         }
       },
       "required": [
         "page"
       ],
-      "title": "/home/matheusgr/deco/live-new/sections/PageInclude.tsx@Props"
+      "title": "deco-cx/live/sections/PageInclude.tsx@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvU2xvdC50c3g=@Props": {
+    "ZGVjby1jeC9saXZlL3NlY3Rpb25zL1Nsb3QudHN4@Props": {
       "type": "object",
       "properties": {
         "required": {
@@ -6985,9 +7111,9 @@
         }
       },
       "required": [],
-      "title": "/home/matheusgr/deco/live-new/sections/Slot.tsx@Props"
+      "title": "deco-cx/live/sections/Slot.tsx@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvVXNlU2xvdC50c3g=@Props": {
+    "ZGVjby1jeC9saXZlL3NlY3Rpb25zL1VzZVNsb3QudHN4@Props": {
       "type": "object",
       "properties": {
         "name": {
@@ -7029,7 +7155,7 @@
           "title": "Name"
         },
         "sections": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3NlY3Rpb24udHM=@Section[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section[]",
           "title": "Sections"
         }
       },
@@ -7037,7 +7163,7 @@
         "name",
         "sections"
       ],
-      "title": "/home/matheusgr/deco/live-new/sections/UseSlot.tsx@Props"
+      "title": "deco-cx/live/sections/UseSlot.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
       "type": "string",
@@ -8778,10 +8904,7 @@
           "title": "Items Per Page"
         },
         "shelfs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null"
-          },
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[][]|null",
           "title": "Shelfs"
         },
         "seeMore": {
@@ -9032,7 +9155,7 @@
       ],
       "title": "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx@LoaderProps"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hEYXRlLnRz@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoRGF0ZS50cw==@Props": {
       "type": "object",
       "properties": {
         "start": {
@@ -9053,9 +9176,9 @@
         }
       },
       "required": [],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchDate.ts@Props"
+      "title": "deco-cx/live/matchers/MatchDate.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hFbnZpcm9ubWVudC50cw==@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoRW52aXJvbm1lbnQudHM=@Props": {
       "type": "object",
       "properties": {
         "environment": {
@@ -9076,9 +9199,9 @@
       "required": [
         "environment"
       ],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchEnvironment.ts@Props"
+      "title": "deco-cx/live/matchers/MatchEnvironment.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hIb3N0LnRz@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoSG9zdC50cw==@Props": {
       "type": "object",
       "properties": {
         "includes": {
@@ -9097,20 +9220,20 @@
         }
       },
       "required": [],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchHost.ts@Props"
+      "title": "deco-cx/live/matchers/MatchHost.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL21hdGNoZXIudHM=@Matcher": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9tYXRjaGVyLnRz@Matcher": {
       "$ref": "#/root/matchers",
       "title": "Matcher"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL21hdGNoZXIudHM=@Matcher[]": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy9tYXRjaGVyLnRz@Matcher[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL21hdGNoZXIudHM=@Matcher"
+        "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9tYXRjaGVyLnRz@Matcher"
       },
       "title": "Matcher[]"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hNdWx0aS50cw==@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoTXVsdGkudHM=@Props": {
       "type": "object",
       "properties": {
         "op": {
@@ -9128,7 +9251,7 @@
           "title": "Op"
         },
         "matchers": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL21hdGNoZXIudHM=@Matcher[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9tYXRjaGVyLnRz@Matcher[]",
           "title": "Matchers"
         }
       },
@@ -9136,9 +9259,9 @@
         "op",
         "matchers"
       ],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchMulti.ts@Props"
+      "title": "deco-cx/live/matchers/MatchMulti.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hSYW5kb20udHM=@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoUmFuZG9tLnRz@Props": {
       "type": "object",
       "properties": {
         "traffic": {
@@ -9149,9 +9272,9 @@
       "required": [
         "traffic"
       ],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchRandom.ts@Props"
+      "title": "deco-cx/live/matchers/MatchRandom.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hTaXRlLnRz@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoU2l0ZS50cw==@Props": {
       "type": "object",
       "properties": {
         "siteId": {
@@ -9162,9 +9285,9 @@
       "required": [
         "siteId"
       ],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchSite.ts@Props"
+      "title": "deco-cx/live/matchers/MatchSite.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hVc2VyQWdlbnQudHM=@Props": {
+    "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoVXNlckFnZW50LnRz@Props": {
       "type": "object",
       "properties": {
         "includes": {
@@ -9183,9 +9306,9 @@
         }
       },
       "required": [],
-      "title": "/home/matheusgr/deco/live-new/matchers/MatchUserAgent.ts@Props"
+      "title": "deco-cx/live/matchers/MatchUserAgent.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Override": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Override": {
       "type": "object",
       "properties": {
         "use": {
@@ -9203,18 +9326,18 @@
       ],
       "title": "Override"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Override[]": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Override[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Override"
+        "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Override"
       },
       "title": "Override[]"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Audience": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Audience": {
       "type": "object",
       "properties": {
         "matcher": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL21hdGNoZXIudHM=@Matcher",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9tYXRjaGVyLnRz@Matcher",
           "title": "Matcher"
         },
         "name": {
@@ -9226,11 +9349,11 @@
           "pattern": "^[A-Za-z0-9_]+$"
         },
         "routes": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]",
           "title": "Routes"
         },
         "overrides": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Override[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Override[]",
           "title": "Overrides"
         }
       },
@@ -9238,24 +9361,24 @@
         "matcher",
         "name"
       ],
-      "title": "/home/matheusgr/deco/live-new/flags/audience.ts@Audience"
+      "title": "deco-cx/live/flags/audience.ts@Audience"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvZXZlcnlvbmUudHM=@EveryoneConfig": {
+    "ZGVjby1jeC9saXZlL2ZsYWdzL2V2ZXJ5b25lLnRz@EveryoneConfig": {
       "type": "object",
       "properties": {
         "routes": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Route[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Route[]",
           "title": "Routes"
         },
         "overrides": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Override[]",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Override[]",
           "title": "Overrides"
         }
       },
       "required": [],
-      "title": "/home/matheusgr/deco/live-new/flags/everyone.ts@EveryoneConfig"
+      "title": "deco-cx/live/flags/everyone.ts@EveryoneConfig"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3MvY2FuY2VsLnRz@Props": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL2NhbmNlbC50cw==@Props": {
       "type": "object",
       "properties": {
         "executionId": {
@@ -9273,7 +9396,7 @@
       "required": [
         "executionId"
       ],
-      "title": "/home/matheusgr/deco/live-new/actions/workflows/cancel.ts@Props"
+      "title": "deco-cx/live/actions/workflows/cancel.ts@Props"
     },
     "ZGVjby1jeC9kdXJhYmxlL2hhbmRsZXIudHM=@RunRequest": {
       "type": "object",
@@ -9296,7 +9419,7 @@
       ],
       "title": "deco-cx/durable/handler.ts@RunRequest"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc2lnbmFsLnRz@Props": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3NpZ25hbC50cw==@Props": {
       "type": "object",
       "properties": {
         "signal": {
@@ -9319,9 +9442,9 @@
         "signal",
         "executionId"
       ],
-      "title": "/home/matheusgr/deco/live-new/actions/workflows/signal.ts@Props"
+      "title": "deco-cx/live/actions/workflows/signal.ts@Props"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef": {
       "type": "object",
       "properties": {
         "key": {
@@ -9339,16 +9462,16 @@
       ],
       "title": "WorkflowRef"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@91f590e31e886feb5596f577aa5f6a4f|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ef52652399efcf028b1edca4cf80cc7a": {
       "anyOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@WorkflowRef"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
         },
         {
           "type": "object",
           "properties": {
             "ref": {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL3dvcmtmbG93LnRz@Workflow",
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy93b3JrZmxvdy50cw==@Workflow",
               "title": "Ref"
             }
           },
@@ -9357,13 +9480,13 @@
           ]
         }
       ],
-      "title": "91f590e31e886feb5596f577aa5f6a4f|WorkflowRef"
+      "title": "WorkflowRef|ef52652399efcf028b1edca4cf80cc7a"
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@Props": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@91f590e31e886feb5596f577aa5f6a4f|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|ef52652399efcf028b1edca4cf80cc7a",
           "title": "Workflow"
         },
         "id": {
@@ -9384,7 +9507,7 @@
       "required": [
         "workflow"
       ],
-      "title": "/home/matheusgr/deco/live-new/actions/workflows/start.ts@Props"
+      "title": "deco-cx/live/actions/workflows/start.ts@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9hY3Rpb25zL2NhcnQvYWRkSXRlbXMudHM=@Item": {
       "type": "object",
@@ -10466,7 +10589,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZXZlbnRzLnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2V2ZW50cy50cw==@Props"
         }
       ],
       "required": [
@@ -10488,7 +10611,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbG9hZGVycy93b3JrZmxvd3MvZ2V0LnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2xvYWRlcnMvd29ya2Zsb3dzL2dldC50cw==@Props"
         }
       ],
       "required": [
@@ -10501,6 +10624,28 @@
             "$live/loaders/workflows/get.ts"
           ],
           "default": "$live/loaders/workflows/get.ts"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==": {
+      "title": "VTEX product list - Intelligent Search",
+      "description": "Usefull for shelves and galleries.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw==@partialQueryProps[]"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/jequiti/loaders/multipleProductList.ts"
+          ],
+          "default": "deco-sites/jequiti/loaders/multipleProductList.ts"
         }
       }
     },
@@ -11031,7 +11176,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvZGV2UGFnZS50cw==@DevConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL2RldlBhZ2UudHM=@DevConfig"
         }
       ],
       "required": [
@@ -11053,7 +11198,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvZnJlc2gudHM=@FreshConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL2ZyZXNoLnRz@FreshConfig"
         }
       ],
       "required": [
@@ -11075,7 +11220,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcHJveHkudHM=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL3Byb3h5LnRz@Props"
         }
       ],
       "required": [
@@ -11096,7 +11241,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcmVkaXJlY3QudHM=@RedirectConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JlZGlyZWN0LnRz@RedirectConfig"
         }
       ],
       "required": [
@@ -11117,7 +11262,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcm91dGVyLnRz@RouterConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JvdXRlci50cw==@RouterConfig"
         }
       ],
       "required": [
@@ -11139,7 +11284,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvcm91dGVzU2VsZWN0aW9uLnRz@SelectionConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL3JvdXRlc1NlbGVjdGlvbi50cw==@SelectionConfig"
         }
       ],
       "required": [
@@ -11160,7 +11305,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvaGFuZGxlcnMvd29ya2Zsb3dSdW5uZXIudHM=@Config"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2hhbmRsZXJzL3dvcmtmbG93UnVubmVyLnRz@Config"
         }
       ],
       "required": [
@@ -11181,7 +11326,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvcGFnZXMvTGl2ZVBhZ2UudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL3BhZ2VzL0xpdmVQYWdlLnRzeA==@Props"
         }
       ],
       "required": [
@@ -11202,7 +11347,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvUGFnZUluY2x1ZGUudHN4@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL3NlY3Rpb25zL1BhZ2VJbmNsdWRlLnRzeA==@Props"
         }
       ],
       "required": [
@@ -11223,7 +11368,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvU2xvdC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL3NlY3Rpb25zL1Nsb3QudHN4@Props"
         }
       ],
       "required": [
@@ -11244,7 +11389,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvc2VjdGlvbnMvVXNlU2xvdC50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL3NlY3Rpb25zL1VzZVNsb3QudHN4@Props"
         }
       ],
       "required": [
@@ -11964,7 +12109,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hEYXRlLnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoRGF0ZS50cw==@Props"
         }
       ],
       "required": [
@@ -11985,7 +12130,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hFbnZpcm9ubWVudC50cw==@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoRW52aXJvbm1lbnQudHM=@Props"
         }
       ],
       "required": [
@@ -12006,7 +12151,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hIb3N0LnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoSG9zdC50cw==@Props"
         }
       ],
       "required": [
@@ -12027,7 +12172,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hNdWx0aS50cw==@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoTXVsdGkudHM=@Props"
         }
       ],
       "required": [
@@ -12048,7 +12193,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hSYW5kb20udHM=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoUmFuZG9tLnRz@Props"
         }
       ],
       "required": [
@@ -12069,7 +12214,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hTaXRlLnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoU2l0ZS50cw==@Props"
         }
       ],
       "required": [
@@ -12090,7 +12235,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvbWF0Y2hlcnMvTWF0Y2hVc2VyQWdlbnQudHM=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoVXNlckFnZW50LnRz@Props"
         }
       ],
       "required": [
@@ -12112,7 +12257,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvYXVkaWVuY2UudHM=@Audience"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2F1ZGllbmNlLnRz@Audience"
         }
       ],
       "required": [
@@ -12134,7 +12279,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvZmxhZ3MvZXZlcnlvbmUudHM=@EveryoneConfig"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2ZsYWdzL2V2ZXJ5b25lLnRz@EveryoneConfig"
         }
       ],
       "required": [
@@ -12156,7 +12301,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3MvY2FuY2VsLnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL2NhbmNlbC50cw==@Props"
         }
       ],
       "required": [
@@ -12200,7 +12345,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc2lnbmFsLnRz@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3NpZ25hbC50cw==@Props"
         }
       ],
       "required": [
@@ -12222,7 +12367,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYWN0aW9ucy93b3JrZmxvd3Mvc3RhcnQudHM=@Props"
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props"
         }
       ],
       "required": [
@@ -12575,7 +12720,7 @@
         }
       }
     },
-    "L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvcm91dGVzL19taWRkbGV3YXJlLnRz@MiddlewareConfig": {
+    "ZGVjby1jeC9saXZlL3JvdXRlcy9fbWlkZGxld2FyZS50cw==@MiddlewareConfig": {
       "type": "object",
       "properties": {
         "state": {
@@ -12590,7 +12735,7 @@
       "required": [
         "state"
       ],
-      "title": "/home/matheusgr/deco/live-new/routes/_middleware.ts@MiddlewareConfig",
+      "title": "deco-cx/live/routes/_middleware.ts@MiddlewareConfig",
       "description": "Global configurations for ./routes/_middleware.ts route"
     }
   },
@@ -12718,6 +12863,9 @@
         },
         {
           "$ref": "#/definitions/JGxpdmUvbG9hZGVycy93b3JrZmxvd3MvZ2V0LnRz"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2xvYWRlcnMvbXVsdGlwbGVQcm9kdWN0TGlzdC50cw=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L2NhcnQudHM="
@@ -13102,21 +13250,21 @@
         "./routes/_middleware.ts": {
           "anyOf": [
             {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvcm91dGVzL19taWRkbGV3YXJlLnRz@MiddlewareConfig"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL3JvdXRlcy9fbWlkZGxld2FyZS50cw==@MiddlewareConfig"
             }
           ]
         },
         "./routes/[...catchall].tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL2hhbmRsZXIudHM=@Handler"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
             }
           ]
         },
         "./routes/index.tsx": {
           "anyOf": [
             {
-              "$ref": "#/definitions/L2hvbWUvbWF0aGV1c2dyL2RlY28vbGl2ZS1uZXcvYmxvY2tzL2hhbmRsZXIudHM=@Handler"
+              "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9oYW5kbGVyLnRz@Handler"
             }
           ]
         }

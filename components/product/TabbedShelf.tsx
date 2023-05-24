@@ -17,7 +17,7 @@ export interface Props {
   shelfTitles?: string[];
   products: Product[] | null;
   itemsPerPage?: number;
-  shelfs?: Array<LoaderReturnType<Product[] | null>>;
+  shelfs?: Product[][] | null;
   seeMore?: string;
   seeMoreLink?: string;
 }
@@ -28,7 +28,7 @@ function ShelfItem({ products, title }: Props) {
   if (!products || products.length === 0) {
     return null;
   }
-
+  console.log(111, products);
   return (
     <div id={id} class="relative">
       <Slider
@@ -134,9 +134,9 @@ function TabbedShelf({
           ))}
         </ul>
 
-        {shelfs?.map((shelf) => (
+        {shelfs?.map((product) => (
           <div class="tab-content hidden">
-            <ShelfItem products={shelf.products} title={title} />
+            <ShelfItem products={product} title={title} />
           </div>
         ))}
         {!!seeMore && !!seeMoreLink}
