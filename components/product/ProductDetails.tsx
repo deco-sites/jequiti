@@ -24,6 +24,7 @@ import ProductImageZoom from "deco-sites/jequiti/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
 import QuantityAddToCartButton from "../../islands/QuantityAddToCartButton.tsx";
+import TipBar from "./TipBar.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -81,7 +82,10 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div>
         <Text>{brand}</Text>
         <h1>
-          <Text variant="heading-2" class="text-[21px] sm:text-[32px]">
+          <Text
+            variant="heading-2"
+            class="text-[21px] sm:text-[32px] leading-tight	"
+          >
             {name}
           </Text>
         </h1>
@@ -145,6 +149,9 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             variant={"primary"}
           />
         )}
+      </div>
+      <div>
+        <TipBar />
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
@@ -214,9 +221,9 @@ function Details({
           itemListElement={breadcrumbList?.itemListElement}
         />
         <div
-          class={`flex flex-col sm:flex-row sm:( max-h-[calc(${
-            (HEIGHT / WIDTH).toFixed(2)
-          }*40vw)] gap-[50px]) py-[30px] `}
+          class={`flex flex-col sm:flex-row 
+          
+          gap-[50px]) py-[30px] `}
         >
           <div
             id={id}
@@ -256,17 +263,27 @@ function Details({
                   ))}
                 </Slider>
 
-                <div class="absolute  left-2 top-1/2  bg-interactive-inverse rounded-full border-default border">
+                <div class="absolute  left-2 top-1/2  bg-interactive-inverse rounded-full border-default border  w-[32px] h-[32px]">
                   <Button
                     variant="icon"
                     data-slide="prev"
                     aria-label="Previous"
+                    class="mt-1 mx-0.5"
                   >
-                    <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+                    <Icon
+                      size={20}
+                      id="ChevronLeft"
+                      strokeWidth={3}
+                    />
                   </Button>
                 </div>
-                <div class="absolute right-2 top-1/2 bg-interactive-inverse rounded-full border-default border">
-                  <Button variant="icon" data-slide="next" aria-label="Next">
+                <div class="absolute right-2 top-1/2 bg-interactive-inverse rounded-full border-default border  w-[32px] h-[32px]">
+                  <Button
+                    variant="icon"
+                    data-slide="next"
+                    aria-label="Next"
+                    class="mt-1 mx-1"
+                  >
                     <Icon size={20} id="ChevronRight" strokeWidth={3} />
                   </Button>
                 </div>

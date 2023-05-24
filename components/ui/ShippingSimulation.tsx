@@ -126,7 +126,7 @@ function ShippingSimulation({ items }: Props) {
             type="text"
             id="postal"
             variant="input"
-            class="p-2 rounded-none border-1 border-default w-full ml-2 bg-[#e5e5e5]"
+            class="p-2 rounded-none border-1 border-default w-full ml-2 bg-[#e5e5e5] border-r-0"
             onChange={(e: { currentTarget: { value: string } }) => {
               postalCode.value = e.currentTarget.value;
             }}
@@ -137,7 +137,7 @@ function ShippingSimulation({ items }: Props) {
           <Button
             type="submit"
             loading={loading.value}
-            class="rounded-none disabled:bg-[#d1d1d1] text-white uppercase"
+            class="rounded-none disabled:bg-[#d1d1d1] text-white uppercase h-[36px] px-2 border-l-0 disabled:text-white"
             disabled={postalCode.value.length < 8}
           >
             ok

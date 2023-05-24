@@ -53,9 +53,9 @@ function ProductShelf({
             </div>
           ))}
         </Slider>
-        <div class="absolute top-1/2 flex items-center justify-center z-10 lg:translate-x-0  translate-y-[-50%] lg:translate-x-[-50%] ">
+        <div class="absolute  left-2 top-1/2  bg-interactive-inverse rounded-full border-default border  w-[32px] h-[32px]">
           <Button
-            class="h-12 w-12 rounded-full bg-white shadow-lg"
+            class=" bg-transparent mt-0.5 mx-0.5 w-fit h-[24px]"
             data-slide="prev"
             aria-label="Previous item"
           >
@@ -67,9 +67,9 @@ function ProductShelf({
             />
           </Button>
         </div>
-        <div class="flex absolute top-1/2 items-center right-0 justify-center z-10 translate-y-[-50%] lg:translate-x-[50%]">
+        <div class="absolute right-2 top-1/2 bg-interactive-inverse rounded-full border-default border  w-[32px] h-[32px]">
           <Button
-            class="h-12 w-12 rounded-full bg-white shadow-lg"
+            class=" bg-transparent mt-0.5 ml-1 w-fit h-[24px]"
             data-slide="next"
             aria-label="Next item"
           >
