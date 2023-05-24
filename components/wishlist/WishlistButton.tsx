@@ -3,26 +3,34 @@ import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import { useWishlist } from "deco-sites/std/packs/vtex/hooks/useWishlist.ts";
 import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
-import type { WishlistItem } from "deco-sites/std/packs/vtex/types.ts";
 
-interface Props extends Partial<WishlistItem> {
+interface Props {
+  productID: string;
+  productGroupID?: string;
   variant?: "icon" | "full";
 }
 
-function WishlistButton({ variant = "icon", ...item }: Props) {
-  const user = useUser();
+function WishlistButton({
+  variant = "icon",
+  productGroupID,
+  productID,
+}: Props) {
+  const { user } = useUser();
+  const item = { sku: productID, productId: productGroupID };
   const { loading, addItem, removeItem, getItem } = useWishlist();
   const listItem = useComputed(() => getItem(item));
   const fetching = useSignal(false);
 
   const isUserLoggedIn = Boolean(user.value?.email);
-  const isInsideWishlist = Boolean(listItem.value);
+  const inWishlist = Boolean(listItem.value);
 
   return (
     <Button
-      variant={variant === "icon" ? "icon" : "secondary"}
-      aria-label="Favoritos"
+      class={variant === "icon"
+        ? "btn-circle btn-ghost gap-2"
+        : "btn-outline gap-2"}
       loading={fetching.value}
+      aria-label="Add to wishlist"
       onClick={async (e) => {
         e.stopPropagation();
         e.preventDefault();
@@ -39,8 +47,8 @@ function WishlistButton({ variant = "icon", ...item }: Props) {
 
         try {
           fetching.value = true;
-          isInsideWishlist
-            ? await removeItem(listItem.value!.id)
+          inWishlist
+            ? await removeItem({ id: listItem.value!.id }!)
             : await addItem(item);
         } finally {
           fetching.value = false;
@@ -49,12 +57,11 @@ function WishlistButton({ variant = "icon", ...item }: Props) {
     >
       <Icon
         id="Heart"
-        width={24}
-        height={24}
+        size={20}
         strokeWidth={2}
-        fill={isInsideWishlist ? "#7a206c" : "none"}
+        fill={inWishlist ? "black" : "none"}
       />
-      {variant === "icon" ? null : isInsideWishlist ? "Remover" : "Favoritar"}
+      {variant === "icon" ? null : inWishlist ? "Remover" : "Favoritar"}
     </Button>
   );
 }
