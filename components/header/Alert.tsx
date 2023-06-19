@@ -14,7 +14,7 @@ export interface Props {
 function Alert({ alerts = [] }: Props) {
   return (
     <>
-      <div class="bg-[#efefef] lg:block hidden micro-header-hidden">
+      <div class="bg-[#efefef] lg:block hidden micro-header-hidden px-4">
         <div class="w-full mx-auto flex gap-[1.5rem]">
           {alerts.map((alert) => {
             if (alert?.children?.length && alert?.children?.length > 0) {
