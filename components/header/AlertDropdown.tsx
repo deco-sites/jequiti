@@ -14,7 +14,6 @@ export default function AlertDropdown(
 ) {
   const [dropDownVisibility, setDropDownVisibility] = useState(false);
 
-  // console.log('headerProps alerts',children)
   function handleEnter() {
     setDropDownVisibility(true);
   }

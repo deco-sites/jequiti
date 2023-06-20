@@ -62,7 +62,6 @@ const setup = ({ rootId, behavior, interval }: Props) => {
 
   const addClass = () => {
     if (globalThis.scrollY >= 300 && !a) {
-      console.log("passou");
       element.classList.add("micro-header");
       a = true;
     }

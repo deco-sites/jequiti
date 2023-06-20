@@ -28,17 +28,6 @@ function QuantityAddToCartButton(
 ) {
   const quantity = useSignal(1);
 
-  console.log({
-    skuId,
-    sellerId,
-    discount,
-    price,
-    productGroupId,
-    name,
-    text,
-    quantity,
-  });
-
   return (
     <div class="flex w-full gap-2 ">
       <QuantitySelector

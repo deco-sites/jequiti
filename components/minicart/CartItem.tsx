@@ -3,7 +3,7 @@ import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import QuantitySelector from "deco-sites/jequiti/components/ui/QuantitySelector.tsx";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { formatPrice } from "deco-sites/jequiti/sdk/format.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 
