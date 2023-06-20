@@ -10,24 +10,21 @@
  */
 
 import { useEffect, useRef } from "preact/compat";
-import Icon from "deco-sites/jequiti/components/ui/Icon.tsx";
-import Text from "deco-sites/jequiti/components/ui/Text.tsx";
-import Button from "deco-sites/jequiti/components/ui/Button.tsx";
-import ProductCard from "deco-sites/jequiti/components/product/ProductCard.tsx";
-import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import Button from "$store/components/ui/Button.tsx";
+import Spinner from "$store/components/ui/Spinner.tsx";
+import ProductCard from "$store/components/product/ProductCard.tsx";
+import { Slider } from "$store/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
-import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
-import SearchTermList from "./SearchTermList.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
+import { sendEvent } from "$store/sdk/analytics.tsx";
 
 function CloseButton() {
   const { displaySearchbar } = useUI();
 
   return (
     <Button
-      variant="icon"
+      class="btn-ghost btn-circle"
       onClick={() => (displaySearchbar.value = false)}
     >
       <Icon id="XMark" width={20} height={20} strokeWidth={2} />
@@ -62,28 +59,21 @@ export interface EditableProps {
 }
 
 export type Props = EditableProps & {
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on searchs
-   */
-  products?: Product[] | null;
-  suggestions?: Suggestion | null;
-
   variant?: "desktop" | "mobile";
 };
 
 function Searchbar({
-  placeholder = "O que você procura hoje?",
+  placeholder = "What are you looking for?",
   action = "/s",
   name = "q",
   query,
-  products,
-  suggestions: _suggestions,
   variant = "mobile",
 }: Props) {
-  const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions } = useAutocomplete();
+  const { setSearch, suggestions, loading } = useAutocomplete();
+  const hasProducts = Boolean(suggestions.value?.products?.length);
+  const hasTerms = Boolean(suggestions.value?.searches?.length);
+  const notFound = !hasProducts && !hasTerms;
 
   useEffect(() => {
     if (!searchInputRef.current) {
@@ -93,32 +83,38 @@ function Searchbar({
     searchInputRef.current.focus();
   }, []);
 
-  const hasSuggestions = !!suggestions.value;
-  const emptySuggestions = suggestions.value?.searches?.length === 0;
-  const _products = suggestions.value?.products &&
-      suggestions.value?.products?.length !== 0
-    ? suggestions.value.products
-    : products;
-
   return (
-    <div class="flex flex-col w-full">
-      <div class="flex gap-4 w-full">
+    <div class="flex flex-col p-4 md:py-6 md:px-20">
+      <div class="flex items-center gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 sm:pr-3 sm:py-2 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
+          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
         >
+          <Button
+            class="btn-ghost"
+            aria-label="Search"
+            htmlFor="searchbar"
+            tabIndex={-1}
+          >
+            <Icon
+              class="text-base-300"
+              id="MagnifyingGlass"
+              size={20}
+              strokeWidth={0.01}
+            />
+          </Button>
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden border-b border-[#efefef] sm:border-default pl-[16px] bg-[#efefef] sm:bg-white"
+            class="flex-grow outline-none placeholder-shown:sibling:hidden"
             name={name}
             defaultValue={query}
             onInput={(e) => {
               const value = e.currentTarget.value;
 
               if (value) {
-                sendAnalyticsEvent({
+                sendEvent({
                   name: "search",
                   params: { search_term: value },
                 });
@@ -144,99 +140,85 @@ function Searchbar({
               setSearch("");
             }}
           >
-            <Text variant="caption" tone="default">
-              <Icon
-                id="XMark"
-                width={18}
-                height={18}
-                strokeWidth={1}
-              />
-            </Text>
+            <span class="text-sm">limpar</span>
           </button>
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-            type="submit"
-          >
-            <Icon
-              id="MagnifyingGlass"
-              width={18}
-              height={18}
-              strokeWidth={0.01}
-              class="text-brand-primary hidden sm:inline"
-            />
-            <Icon
-              id="MagnifyingGlass"
-              width={24}
-              height={24}
-              strokeWidth={0.01}
-              class="text-brand-primary sm:hidden"
-            />
-          </Button>
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      {(hasSuggestions || _products) &&
-        (
-          <div class="flex flex-col gap-6 divide-y divide-default mt-10 empty:mt-0 md:(flex-row divide-y-0) absolute bg-white shadow-md p-10">
-            {/* comentei por que ficava 100% do tempo aberto */}
-
-            {
-              /* {searches && searches.length > 0 && !hasSuggestions &&  (
-          <SearchTermList title="Mais buscados" terms={searches} />
-        )} */
-            }
-
-            {hasSuggestions && !emptySuggestions && (
-              <SearchTermList
-                id="search-suggestion"
-                title="Sugestões"
-                terms={suggestions.value?.searches ?? []}
-              />
-            )}
-            {hasSuggestions && emptySuggestions && (
-              <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full">
-                <Text
-                  variant="heading-3"
-                  class="text-center"
-                  role="heading"
-                  aria-level={3}
-                >
-                  Nenhum resultado encontrado
-                </Text>
-                <Text variant="body" tone="subdued" class="text-center">
-                  Vamos tentar de outro jeito? Verifique a ortografia ou use um
-                  termo diferente
-                </Text>
+      <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
+        {notFound
+          ? (
+            <div class="py-16 md:py-6! flex flex-col gap-4 w-full">
+              <span
+                class="font-medium text-xl text-center"
+                role="heading"
+                aria-level={3}
+              >
+                Nenhum resultado encontrado
+              </span>
+              <span class="text-center text-base-300">
+                Vamos tentar de outro jeito? Verifique a ortografia ou use um
+                termo diferente
+              </span>
+            </div>
+          )
+          : (
+            <>
+              <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
+                <div class="flex gap-2 items-center">
+                  <span
+                    class="font-medium text-xl"
+                    role="heading"
+                    aria-level={3}
+                  >
+                    Sugestões
+                  </span>
+                  {loading.value && <Spinner />}
+                </div>
+                <ul id="search-suggestion" class="flex flex-col gap-6">
+                  {suggestions.value!.searches?.map(({ term }) => (
+                    <li>
+                      <a href={`/s?q=${term}`} class="flex gap-4 items-center">
+                        <span>
+                          <Icon
+                            id="MagnifyingGlass"
+                            size={20}
+                            strokeWidth={0.01}
+                          />
+                        </span>
+                        <span>
+                          {term}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            )}
-            {_products && !emptySuggestions && (
               <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-                <Text class="px-4" variant="heading-3">Produtos sugeridos</Text>
-                <Slider>
-                  {_products.map((
-                    product,
-                    index,
-                  ) => (
-                    <div
-                      class={`${
-                        index === 0
-                          ? "ml-4"
-                          : index === _products.length - 1
-                          ? "mr-4"
-                          : ""
-                      } min-w-[200px] max-w-[200px]`}
+                <div class="flex gap-2 items-center">
+                  <span
+                    class="font-medium text-xl"
+                    role="heading"
+                    aria-level={3}
+                  >
+                    Produtos sugeridos
+                  </span>
+                  {loading.value && <Spinner />}
+                </div>
+                <Slider class="carousel">
+                  {suggestions.value!.products?.map((product, index) => (
+                    <Slider.Item
+                      index={index}
+                      class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
                     >
                       <ProductCard product={product} />
-                    </div>
+                    </Slider.Item>
                   ))}
                 </Slider>
               </div>
-            )}
-          </div>
-        )}
+            </>
+          )}
+      </div>
     </div>
   );
 }
