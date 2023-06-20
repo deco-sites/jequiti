@@ -294,9 +294,8 @@ function Details({
                 <div class="absolute right-0">
                   <WishlistButton
                     variant="icon"
-                    productId={isVariantOf?.productGroupID}
-                    sku={productID}
-                    title={name}
+                    productGroupID={isVariantOf?.productGroupID}
+                    productID={productID}
                   />
                 </div>
               </div>

@@ -15,7 +15,7 @@ import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import ProductCard from "deco-sites/jequiti/components/product/ProductCard.tsx";
 import { Slider } from "deco-sites/jequiti/components/ui/Slider.tsx";
-import { useAutocomplete } from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
+import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
 import { useUI } from "deco-sites/jequiti/sdk/useUI.ts";
 import { sendAnalyticsEvent } from "deco-sites/std/commerce/sdk/sendAnalyticsEvent.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
@@ -100,7 +100,6 @@ function Searchbar({
     ? suggestions.value.products
     : products;
 
-  // console.log('_products',searches , searches.length > 0 , hasSuggestions,_products )
   return (
     <div class="flex flex-col w-full">
       <div class="flex gap-4 w-full">
