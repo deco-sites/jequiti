@@ -4,12 +4,12 @@ import Button from "deco-sites/jequiti/components/ui/Button.tsx";
 import Input from "deco-sites/jequiti/components/ui/Input.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
 import { formatPrice } from "deco-sites/jequiti/sdk/format.ts";
-import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import type {
   SimulationOrderForm,
   SKU,
   Sla,
-} from "deco-sites/std/commerce/vtex/types.ts";
+} from "deco-sites/std/packs/vtex/types.ts";
 
 export interface Props {
   items: Array<SKU>;

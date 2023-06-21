@@ -5,7 +5,7 @@
  * function.
  */
 import type { Options } from "$fresh/plugins/twind.ts";
-import { css } from "https://esm.sh/v96/twind@0.16.17/css";
+import { css } from "https://esm.sh/v123/twind@0.16.17/css";
 
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
@@ -113,20 +113,6 @@ const options: Omit<Options, "selfURL"> = {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
-      },
-      keyframes: {
-        "slide-left-frame": {
-          from: { transform: "translateX(100%)" },
-          to: { transform: "translateX(0)" },
-        },
-        "slide-right-frame": {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(0)" },
-        },
-        "slide-bottom-frame": {
-          from: { transform: "translateY(100%)" },
-          to: { transform: "translateY(0)" },
-        },
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",

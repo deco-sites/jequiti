@@ -78,9 +78,8 @@ function ProductCard({ product, preload, itemListName }: Props) {
         <div class="relative w-full">
           <div class="absolute top-0 right-0">
             <WishlistIcon
-              productId={isVariantOf?.productGroupID}
-              sku={productID}
-              title={name}
+              productGroupID={isVariantOf?.productGroupID}
+              productID={productID}
             />
           </div>
           {discountPercentage !== 0 && (
