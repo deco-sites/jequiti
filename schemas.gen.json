@@ -8268,6 +8268,10 @@
             {
               "type": "string",
               "const": "GridMobile2"
+            },
+            {
+              "type": "string",
+              "const": "CloseCircle"
             }
           ],
           "type": "string",
@@ -8502,6 +8506,10 @@
             {
               "type": "string",
               "const": "GridMobile2"
+            },
+            {
+              "type": "string",
+              "const": "CloseCircle"
             }
           ],
           "type": "string",

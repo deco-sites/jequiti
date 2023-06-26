@@ -13,7 +13,7 @@ import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Spinner from "$store/components/ui/Spinner.tsx";
-import ProductCard from "$store/components/product/ProductCard.tsx";
+import ProductSugestionCard from "$store/components/product/ProductSugestionCard.tsx";
 import { Slider } from "$store/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
 import { useUI } from "$store/sdk/useUI.ts";
@@ -89,7 +89,7 @@ function Searchbar({
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-2 py-3 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
+          class="flex-grow flex gap-3 px-2 pt-3 lg:max-w-[442px] sm:bg-white bg-[#efefef]"
         >
           <input
             ref={searchInputRef}
@@ -128,7 +128,16 @@ function Searchbar({
               setSearch("");
             }}
           >
-            <span class="text-sm">limpar</span>
+            <span class="text-sm">
+              <Icon
+                id="CloseCircle"
+                width={18}
+                height={18}
+                strokeWidth={3}
+                class={"ml-2 z-10 opened-chevron text-default-gray opacity-50"}
+              >
+              </Icon>
+            </span>
           </button>
 
           <Button
@@ -147,7 +156,7 @@ function Searchbar({
         </form>
         {variant === "desktop" && <CloseButton />}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
+      <div class="flex flex-col gap-6 divide-y divide-base-200 empty:mt-0 md:flex-row md:divide-y-0 relative">
         {notFound
           ? hasTerms && (
             <div class="py-16 md:py-6! flex flex-col gap-4 w-full">
@@ -165,7 +174,7 @@ function Searchbar({
             </div>
           )
           : (
-            <>
+            <div class="absolute bg-white w-full p-4">
               <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
                 <div class="flex gap-2 items-center">
                   <span
@@ -199,7 +208,7 @@ function Searchbar({
               <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
                 <div class="flex gap-2 items-center">
                   <span
-                    class="font-medium text-xl"
+                    class="font-medium text-xl mt-4"
                     role="heading"
                     aria-level={3}
                   >
@@ -208,19 +217,20 @@ function Searchbar({
                   {loading.value && <Spinner />}
                 </div>
                 {
-                  /* <Slider class="carousel">
-                  {suggestions.value!.products?.map((product, index) => (
-                    <Slider.Item
-                      index={index}
-                      class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-                    >
-                      <ProductCard product={product} />
-                    </Slider.Item>
-                  ))}
-                </Slider> */
+                  <div class="flex flex-wrap">
+                    {suggestions.value!.products?.map((product: any, index) =>
+                      index <= 2 && <ProductSugestionCard product={product} />
+                    )}
+                  </div>
                 }
               </div>
-            </>
+              <a
+                href={`/s?q=${searchInputRef.current?.value}`}
+                class="underline text-center w-full block text-default-gray"
+              >
+                Veja todos os {suggestions.value!.products?.length} produtos.
+              </a>
+            </div>
           )}
       </div>
     </div>

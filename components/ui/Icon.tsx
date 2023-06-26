@@ -43,7 +43,8 @@ export type AvailableIcons =
   | "GridDesk"
   | "GridDesk2"
   | "GridMobile"
-  | "GridMobile2";
+  | "GridMobile2"
+  | "CloseCircle";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
