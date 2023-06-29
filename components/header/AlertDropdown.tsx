@@ -20,7 +20,8 @@ export default function AlertDropdown(
   function handleLeave() {
     setDropDownVisibility(false);
   }
-  if (children?.length) return null;
+
+  if (children?.length === 0) return null;
   return (
     <div
       onMouseEnter={handleEnter}

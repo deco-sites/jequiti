@@ -15,7 +15,7 @@ function Alert({ alerts = [] }: Props) {
   return (
     <>
       <div class="bg-[#efefef] lg:block hidden micro-header-hidden">
-        <div class="w-full mx-auto flex gap-[1.5rem]">
+        <div class="w-full mx-auto flex gap-[1.5rem] px-4 max-w-[1336px]">
           {alerts.map((alert) => {
             if (alert?.children?.length && alert?.children?.length > 0) {
               return <AlertDropdown alert={alert} />;
@@ -24,7 +24,7 @@ function Alert({ alerts = [] }: Props) {
               return (
                 <a href={alert.href}>
                   <Text
-                    class="flex items-center h-10"
+                    class="flex items-center h-full"
                     variant="caption"
                     tone="default"
                   >

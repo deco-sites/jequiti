@@ -218,7 +218,7 @@ function Searchbar({
                 </div>
                 {
                   <div class="flex flex-wrap">
-                    {suggestions.value!.products?.map((product: any, index) =>
+                    {suggestions.value!.products?.map((product, index) =>
                       index <= 2 && <ProductSugestionCard product={product} />
                     )}
                   </div>
