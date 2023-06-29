@@ -49,7 +49,7 @@ interface Props {
   itemListName?: string;
 }
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductSugestionCard({ product, preload, itemListName }: Props) {
   const {
     url,
     productID,
@@ -71,41 +71,32 @@ function ProductCard({ product, preload, itemListName }: Props) {
   return (
     <div
       data-deco="view-product"
-      id={`product-card-${productID}`}
-      class="w-full group p-2 lg:(px-[24px] py-[12px]) border-default border-1 flex flex-col font-sans"
+      id={`product-sugestion-card-${productID}`}
+      class="w-full flex"
     >
-      <a href={url} aria-label="product link" class="flex flex-col flex-1">
-        <div class="relative w-full">
-          <div class="absolute top-0 right-0">
-            <WishlistIcon
-              productGroupID={isVariantOf?.productGroupID}
-              productID={productID}
-            />
-          </div>
-          {discountPercentage !== 0 && (
-            <div class="absolute top-0 left-0 bg-[#d13482] px-[7px] py-[4px] leading-none">
-              <Text variant="caption" class="text-white font-bold text-[14px]">
-                -{discountPercentage}%
-              </Text>
-            </div>
-          )}
+      <a
+        href={url}
+        aria-label="product link"
+        class="flex items-center"
+      >
+        <div class="relative w-[64px]">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={270}
-            height={270}
+            width={64}
+            height={64}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
-            sizes="(max-width: 640px) 50vw, 20vw"
+            sizes="(max-width: 64px) 50vw, 20vw"
           />
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={270}
-            height={270}
+            width={64}
+            height={64}
             class="rounded w-full hidden group-hover:block"
-            sizes="(max-width: 640px) 50vw, 20vw"
+            sizes="(max-width: 64px) 50vw, 20vw"
           />
           {seller && (
             <div
@@ -121,48 +112,26 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </div>
 
         <div class="flex flex-col py-2 flex-1">
-          <Text class="text-brand-primary uppercase text-xs font-medium">
-            {brand}
-          </Text>
           <Text
-            class="overflow-hidden overflow-ellipsis line-clamp-2 text-base h-[42px] text-1-500 leading-6"
+            class="overflow-hidden overflow-ellipsis line-clamp-2 text-base text-1-500 leading-6"
             variant="caption"
           >
             {name}
           </Text>
-          <div class="flex flex-col gap-2 my-[10px]">
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="line-through leading-none text-sm  text-default-gray">
+          <div class="flex flex-col mt-2">
+            <div class="flex items-center flex-wrap">
+              <span class="line-through leading-none text-sm  text-default-gray w-full">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </span>
-              <span class="override:(font-bold) text-[20px] text-brand-primary">
+              <span class="  text-default-gray">
                 {formatPrice(price, offers!.priceCurrency!)}
               </span>
             </div>
-            {installments && (
-              <span
-                class="text-sm text-default-gray"
-                dangerouslySetInnerHTML={{ __html: installments }}
-              >
-                {installments}
-              </span>
-            )}
           </div>
-
-          {seller && (
-            <AddToCartButton
-              skuId={productID}
-              sellerId={seller}
-              price={price ?? 0}
-              discount={discount}
-              name={product.name ?? ""}
-              productGroupId={product.isVariantOf?.productGroupID ?? ""}
-            />
-          )}
         </div>
       </a>
     </div>
   );
 }
 
-export default ProductCard;
+export default ProductSugestionCard;
