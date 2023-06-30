@@ -9093,6 +9093,43 @@
       "required": [],
       "title": "deco-sites/jequiti/components/ui/LinkTree.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9UaXBCYXIudHN4@TipBarProps": {
+      "type": "object",
+      "properties": {
+        "tips": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "title": "Text"
+              },
+              "href": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Href"
+              },
+              "image": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Image"
+              }
+            },
+            "required": [
+              "text",
+              "image"
+            ]
+          },
+          "title": "Tips"
+        }
+      },
+      "required": [
+        "tips"
+      ],
+      "title": "TipBarProps"
+    },
     "ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0RGV0YWlscy50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -9118,10 +9155,15 @@
           "type": "string",
           "title": "Product view",
           "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
+        },
+        "tipBarProps": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9qZXF1aXRpL2NvbXBvbmVudHMvcHJvZHVjdC9UaXBCYXIudHN4@TipBarProps",
+          "title": "Tip Bar Props"
         }
       },
       "required": [
-        "page"
+        "page",
+        "tipBarProps"
       ],
       "title": "deco-sites/jequiti/components/product/ProductDetails.tsx@Props"
     },

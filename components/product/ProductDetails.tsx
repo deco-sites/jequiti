@@ -1,5 +1,4 @@
 import { useId } from "preact/hooks";
-import AddToCartButton from "deco-sites/jequiti/islands/AddToCartButton.tsx";
 import ShippingSimulation from "deco-sites/jequiti/islands/ShippingSimulation.tsx";
 import Container from "deco-sites/jequiti/components/ui/Container.tsx";
 import Text from "deco-sites/jequiti/components/ui/Text.tsx";
@@ -20,12 +19,10 @@ import ViewSendEvent from "deco-sites/jequiti/islands/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
-import ProductImageZoom from "deco-sites/jequiti/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
-import QuantitySelector from "../ui/QuantitySelector.tsx";
 import QuantityAddToCartButton from "../../islands/QuantityAddToCartButton.tsx";
 import TipBar from "./TipBar.tsx";
-
+import type { TipBarProps } from "./TipBar.tsx";
 export type Variant = "front-back" | "slider" | "auto";
 
 export interface Props {
@@ -35,6 +32,7 @@ export interface Props {
    * @description Ask for the developer to remove this option since this is here to help development only and should not be used in production
    */
   variant?: Variant;
+  tipBarProps: TipBarProps;
 }
 
 const WIDTH = 600;
@@ -57,7 +55,9 @@ function NotFound() {
   );
 }
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
+function ProductInfo(
+  { page, tipBarProps }: { page: ProductDetailsPage; tipBarProps: TipBarProps },
+) {
   const {
     breadcrumbList,
     product,
@@ -151,7 +151,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         )}
       </div>
       <div>
-        <TipBar />
+        <TipBar tipBarProps={tipBarProps} />
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
@@ -185,7 +185,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 function Details({
   page,
   variant,
-}: { page: ProductDetailsPage; variant: Variant }) {
+  tipBarProps,
+}: { page: ProductDetailsPage; variant: Variant; tipBarProps: TipBarProps }) {
   const id = `product-image-gallery:${useId()}`;
   const {
     breadcrumbList,
@@ -326,7 +327,7 @@ function Details({
           </div>
           {/* Product Info */}
           <div class="w-full  sm:w-[40%]">
-            <ProductInfo page={page} />
+            <ProductInfo page={page} tipBarProps={tipBarProps} />
           </div>
         </div>
         <SliderJS rootId={id}></SliderJS>
@@ -405,7 +406,7 @@ function Details({
 
         {/* Product Info */}
         <div class="px-4 sm:(pr-0 pl-6)">
-          <ProductInfo page={page} />
+          <ProductInfo page={page} tipBarProps={tipBarProps} />
         </div>
       </div>
       {/* Description card */}
@@ -423,7 +424,9 @@ function Details({
   );
 }
 
-function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
+function ProductDetails(
+  { page, variant: maybeVar = "auto", tipBarProps }: Props,
+) {
   /**
    * Showcase the different product views we have on this template. In case there are less
    * than two images, render a front-back, otherwhise render a slider
@@ -437,7 +440,9 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
 
   return (
     <Container class="py-0 ">
-      {page ? <Details page={page} variant={variant} /> : <NotFound />}
+      {page
+        ? <Details page={page} variant={variant} tipBarProps={tipBarProps} />
+        : <NotFound />}
     </Container>
   );
 }
