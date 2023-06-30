@@ -8,7 +8,7 @@ export interface TipBarProps {
 }
 export default function TipBar({ tipBarProps }: { tipBarProps: TipBarProps }) {
   const { tips } = tipBarProps;
-  console.log(tips);
+
   return (
     <div>
       <ul class="flex flex-wrap gap-2 items-center justify-around mt-6 text-subdued">
@@ -31,5 +31,3 @@ export default function TipBar({ tipBarProps }: { tipBarProps: TipBarProps }) {
     </div>
   );
 }
-
-//teste
